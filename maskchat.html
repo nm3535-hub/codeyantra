@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaskChat - Anonymous Social Discovery</title>
+    <style>
+        :root {
+            --primary: #4A00E0;
+            --secondary: #8E2DE2;
+            --text: #333;
+            --bg: #f4f7f6;
+        }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        .hero img { width: 100px; background: white; border-radius: 25px; padding: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .hero h1 { font-size: 3rem; margin: 20px 0 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
+        .btn-download {
+            background: white; color: var(--primary); padding: 15px 40px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 1.1rem;
+            display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Features Section */
+        .features { padding: 60px 20px; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-card {
+            background: white; padding: 30px; border-radius: 20px; text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+
+        /* Screenshots / About */
+        .about { padding: 40px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .about h2 { color: var(--primary); }
+
+        /* Footer */
+        footer { background: #333; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        footer a { color: #aaa; text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
+        footer a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <img src="assets/maskchat_logo.png" alt="MaskChat Icon">
+        <h1>MaskChat</h1>
+        <p>The ultimate anonymous social discovery app. Shake your phone to connect with people nearby, chat securely, and make new friends without revealing your identity.</p>
+        <a href="#" class="btn-download">Download on Play Store (Coming Soon)</a>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <span class="icon">🎭</span>
+            <h3>Total Anonymity</h3>
+            <p>Chat freely without revealing your phone number or real name. Your privacy is our priority.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">📲</span>
+            <h3>Shake & Connect</h3>
+            <p>Just shake your phone to find active users nearby. No swiping, just instant connection.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">🛡️</span>
+            <h3>Safe & Secure</h3>
+            <p>AI-powered protection against bad content. Block, report, and stay safe with our 3-strike policy.</p>
+        </div>
+    </div>
+
+    <div class="about">
+        <h2>Why MaskChat?</h2>
+        <p>In a world full of noise, MaskChat gives you a safe space to be yourself. Whether you want to vent, make a new friend, or just pass the time, MaskChat connects you instantly with people around you.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CodeYantra. All rights reserved.</p>
+        <br>
+        <a href="Maskchat_privacy_policy.html" target="_blank">Privacy Policy</a> | 
+        <a href="Maskchat_privacy_policy.html" target="_blank">Terms & Conditions</a> | 
+        <a href="mailto:support@codeyantra.in">Contact Support</a>
+    </footer>
+
+</body>
+</html>
