@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelMate | Smart Dip & Density Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Feature Cards specific to FuelMate (Orange Theme) */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-bottom: 4px solid #FF8008;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 2.5rem; color: #FF8008; margin-bottom: 15px; }
+        .feature-card h3 { color: #333; margin-bottom: 10px; }
+        .feature-card p { color: #666; line-height: 1.6; }
+
+        /* Download Button */
+        .btn-download {
+            background: #000; color: white; padding: 15px 35px; border-radius: 50px; 
+            text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; font-size: 1.1rem; margin-top: 20px;
+        }
+        .btn-download:hover { transform: scale(1.05); background: #333; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px; vertical-align: middle;"> CodeYantra
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="fuelmate_pro.html">FuelMate Pro</a>
+                <a href="#features">Features</a>
+                <a href="fuelmate_policy.html">Privacy Policy</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(135deg, #FF8008, #FFC837); padding: 100px 0; text-align: center;">
+        <div class="container">
+            <img src="assets/app_screenshot_1.png" alt="FuelMate Icon" style="width: 120px; background: white; border-radius: 30px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 20px;">
+            
+            <h1 style="color: white; font-size: 3.5rem; margin: 10px 0;">FuelMate</h1>
+            <p style="color: white; font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.95;">
+                Advanced Dip & Density Calculator for Indian OMCs. <br> 
+                Accurate measurements for MS, HSD, and E20 Petrol.
+            </p>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.codeyantra.fuelmate" target="_blank" class="btn-download">
+                <i class="fab fa-google-play"></i> Download on Google Play
+            </a>
+        </div>
+    </section>
+
+    <section id="features" class="section" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                <p style="color: #FF8008; font-weight: bold; text-transform: uppercase;">WHY CHOOSE FUELMATE?</p>
+                <h2 style="font-size: 2.5rem; color: #333;">Precision for Every Tank</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-database feature-icon"></i>
+                    <h3>No Manual Entry Required</h3>
+                    <p>Forget entering Tank Diameter and Height manually. We have pre-set calibration data for all standard tanks. Just select your tank size and enter the dip.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-ruler-combined feature-icon"></i>
+                    <h3>Unique Tank Sizes</h3>
+                    <p>We support rare tank capacities that other apps miss. Get accurate charts for <strong>10KL, 15KL, 20KL, 22KL, 45KL, and 70KL</strong> tanks instantly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-calculator feature-icon"></i>
+                    <h3>Advanced Density Calc</h3>
+                    <p>Calculate density at 15°C with precision. Fully compatible with <strong>MS (Petrol), HSD (Diesel), and XP95/E20</strong> blends.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-gas-pump feature-icon"></i>
+                    <h3>Indian OMC Ready</h3>
+                    <p>Tailored for IOCL, BPCL, and HPCL dealers. Our algorithms align with official charts to ensure your stock reconciliation is perfect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="padding: 40px 0; text-align: center;">
+                <div class="footer-section">
+                    <h4 style="color: #333; margin-bottom: 15px;">Legal & Resources</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px;">
+                        <li><a href="fuelmate_terms.html" style="color: #666; text-decoration: none;">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html" style="color: #666; text-decoration: none;">Disclaimer</a></li>
+                        <li><a href="app-ads.txt" style="color: #666; text-decoration: none;">app-ads.txt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom" style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+                    <p style="color: #888;">&copy; 2025 CodeYantra. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

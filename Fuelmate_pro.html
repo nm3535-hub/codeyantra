@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelMate Pro | Enterprise Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Feature Cards specific to this page */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 2rem; color: #11998e; margin-bottom: 15px; }
+        .feature-card h3 { color: #333; margin-bottom: 10px; }
+        .feature-card p { color: #666; line-height: 1.6; }
+        
+        /* Premium Pricing Button */
+        .btn-price {
+            background: #11998e; color: white; padding: 12px 25px; border-radius: 50px; 
+            text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(17, 153, 142, 0.3);
+            transition: 0.3s;
+        }
+        .btn-price:hover { transform: scale(1.05); background: #0e857a; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px; vertical-align: middle;"> CodeYantra
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="fuelmate.html">Standard App</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(135deg, #11998e, #38ef7d); padding: 100px 0; text-align: center;">
+        <div class="container">
+            <img src="assets/app_screenshot_2.png" alt="FuelMate Pro Icon" style="width: 120px; background: white; border-radius: 30px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 20px;">
+            
+            <h1 style="color: white; font-size: 3.5rem; margin: 10px 0;">FuelMate Pro</h1>
+            <p style="color: white; font-size: 1.3rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.95;">
+                The Ultimate ERP Solution for Fuel Stations. Manage Sales, Stocks, and Payments with military-grade precision.
+            </p>
+            
+            <div style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.2); padding: 10px 25px; border-radius: 50px;">
+                <span style="width: 10px; height: 10px; background: #fff; border-radius: 50%; margin-right: 10px; animation: pulse 2s infinite;"></span>
+                <span style="color: white; font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Launching Very Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section" style="background-color: #f9fcfb;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                <p style="color: #11998e; font-weight: bold; text-transform: uppercase;">POWERFUL FEATURES</p>
+                <h2 style="font-size: 2.5rem; color: #333;">Everything You Need to Run a Pump</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Secure PIN Access</h3>
+                    <p>Keep your data safe with PIN-verified login. Only authorized personnel can access sensitive sales data and settings.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-gas-pump feature-icon"></i>
+                    <h3>Premium Fuel & Lubes</h3>
+                    <p>Track sales for Petrol, Diesel, XP95/Power, and Lubricants separately. Dedicated modules for every product type.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-credit-card feature-icon"></i>
+                    <h3>Payment Mode Tracking</h3>
+                    <p>Know exactly how much you earned via Cash, Card, UPI, or Credit. Reconcile accounts effortlessly at the end of the day.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Daily Price Updates</h3>
+                    <p>Set daily fuel prices instantly. The app automatically recalculates sales value based on the new rates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-file-pdf feature-icon"></i>
+                    <h3>Professional Reports</h3>
+                    <p>Generate detailed PDF and Excel (CSV) reports. Share directly with partners or CA via WhatsApp/Email.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-cloud-upload-alt feature-icon"></i>
+                    <h3>Google Drive Sync</h3>
+                    <p>Never lose data. Backup your entire database to Google Drive and restore it anytime on any device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section pricing-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2 style="font-size: 2.5rem; color: #333;">Transparent Pricing</h2>
+                <p style="color: #666;">Choose the plan that fits your business scale.</p>
+            </div>
+            
+            <div class="pricing-grid" style="margin-top: 40px;">
+                <div class="pricing-card" style="background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <h3 style="color: #333;">Basic</h3>
+                    <p class="price" style="font-size: 2.5rem; color: #11998e; font-weight: bold; margin: 10px 0;">₹149</p>
+                    <p class="price-period" style="color: #888;">per month/User</p>
+                    <ul class="pricing-features" style="text-align: left; margin: 20px 0; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #11998e; margin-right: 10px;"></i> Basic Inventory</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #11998e; margin-right: 10px;"></i> Daily Sales Report</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #11998e; margin-right: 10px;"></i> Secure Access</li>
+                    </ul>
+                    <a href="mailto:support@codeyantra.in" class="btn-price">Join Waitlist</a>
+                </div>
+
+                <div class="pricing-card featured" style="background: #11998e; padding: 40px 30px; border-radius: 20px; text-align: center; color: white; transform: scale(1.05);">
+                    <h3 style="color: white;">Standard</h3>
+                    <p class="price" style="font-size: 2.5rem; font-weight: bold; margin: 10px 0;">₹399</p>
+                    <p class="price-period" style="opacity: 0.9;">per Quarter/User</p>
+                    <ul class="pricing-features" style="text-align: left; margin: 20px 0; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> All Basic Features</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> Real-time Tracking</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> 24/7 Priority Support</li>
+                    </ul>
+                    <a href="mailto:support@codeyantra.in" class="btn-price" style="background: white; color: #11998e;">Join Waitlist</a>
+                </div>
+
+                <div class="pricing-card" style="background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <h3 style="color: #333;">Enterprise</h3>
+                    <p class="price" style="font-size: 2.5rem; color: #11998e; font-weight: bold; margin: 10px 0;">₹1,399</p>
+                    <p class="price-period" style="color: #888;">One Time / Lifetime</p>
+                    <ul class="pricing-features" style="text-align: left; margin: 20px 0; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #11998e; margin-right: 10px;"></i> Full ERP Access</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #11998e; margin-right: 10px;"></i> On-site Training</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #11998e; margin-right: 10px;"></i> Dedicated Manager</li>
+                    </ul>
+                    <a href="mailto:support@codeyantra.in" class="btn-price">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #333; color: white; text-align: center; padding: 60px 20px;">
+        <h2>🚀 Coming Soon to Your Pocket</h2>
+        <p style="opacity: 0.8; margin: 10px 0 20px;">We are in the final stages of testing. Get ready for the revolution.</p>
+        <form action="#" style="max-width: 400px; margin: 0 auto; display: flex; gap: 10px;">
+            <input type="email" placeholder="Enter your email for updates" style="flex: 1; padding: 12px; border-radius: 50px; border: none; outline: none;">
+            <button type="submit" style="background: #11998e; color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; cursor: pointer;">Notify Me</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="padding: 40px 0; text-align: center;">
+                <div class="footer-section">
+                    <h4 style="color: #333; margin-bottom: 15px;">Legal (FuelMate Pro)</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px;">
+                        <li><a href="privacy_policy.html" style="color: #666; text-decoration: none;">Privacy Policy</a></li>
+                        <li><a href="terms_conditions.html" style="color: #666; text-decoration: none;">Terms & Conditions</a></li>
+                        <li><a href="refund_policy.html" style="color: #666; text-decoration: none;">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom" style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+                    <p style="color: #888;">&copy; 2025 CodeYantra. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+    </style>
+
+</body>
+</html>
