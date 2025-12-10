@@ -8,7 +8,7 @@
       gtag('js', new Date());
 
       gtag('config', 'G-4694L5FNX4');
-    </script> <meta charset="UTF-8">
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaskChat | Anonymous Social Discovery</title>
@@ -22,6 +22,11 @@
             --mask-secondary: #8E2DE2;
         }
         
+        body {
+            margin: 0;
+            font-family: sans-serif; /* Basic fallback if style.css fails */
+        }
+
         .hero-mask {
             background: linear-gradient(135deg, var(--mask-secondary) 0%, var(--mask-primary) 100%);
             padding: 120px 0 100px;
@@ -51,13 +56,26 @@
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
+
+        /* Container helper */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Nav helpers just in case css is missing */
+        .header { padding: 20px 0; }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 600; }
+        .hero-mask .nav-links a { color: white; } /* Override for hero if header is inside */
     </style>
 </head>
 <body>
 
     <header class="header">
         <div class="container nav">
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo" style="text-decoration: none; color: #333; font-weight: bold; font-size: 1.2rem;">
                 <img src="assets/logo.png" alt="CodeYantra" style="height: 30px; vertical-align: middle;"> CodeYantra
             </a>
             <nav class="nav-links">
@@ -78,7 +96,7 @@
             <h1 style="font-size: 3.5rem; margin-bottom: 15px;">MaskChat</h1>
             <p style="font-size: 1.4rem; opacity: 0.95; max-width: 700px; margin: 0 auto 40px; line-height: 1.6;">
                 Where connections happen naturally. <br>
-                <strong>Shake. Match. Chat.</strong> <br>
+                <strong>Shake. Match. Groups.</strong> <br>
                 <span style="font-size: 1rem; opacity: 0.8;">No swiping fatigue. Just pure conversation.</span>
             </p>
             
@@ -88,34 +106,40 @@
         </div>
     </section>
 
-    <section id="features" class="section" style="background: #fff;">
+    <section id="features" class="section" style="background: #fff; padding: 60px 0;">
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 50px;">
                 <p style="color: var(--mask-primary); font-weight: bold; letter-spacing: 1px;">PREMIUM EXPERIENCE</p>
                 <h2 style="font-size: 2.5rem; color: #333;">Designed for Genuine Connections</h2>
             </div>
 
-            <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="products-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
                 
-                <div class="product-card" style="text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div class="product-card" style="flex: 1 1 300px; max-width: 360px; text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <i class="fas fa-mobile-alt feature-icon-purple"></i>
                     <h3 style="margin: 15px 0;">Shake to Connect</h3>
                     <p style="color: #666;">Why swipe when you can shake? Experience the thrill of finding someone new just by shaking your phone. It's fun, fast, and absolutely free.</p>
                 </div>
 
-                <div class="product-card" style="text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div class="product-card" style="flex: 1 1 300px; max-width: 360px; text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <i class="fas fa-sliders-h feature-icon-purple"></i>
                     <h3 style="margin: 15px 0;">Smart Matching</h3>
                     <p style="color: #666;">Find exactly who you're looking for. Filter connections by <strong>Age Group and Gender</strong> effortlessly. Connect with like-minded people instantly.</p>
                 </div>
 
-                <div class="product-card" style="text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div class="product-card" style="flex: 1 1 300px; max-width: 360px; text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <i class="fas fa-map-marker-alt feature-icon-purple"></i>
                     <h3 style="margin: 15px 0;">Nearby & Global</h3>
-                    <p style="color: #666;">Whether they are 100km away or across the globe, MaskChat brings you closer. Discover people in your city or explore worldwide conversations.</p>
+                    <p style="color: #666;">Whether they are 200km away or across the globe, MaskChat brings you closer. Discover people in your city or explore worldwide conversations.</p>
                 </div>
 
-                <div class="product-card" style="text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div class="product-card" style="flex: 1 1 300px; max-width: 360px; text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <i class="fas fa-users feature-icon-purple"></i>
+                    <h3 style="margin: 15px 0;">Group Hangouts</h3>
+                    <p style="color: #666;">Expand your circle. Create or join public groups based on your interests. Chat, share, and build your own community effortlessly.</p>
+                </div>
+
+                <div class="product-card" style="flex: 1 1 300px; max-width: 360px; text-align: center; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <i class="fas fa-shield-alt feature-icon-purple"></i>
                     <h3 style="margin: 15px 0;">Safe Space</h3>
                     <p style="color: #666;">Your peace of mind matters. With AI-powered moderation and a strict 3-strike policy, we ensure a gentle and respectful community.</p>
