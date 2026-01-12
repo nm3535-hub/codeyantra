@@ -100,11 +100,12 @@ export default function Unmute() {
             .hero-desc span { font-size: 1rem; opacity: 0.8; display: block; margin-top: 10px; }
             
             .cta-btn-unmute {
-                background: white; color: var(--unmute-primary); padding: 15px 40px; 
+                background: white; color: #1A2238; padding: 1rem 2.5rem; 
                 border-radius: 50px; text-decoration: none; font-weight: 800; 
                 display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s;
+                text-transform: uppercase; letter-spacing: 0.5px;
             }
-            .cta-btn-unmute:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+            .cta-btn-unmute:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); color: black; }
 
             .section-white { background: white; padding: 80px 0; }
             .section-gray { background: #f9f9f9; padding: 80px 20px; }
@@ -122,9 +123,12 @@ export default function Unmute() {
             .cta-red h2 { margin-bottom: 1rem; }
             .cta-red p { opacity: 0.9; margin-bottom: 2rem; }
             .btn-notify {
-                background: white; color: var(--unmute-primary); padding: 12px 30px; 
-                border-radius: 50px; text-decoration: none; font-weight: bold;
+                background: white; color: #1A2238; padding: 1rem 2.5rem; 
+                border-radius: 50px; text-decoration: none; font-weight: 800;
+                display: inline-block; text-transform: uppercase; letter-spacing: 0.5px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s;
             }
+            .btn-notify:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); color: black; }
 
             .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         `}</style>

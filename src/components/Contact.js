@@ -46,11 +46,11 @@ export default function Contact() {
 
                     <div className="contact-details">
                         <div className="contact-item">
-                            <div className="contact-item-icon">✉</div>
+                            <div className="contact-item-icon" style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>@</div>
                             <div className="contact-item-content">
                                 <h4>Email Us</h4>
                                 <p>support@codeyantra.in</p>
-                                <p>codeyantra.net@gmail.com</p>
+                                <p><strong>Email Us:</strong> codeyantra.net@gmail.com</p>
                             </div>
                         </div>
                         <div className="contact-item">

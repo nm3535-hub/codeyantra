@@ -131,18 +131,21 @@ export default function MaskChat() {
             }
             .cta-btn-mask {
                 background: white; 
-                color: var(--mask-primary); 
-                padding: 15px 40px; 
+                color: #1A2238; 
+                padding: 1rem 2.5rem; 
                 border-radius: 50px; 
                 text-decoration: none; 
                 font-weight: 800; 
                 display: inline-block; 
                 box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
                 transition: 0.3s;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
             }
             .cta-btn-mask:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+                color: black;
             }
 
             .section-white { background: white; padding: 60px 0; }

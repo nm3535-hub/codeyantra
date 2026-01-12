@@ -99,7 +99,7 @@ export default function EntertainmentLab() {
         .premium-btn {
           background: white;
           padding: 1rem 2.5rem;
-          border-radius: 12px;
+          border-radius: 50px;
           font-weight: 900;
           text-decoration: none;
           transition: all 0.3s ease;
@@ -108,13 +108,15 @@ export default function EntertainmentLab() {
           font-size: 0.95rem;
           letter-spacing: 1px;
           box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+          color: #1A2238; /* Unified Dark Color */
         }
-        .btn-mask { color: #4A00E0; }
-        .btn-unmute { color: #FF416C; }
+        /* .btn-mask { color: #4A00E0; } */ /* Removed specific colors to match uniform style */
+        /* .btn-unmute { color: #FF416C; } */
         
         .premium-btn:hover {
           transform: translateY(-5px);
           box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+          color: black;
         }
         
         @media(max-width: 768px) {
