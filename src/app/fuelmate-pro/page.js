@@ -132,9 +132,12 @@ export default function FuelMatePro() {
         .cta-dark h2 { margin-bottom: 1rem; }
         .cta-dark p { opacity: 0.8; margin-bottom: 2rem; }
         .btn-notify {
-            background: var(--fuel-primary); color: white; padding: 12px 30px; 
-            border-radius: 50px; text-decoration: none; font-weight: bold;
+            background: white; color: #1A2238; padding: 1rem 2.5rem; 
+            border-radius: 50px; text-decoration: none; font-weight: 800;
+            display: inline-block; text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s;
         }
+        .btn-notify:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); color: black; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
       `}</style>

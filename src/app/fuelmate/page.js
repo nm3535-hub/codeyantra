@@ -37,6 +37,8 @@ export default function FuelMate() {
                         <FeatureCard icon="📏" title="Unique Tank Sizes" desc="We support rare tank capacities that other apps miss. Get accurate charts for 10KL, 15KL, 20KL, 22KL, 45KL, and 70KL tanks instantly." />
                         <FeatureCard icon="🧮" title="Advanced Density Calc" desc="Calculate density at 15°C with precision. Fully compatible with MS (Petrol), HSD (Diesel), and XP95/E20 blends." />
                         <FeatureCard icon="⛽" title="Indian OMC Ready" desc="Tailored for IOCL, BPCL, and HPCL dealers. Our algorithms align with official charts to ensure your stock reconciliation is perfect." />
+                        <FeatureCard icon="🚛" title="Lorry Receipt" desc="Manage and track your tank truck unloading receipts digitally. Keep a precise record of every drop that enters your tanks." />
+                        <FeatureCard icon="📋" title="Inspection of RO" desc="Digital checklists for Retail Outlet inspections. Ensure compliance and safety standards are met with easy-to-use forms." />
                     </div>
                 </div>
             </section>
@@ -62,11 +64,12 @@ export default function FuelMate() {
         .hero-desc { font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.95; line-height: 1.6; }
         
         .btn-download {
-            background: #000; color: white; padding: 15px 35px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; font-size: 1.1rem;
+            background: white; color: #1A2238; padding: 1rem 2.5rem; border-radius: 50px; 
+            text-decoration: none; font-weight: 800; display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
         }
-        .btn-download:hover { transform: scale(1.05); background: #333; }
+        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); color: black; }
         
         .section-white { background: #fff; padding: 80px 0; }
         .section-header { margin-bottom: 40px; }

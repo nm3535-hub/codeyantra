@@ -11,6 +11,10 @@ export default function Footer({ mode }) {
                             <h3>CodeYantra</h3>
                         </Link>
                         <p>Innovating for a smarter future.</p>
+                        <div style={{ marginTop: '1.5rem', opacity: 0.8, fontSize: '0.95rem', lineHeight: '1.6' }}>
+                            <h4 style={{ color: 'var(--gold)', marginBottom: '0.5rem', fontSize: '1.1rem' }}>About CodeYantra</h4>
+                            <p>We are a forward-thinking tech company dedicated to building intelligent solutions that bridge the gap between business needs and user entertainment.</p>
+                        </div>
                     </div>
 
                     <div className="footer-section">

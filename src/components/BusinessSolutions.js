@@ -83,24 +83,23 @@ export default function BusinessSolutions() {
         .product-card p { opacity: 0.95; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.5; }
         
         .premium-btn {
-          background: linear-gradient(135deg, #1A2238, #2a3456);
-          color: white;
+          background: white;
+          color: #1A2238;
           padding: 1rem 2.5rem;
-          border-radius: 12px;
+          border-radius: 50px;
           font-weight: 800;
           text-decoration: none;
           transition: all 0.3s ease;
           display: inline-block;
           font-size: 0.95rem;
           text-transform: uppercase;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
           letter-spacing: 0.5px;
-          border: 1px solid rgba(255,255,255,0.1);
         }
         .premium-btn:hover {
           transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-          background: linear-gradient(135deg, #2a3456, #1A2238);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+          color: black;
         }
       `}</style>
     </section>
