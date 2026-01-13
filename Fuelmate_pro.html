@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4694L5FNX4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4694L5FNX4');
+    </script> 
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelMate Pro | Enterprise Solutions</title>
+    <link rel="icon" type="image/png" href="assets/logo_1.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Pro Theme: Dark Blue & Gold */
+            --primary-blue: #0056b3;
+            --pro-gold: #FFD700;     /* Gold Accent for Pro */
+            --dark-blue: #001f5b;    /* Footer & Deep Backgrounds */
+            --light-bg: #f9fcfb;     /* Slightly off-white for sections */
+            --text-dark: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; }
+
+        /* --- HEADER --- */
+        header {
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 10px; }
+        .nav-links a { color: var(--text-dark); font-weight: 500; margin-left: 25px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary-blue); }
+
+        /* --- HERO SECTION (Full Screen + fp_banner) --- */
+        .hero {
+            /* Using fp_banner.png */
+            background: url('assets/fp_banner.png') no-repeat top center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 100px 0 150px;
+            color: white;
+        }
+
+        /* Darker Overlay for Gold Text Contrast */
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0, 31, 91, 0.85), rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+        .app-icon {
+            width: 120px; 
+            background: rgba(255,255,255,0.15); 
+            backdrop-filter: blur(10px);
+            border-radius: 30px; 
+            padding: 15px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3); 
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 215, 0, 0.3); /* Gold Border */
+        }
+
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.95; line-height: 1.6; }
+
+        /* Launch Badge */
+        .launch-badge {
+            display: inline-flex; align-items: center; 
+            background: rgba(255, 215, 0, 0.2); 
+            border: 1px solid var(--pro-gold);
+            padding: 10px 25px; border-radius: 50px;
+            margin-bottom: 20px;
+        }
+        .pulse-dot {
+            width: 10px; height: 10px; background: var(--pro-gold); 
+            border-radius: 50%; margin-right: 10px; 
+            box-shadow: 0 0 10px var(--pro-gold);
+            animation: pulse 2s infinite;
+        }
+
+        /* CURVE CONTAINER */
+        .curve-container {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 3;
+        }
+        .curve-container svg { display: block; width: 100%; height: 100px; }
+        
+        /* Matches Feature Section Background */
+        .hero-curve { bottom: -1px; }
+
+        /* --- FEATURES SECTION --- */
+        .section { padding: 100px 0; background: var(--light-bg); position: relative; }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-tag { color: #008080; /* Teal/Greenish for Pro features distinction */ font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
+        .section-title { font-size: 2.5rem; color: var(--text-dark); font-weight: 700; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--pro-gold); /* Gold Accent */
+        }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .feature-icon { 
+            font-size: 2rem; color: #008080; margin-bottom: 20px; 
+            background: rgba(0, 128, 128, 0.1); width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center; border-radius: 50%;
+        }
+
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 15px; color: #222; }
+        .feature-card p { color: #666; line-height: 1.6; }
+
+        /* --- PRICING SECTION --- */
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white; padding: 40px 30px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee;
+        }
+        .pricing-card:hover { transform: translateY(-5px); }
+
+        /* Featured Card */
+        .pricing-card.featured {
+            background: var(--dark-blue); color: white;
+            transform: scale(1.05);
+            border: 2px solid var(--pro-gold);
+            box-shadow: 0 20px 50px rgba(0, 31, 91, 0.2);
+        }
+        .pricing-card.featured:hover { transform: scale(1.08); }
+        .pricing-card.featured h3 { color: var(--pro-gold); }
+        .pricing-card.featured .price { color: white; }
+        .pricing-card.featured i { color: var(--pro-gold) !important; }
+        .pricing-card.featured .btn-price { background: var(--pro-gold); color: var(--dark-blue); }
+
+        .price { font-size: 2.5rem; color: var(--dark-blue); font-weight: 800; margin: 15px 0; }
+        .price-period { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; }
+        
+        .pricing-features { text-align: left; list-style: none; padding: 0; margin: 20px 0; }
+        .pricing-features li { margin-bottom: 12px; display: flex; align-items: center; }
+        .pricing-features i { color: #008080; margin-right: 10px; }
+
+        .btn-price {
+            display: inline-block; padding: 12px 30px; border-radius: 50px;
+            background: var(--dark-blue); color: white; font-weight: 600;
+            transition: 0.3s; margin-top: 15px;
+        }
+        .btn-price:hover { opacity: 0.9; transform: scale(1.05); }
+
+
+        /* --- NOTIFY SECTION --- */
+        .notify-section {
+            background: var(--dark-blue); color: white; padding: 80px 0;
+            text-align: center; position: relative;
+        }
+        .notify-form {
+            max-width: 500px; margin: 30px auto 0;
+            display: flex; gap: 10px; background: rgba(255,255,255,0.1);
+            padding: 5px; border-radius: 50px;
+        }
+        .notify-input {
+            flex: 1; background: transparent; border: none; padding: 15px 20px;
+            color: white; outline: none;
+        }
+        .notify-btn {
+            background: var(--pro-gold); color: var(--dark-blue); border: none;
+            padding: 12px 30px; border-radius: 50px; font-weight: 700; cursor: pointer;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 50px 0 30px;
+            position: relative;
+        }
+        
+        .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+        .footer-links a { color: rgba(255,255,255,0.7); transition: 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .feature-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .footer-links { flex-direction: column; gap: 15px; }
+            .pricing-card.featured { transform: scale(1); }
+            .notify-form { flex-direction: column; background: transparent; }
+            .notify-input { background: rgba(255,255,255,0.1); border-radius: 10px; margin-bottom: 10px; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="fuelmate.html">Standard App</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <img src="assets/app_screenshot_2.png" alt="FuelMate Pro Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/120?text=Pro+Icon'">
+            
+            <h1>FuelMate Pro</h1>
+            <p>The Ultimate ERP Solution for Fuel Stations.<br>Manage Sales, Stocks, and Payments with military-grade precision.</p>
+            
+            <div class="launch-badge">
+                <span class="pulse-dot"></span>
+                <span style="color: #fff; font-weight: 600; text-transform: uppercase; font-size: 0.9rem;">Launching Very Soon</span>
+            </div>
+        </div>
+
+        <div class="curve-container hero-curve">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#f9fcfb"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Powerful Features</span>
+                <h2 class="section-title">Everything You Need to Run a Pump</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Secure PIN Access</h3>
+                    <p>Keep your data safe with PIN-verified login. Only authorized personnel can access sensitive sales data.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-gas-pump"></i></div>
+                    <h3>Premium Fuel & Lubes</h3>
+                    <p>Track sales for Petrol, Diesel, XP95/Power, and Lubricants separately. Dedicated modules included.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Payment Mode Tracking</h3>
+                    <p>Know exactly how much you earned via Cash, Card, UPI, or Credit. Reconcile accounts effortlessly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Daily Price Updates</h3>
+                    <p>Set daily fuel prices instantly. The app automatically recalculates sales value based on the new rates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Professional Reports</h3>
+                    <p>Generate detailed PDF and Excel (CSV) reports. Share directly with partners or CA via WhatsApp.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Google Drive Sync</h3>
+                    <p>Never lose data. Backup your entire database to Google Drive and restore it anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Transparent Pricing</h2>
+                <p style="color: #666;">Choose the plan that fits your business scale.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <p class="price">₹149</p>
+                    <p class="price-period">per month/User</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Basic Inventory</li>
+                        <li><i class="fas fa-check"></i> Daily Sales Report</li>
+                        <li><i class="fas fa-check"></i> Secure Access</li>
+                    </ul>
+                    <a href="mailto:support@codeyantra.in" class="btn-price">Join Waitlist</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Standard</h3>
+                    <p class="price">₹399</p>
+                    <p class="price-period">per Quarter/User</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> All Basic Features</li>
+                        <li><i class="fas fa-check"></i> Real-time Tracking</li>
+                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                    </ul>
+                    <a href="mailto:support@codeyantra.in" class="btn-price">Join Waitlist</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="price">₹1,399</p>
+                    <p class="price-period">One Time / Lifetime</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Full ERP Access</li>
+                        <li><i class="fas fa-check"></i> On-site Training</li>
+                        <li><i class="fas fa-check"></i> Dedicated Manager</li>
+                    </ul>
+                    <a href="mailto:support@codeyantra.in" class="btn-price">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="notify-section">
+        <div class="curve-container" style="top: -1px; transform: rotate(180deg);">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#f9fcfb"></path>
+            </svg>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 5;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 10px;">🚀 Coming Soon to Your Pocket</h2>
+            <p style="opacity: 0.8; margin-bottom: 30px;">We are in the final stages of testing. Get ready for the revolution.</p>
+            
+            <form action="#" class="notify-form">
+                <input type="email" placeholder="Enter your email for updates" class="notify-input">
+                <button type="submit" class="notify-btn">Notify Me</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="margin-top: 0; padding-top: 0;">
+        <div class="container" style="text-align: center;">
+            <div class="footer-content" style="padding-top: 40px;">
+                <h4 style="margin-bottom: 20px;">Legal (FuelMate Pro)</h4>
+                <div class="footer-links">
+                    <a href="cy_privacy_policy.html">Privacy Policy</a>
+                    <a href="cy_term_conditions.html">Terms & Conditions</a>
+                    <a href="cy_refund_policy.html">Refund Policy</a>
+                </div>
+                <div class="footer-bottom">
+                    &copy; 2025 CodeYantra. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
