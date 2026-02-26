@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4694L5FNX4"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4694L5FNX4');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-4694L5FNX4');
     </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FuelMate | Smart Dip & Density Calculator</title>
     <link rel="icon" type="image/png" href="assets/logo_1.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+
     <style>
         :root {
-            --primary-blue: #0056b3; 
+            --primary-blue: #0056b3;
             --fuel-orange: #FF8008;
             --dark-blue: #001f5b;
             --light-bg: #ffffff;
             --text-dark: #333333;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -35,8 +41,15 @@
             overflow-x: hidden;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        a { text-decoration: none; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
 
         /* --- HEADER --- */
         header {
@@ -44,12 +57,35 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 10px; }
-        .nav-links a { color: var(--text-dark); font-weight: 500; margin-left: 25px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--fuel-orange); }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--fuel-orange);
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -68,27 +104,46 @@
         }
 
         .hero-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             /* Lighter overlay to let the banner shine through */
             background: linear-gradient(135deg, rgba(0, 31, 91, 0.7), rgba(255, 128, 8, 0.2));
             z-index: 1;
         }
 
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
-
-        .app-icon {
-            width: 120px; 
-            background: rgba(255,255,255,0.15); 
-            backdrop-filter: blur(10px);
-            border-radius: 30px; 
-            padding: 15px; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3); 
-            margin-bottom: 30px;
-            border: 2px solid rgba(255,255,255,0.3);
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
 
-        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.3rem; margin-bottom: 40px; opacity: 0.95; line-height: 1.6; }
+        .app-icon {
+            width: 120px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
 
         .btn-download {
             background: var(--fuel-orange);
@@ -97,11 +152,18 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 1.1rem;
-            display: inline-flex; align-items: center; gap: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             box-shadow: 0 10px 25px rgba(255, 128, 8, 0.4);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 128, 8, 0.6); background: #ff952b; }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 128, 8, 0.6);
+            background: #ff952b;
+        }
 
         /* CURVE CONTAINER */
         .curve-container {
@@ -112,15 +174,43 @@
             line-height: 0;
             z-index: 3;
         }
-        .curve-container svg { display: block; width: 100%; height: 100px; }
-        .hero-curve { bottom: -1px; }
+
+        .curve-container svg {
+            display: block;
+            width: 100%;
+            height: 100px;
+        }
+
+        .hero-curve {
+            bottom: -1px;
+        }
 
         /* --- FEATURES SECTION --- */
-        .section { padding: 100px 0; background: #fff; position: relative; }
-        
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-tag { color: var(--fuel-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
-        .section-title { font-size: 2.5rem; color: var(--text-dark); font-weight: 700; }
+        .section {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            color: var(--fuel-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
 
         .feature-grid {
             display: grid;
@@ -132,23 +222,42 @@
             background: #fff;
             padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: 0.3s;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             border-bottom: 4px solid var(--fuel-orange);
             position: relative;
             overflow: hidden;
         }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-        .feature-icon { 
-            font-size: 2.5rem; color: var(--fuel-orange); margin-bottom: 20px; 
-            background: rgba(255, 128, 8, 0.1); width: 70px; height: 70px;
-            display: flex; align-items: center; justify-content: center; border-radius: 50%;
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #222; }
-        .feature-card p { color: #666; line-height: 1.6; }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--fuel-orange);
+            margin-bottom: 20px;
+            background: rgba(255, 128, 8, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -157,18 +266,50 @@
             padding: 50px 0 30px;
             position: relative;
         }
-        .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.7); transition: 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .feature-grid { grid-template-columns: 1fr; }
-            .footer-links { flex-direction: column; gap: 15px; }
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -188,14 +329,23 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <img src="assets/app_screenshot_1.png" alt="FuelMate Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/120?text=App+Icon'">
-            
-            <h1>FuelMate</h1>
-            <p>Advanced Dip & Density Calculator for Indian OMCs.<br>Accurate measurements for MS, HSD, and E20 Petrol.</p>
-            
-            <a href="https://play.google.com/store/apps/details?id=com.codeyantra.fuelmate" target="_blank" class="btn-download">
-                <i class="fab fa-google-play"></i> Download on Google Play
-            </a>
+            <img src="assets/app_screenshot_1.png" alt="FuelMate Icon" class="app-icon"
+                onerror="this.src='https://via.placeholder.com/120?text=App+Icon'">
+
+            <h1>FuelMate &mdash; Run Your Entire Fuel Station from One App</h1>
+            <p>Replace paper registers, generate official reports, manage compliance, inspections, staff records and
+                operations.</p>
+
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="fuelmate-buy.html" class="btn-download"
+                    style="background: #ffffff; color: var(--text-dark); border: 2px solid white;">
+                    <i class="fas fa-shopping-cart"></i> Buy FuelMate Pro
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.codeyantra.fuelmate" target="_blank"
+                    class="btn-download">
+                    <i class="fab fa-google-play"></i> Download App
+                </a>
+            </div>
         </div>
 
         <div class="curve-container hero-curve">
@@ -208,40 +358,359 @@
     <section id="features" class="section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Why Choose FuelMate?</span>
-                <h2 class="section-title">Precision for Every Tank</h2>
+                <span class="section-tag">Powerful Operations</span>
+                <h2 class="section-title">Feature Modules</h2>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-database"></i></div>
-                    <h3>No Manual Entry</h3>
-                    <p>Pre-set calibration data for all standard tanks. Just select your tank size and enter the dip.</p>
+            <!-- Daily Operations -->
+            <div style="margin-bottom: 80px;">
+                <h3
+                    style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 20px; border-bottom: 2px solid var(--fuel-orange); display: inline-block; padding-bottom: 5px;">
+                    Daily Operations</h3>
+                <div class="feature-grid" style="align-items: center;">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                        <img src="screenshot/official_dip_chart.jpeg" alt="Official Dip Chart"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="screenshot/lorry_decantation.jpeg" alt="Lorry Decantation"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="screenshot/customize_tank.jpeg" alt="Customize Tank Data"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-ruler-combined"></i></div>
-                    <h3>Unique Tank Sizes</h3>
-                    <p>Support for rare capacities like <strong>10KL, 22KL, 45KL</strong> instantly available.</p>
+            </div>
+
+            <!-- Compliance & Inspection -->
+            <div style="margin-bottom: 80px;">
+                <h3
+                    style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 20px; border-bottom: 2px solid var(--fuel-orange); display: inline-block; padding-bottom: 5px;">
+                    Compliance & Inspection</h3>
+                <div class="feature-grid" style="align-items: center;">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                        <img src="screenshot/compliance_manager.jpeg" alt="Compliance Manager"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="screenshot/sale_inspection.jpeg" alt="Sale Inspection"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="screenshot/self_audit.jpeg" alt="Self Audit"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
-                    <h3>Density Calculator</h3>
-                    <p>Precise density at 15°C. Fully compatible with <strong>MS, HSD, and XP95/E20</strong> blends.</p>
+            </div>
+
+            <!-- Documentation & Safety -->
+            <div class="feature-grid" style="grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3
+                        style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 20px; border-bottom: 2px solid var(--fuel-orange); display: inline-block; padding-bottom: 5px;">
+                        Documentation</h3>
+                    <div style="display: flex; justify-content: center;">
+                        <img src="screenshot/letterhead.jpeg" alt="Letterhead Generator"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-gas-pump"></i></div>
-                    <h3>Indian OMC Ready</h3>
-                    <p>Algorithms tailored for IOCL, BPCL, and HPCL dealers for perfect stock reconciliation.</p>
+                <div>
+                    <h3
+                        style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 20px; border-bottom: 2px solid var(--fuel-orange); display: inline-block; padding-bottom: 5px;">
+                        Safety & Training</h3>
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <img src="screenshot/safety_protocol.jpeg" alt="Safety Protocol"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="screenshot/training_protocol.jpeg" alt="Training Protocol"
+                            style="max-height: 400px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-file-invoice"></i></div>
-                    <h3>Lorry Receipt (TLR)</h3>
-                    <p>Calculate variation and transit loss instantly during decantation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots Gallery -->
+    <section class="section" style="background: var(--light-bg); padding-top: 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 40px;">
+                <h2 class="section-title">Screenshot Gallery</h2>
+            </div>
+            <div
+                style="display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; scrollbar-width: thin; scrollbar-color: var(--fuel-orange) #eee;">
+                <img src="screenshot/home_screen.jpeg" alt="Home Screen" style="height: 300px; border-radius: 10px;">
+                <img src="screenshot/official_dip_chart.jpeg" alt="Dip Chart"
+                    style="height: 300px; border-radius: 10px;">
+                <img src="screenshot/lorry_decantation.jpeg" alt="Lorry Decantation"
+                    style="height: 300px; border-radius: 10px;">
+                <img src="screenshot/compliance_manager.jpeg" alt="Compliance"
+                    style="height: 300px; border-radius: 10px;">
+                <img src="screenshot/sale_inspection.jpeg" alt="Inspection" style="height: 300px; border-radius: 10px;">
+                <img src="screenshot/letterhead.jpeg" alt="Letterhead" style="height: 300px; border-radius: 10px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Report Demo Section -->
+    <section class="section" style="background: #f4f7fb;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Professional Outputs</span>
+                <h2 class="section-title">Sample Reports Generated by FuelMate</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <!-- PDF Card 1 -->
+                <a href="sample_pdf/compliance_report.pdf" target="_blank" class="feature-card"
+                    style="display: flex; align-items: center; gap: 15px; padding: 20px; text-decoration: none;">
+                    <div style="font-size: 2.5rem; color: #e2574c;"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 5px; font-size: 1.1rem;">Compliance Report
+                        </h4>
+                        <span style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 500;">View PDF
+                            &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- PDF Card 2 -->
+                <a href="sample_pdf/daily_audit_report.pdf" target="_blank" class="feature-card"
+                    style="display: flex; align-items: center; gap: 15px; padding: 20px; text-decoration: none;">
+                    <div style="font-size: 2.5rem; color: #e2574c;"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 5px; font-size: 1.1rem;">Daily Audit Report
+                        </h4>
+                        <span style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 500;">View PDF
+                            &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- PDF Card 3 -->
+                <a href="sample_pdf/density_register.pdf" target="_blank" class="feature-card"
+                    style="display: flex; align-items: center; gap: 15px; padding: 20px; text-decoration: none;">
+                    <div style="font-size: 2.5rem; color: #e2574c;"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 5px; font-size: 1.1rem;">Density Register
+                        </h4>
+                        <span style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 500;">View PDF
+                            &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- PDF Card 4 -->
+                <a href="sample_pdf/inspection_report.pdf" target="_blank" class="feature-card"
+                    style="display: flex; align-items: center; gap: 15px; padding: 20px; text-decoration: none;">
+                    <div style="font-size: 2.5rem; color: #e2574c;"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 5px; font-size: 1.1rem;">Inspection Report
+                        </h4>
+                        <span style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 500;">View PDF
+                            &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- PDF Card 5 -->
+                <a href="sample_pdf/letterhead_sample.pdf" target="_blank" class="feature-card"
+                    style="display: flex; align-items: center; gap: 15px; padding: 20px; text-decoration: none;">
+                    <div style="font-size: 2.5rem; color: #e2574c;"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 5px; font-size: 1.1rem;">Letterhead Sample
+                        </h4>
+                        <span style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 500;">View PDF
+                            &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- PDF Card 6 -->
+                <a href="sample_pdf/lorry_receipt_report.pdf" target="_blank" class="feature-card"
+                    style="display: flex; align-items: center; gap: 15px; padding: 20px; text-decoration: none;">
+                    <div style="font-size: 2.5rem; color: #e2574c;"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-dark); margin-bottom: 5px; font-size: 1.1rem;">Lorry Receipt Report
+                        </h4>
+                        <span style="color: var(--primary-blue); font-size: 0.9rem; font-weight: 500;">View PDF
+                            &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section" style="background: var(--dark-blue); color: white; text-align: center; padding: 80px 0;">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 40px;">Trusted by Fuel Stations Across India
+            </h2>
+
+            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 800; color: var(--fuel-orange);">100+</div>
+                    <p style="font-size: 1.2rem; opacity: 0.9;">Downloads</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
-                    <h3>Digital Register</h3>
-                    <p>Maintain a digital Density Register and generate professional PDF reports instantly.</p>
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 800; color: var(--fuel-orange);">3</div>
+                    <p style="font-size: 1.2rem; opacity: 0.9;">Paid Customers</p>
+                </div>
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 800; color: var(--fuel-orange);"><i
+                            class="fas fa-chart-line" style="font-size: 3rem;"></i></div>
+                    <p style="font-size: 1.2rem; opacity: 0.9;">Growing user base</p>
+                </div>
+            </div>
+        </div>
+    </section>
+         <!-- Testimonials Section -->
+   <section class="section" style="background: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Fuel Station Owners Say</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                
+                <div class="feature-card" style="border-bottom: 4px solid #ddd;">
+                    <div style="color: #ffc107; font-size: 1.2rem; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"This app completely replaced our paper registers. Generating compliance reports takes seconds now."</p>
+                    <h4 style="color: var(--dark-blue);">Rahul S.</h4>
+                    <span style="font-size: 0.9rem; color: #666;">HPCL Dealer, Maharashtra</span>
+                </div>
+
+                <div class="feature-card" style="border-bottom: 4px solid #ddd;">
+                    <div style="color: #ffc107; font-size: 1.2rem; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"The exact lorry decantation and transit loss functionality is a lifesaver for accurate accounting."</p>
+                    <h4 style="color: var(--dark-blue);">Vikram P.</h4>
+                    <span style="font-size: 0.9rem; color: #666;">BPCL Dealer, Gujarat</span>
+                </div>
+
+                <div class="feature-card" style="border-bottom: 4px solid #ddd;">
+                    <div style="color: #ffc107; font-size: 1.2rem; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Excellent inventory management. It helps us track every drop of fuel and identify leakages early."</p>
+                    <h4 style="color: var(--dark-blue);">Rohit M.</h4>
+                    <span style="font-size: 0.9rem; color: #666;">BPCL Dealer, Punjab</span>
+                </div>
+
+                <div class="feature-card" style="border-bottom: 4px solid #ddd;">
+                    <div style="color: #ffc107; font-size: 1.2rem; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Very reliable and accurate dip chart calculations. Love that it works entirely offline at the pump."</p>
+                    <h4 style="color: var(--dark-blue);">Sandeep S.</h4>
+                    <span style="font-size: 0.9rem; color: #666;">IOCL Dealer, Punjab</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<section class="section" style="background: #f8f9fa;">
+    <div class="container">
+        <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <div style="flex: 1; min-width: 300px;">
+                <span class="section-tag">Developer's Desk</span>
+                <h2 style="font-size: 2rem; color: var(--dark-blue); margin-bottom: 20px;">Built with Passion for Fuel Station Owners</h2>
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 20px;">
+                    "FuelMate was born out of a simple mission: to eliminate the burden of manual registers and tedious calculations at fuel stations. Understanding the critical importance of compliance and accuracy, we designed FuelMate to be **Offline-First**, ensuring your operations never stop even without internet connectivity."
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img src="assets/founder.png" alt="Founder Name" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--fuel-orange);">
+                    <div>
+                        <h4 style="color: var(--dark-blue); margin: 0;">Neeraj Mishra</h4>
+                        <p style="font-size: 0.9rem; color: #777; margin: 0;">Lead Developer & Founder, CodeYantra</p>
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1; text-align: center; min-width: 300px;">
+                <img src="assets/app_screenshot_1.png" alt="FuelMate App Interface" style="max-width: 100%; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Pricing Section -->
+    <section class="section" id="pricing" style="background: var(--light-bg); border-top: 1px solid #eee;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Invest in Efficiency</span>
+                <h2 class="section-title">Early Supporter Access</h2>
+            </div>
+
+            <div
+                style="max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); overflow: hidden; display: flex; flex-direction: column;">
+                <div
+                    style="background: var(--dark-blue); color: white; padding: 30px; text-align: center; position: relative;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">One Year License</h3>
+                    <p style="opacity: 0.8; font-size: 1.1rem;">Full access to all current modules and features.</p>
+                </div>
+
+                <div style="padding: 40px; text-align: center;">
+                    <div style="text-decoration: line-through; color: #999; font-size: 1.2rem; margin-bottom: 5px;">
+                        Official Price: &#8377;1450</div>
+                    <div style="font-size: 1.5rem; margin-bottom: 15px; font-weight: 600; color: #666;">
+                        Standard Price: &#8377;999</div>
+                    <div style="font-size: 2.8rem; font-weight: 800; color: var(--text-dark); line-height: 1;">
+                        &#8377;699</div>
+                    <p style="color: var(--fuel-orange); font-weight: 600; margin-top: 10px; margin-bottom: 25px;">Early
+                        Supporter Price</p>
+
+                    <div style="background: rgba(255,128,8,0.1); border: 1px solid var(--fuel-orange); border-radius: 10px; padding: 20px; margin: 0 auto 25px; display: inline-block; width: 100%; max-width: 400px;">
+    <span style="display: block; font-weight: 700; color: var(--dark-blue); margin-bottom: 15px; font-size: 1rem;">Limited Early Supporter Licenses Available</span>
+    <div style="width: 100%; height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; margin-bottom: 10px;">
+        <div id="promo-progress-bar" style="width: 100%; height: 100%; background: var(--fuel-orange); border-radius: 5px; transition: 0.5s;"></div>
+    </div>
+    <span id="promo-counter-text" style="font-weight: 800; color: var(--fuel-orange); font-size: 1.1rem;">Checking availability...</span>
+    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">*When promo ends, price becomes ₹1450.</p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+    // Apni wahi Config yahan bhi paste karein
+    const firebaseConfig = { /* ... aapki config ... */ };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    async function updateLiveCounter() {
+        try {
+            const snapshot = await db.collection("licenses").where("isUsed", "==", false).get();
+            const available = snapshot.size;
+            const total = 20; // Aapka total target
+            const claimed = total - available;
+
+            document.getElementById('promo-counter-text').innerText = `${claimed} of ${total} Claimed`;
+            // Progress bar update (min 10% dikhaye taaki khali na lage)
+            const percentage = Math.max((claimed / total) * 100, 10);
+            document.getElementById('promo-progress-bar').style.width = percentage + "%";
+        } catch (e) {
+            document.getElementById('promo-counter-text').innerText = "Special Discount Active";
+        }
+    }
+    updateLiveCounter();
+</script>
+
+                    <div
+                        style="background: #f8f9fa; border: 1px dashed #ccc; padding: 15px; border-radius: 10px; display: inline-block; margin-bottom: 30px; width: 100%; max-width: 400px;">
+                        <span style="color: #666; font-size: 0.95rem;">To get this price, use promo code at
+                            checkout:</span>
+                        <div
+                            style="font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; color: var(--dark-blue); margin-top: 5px;">
+                            SUPPORT699</div>
+                    </div>
+
+                    <ul style="list-style: none; text-align: left; max-width: 300px; margin: 0 auto 40px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                                style="color: var(--fuel-orange); margin-right: 10px;"></i> Digital Dip Data Logging
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                                style="color: var(--fuel-orange); margin-right: 10px;"></i> Advanced Density Calculator
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                                style="color: var(--fuel-orange); margin-right: 10px;"></i> Unlimited PDF Generation
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                                style="color: var(--fuel-orange); margin-right: 10px;"></i> Offline Functionality</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                                style="color: var(--fuel-orange); margin-right: 10px;"></i> Email & WhatsApp Support
+                        </li>
+                    </ul>
+
+                    <a href="fuelmate-buy.html"
+                        style="background: var(--fuel-orange); color: white; padding: 15px 40px; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px rgba(255,128,8,0.3); text-decoration: none;">Buy
+                        Now</a>
                 </div>
             </div>
         </div>
@@ -270,4 +739,5 @@
     </footer>
 
 </body>
+
 </html>

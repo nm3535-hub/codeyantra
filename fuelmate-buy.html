@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy FuelMate | Professional Checkout</title>
+    <link rel="icon" type="image/png" href="assets/logo_1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --fuel-orange: #FF8008;
+            --dark-blue: #001f5b;
+            --light-bg: #f4f7fb;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkout-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .checkout-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+        }
+
+        .order-summary {
+            background: var(--dark-blue);
+            color: white;
+            padding: 40px;
+            width: 40%;
+        }
+
+        .order-summary h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .product-brief {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .app-icon {
+            width: 60px;
+            border-radius: 12px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fuel-orange);
+        }
+
+        .promo-box {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .promo-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: inherit;
+        }
+
+        .promo-box button {
+            width: 100%;
+            padding: 10px;
+            background: white;
+            color: var(--dark-blue);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .promo-box button:hover {
+            background: #eee;
+        }
+
+        .form-section {
+            padding: 40px;
+            width: 60%;
+        }
+
+        .form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--fuel-orange);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .btn-submit {
+            background: var(--primary-blue);
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-submit:hover {
+            background: #004494;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+        }
+
+        .pay-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #2b84ea;
+            /* Razorpay blue */
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .pay-button:hover {
+            background: #1c68bf;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(43, 132, 234, 0.3);
+        }
+
+        #payment-section {
+            display: none;
+            padding-top: 20px;
+        }
+
+        .secure-badge {
+            background: #e6f4ea;
+            color: #28a745;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-card {
+                flex-direction: column;
+            }
+
+            .order-summary,
+            .form-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra
+            </a>
+            <a href="fuelmate.html" style="color: var(--text-dark); font-weight: 500;"><i class="fas fa-arrow-left"></i>
+                Back to Product</a>
+        </div>
+    </header>
+
+    <main class="checkout-wrapper container">
+        <div class="checkout-card">
+
+            <!-- Left Side: Order Summary -->
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+
+                <div class="product-brief">
+                    <!-- Assuming screenshot exists from fuelmate.html -->
+                    <img src="assets/app_screenshot_1.png" alt="FuelMate" class="app-icon"
+                        onerror="this.src='https://via.placeholder.com/60?text=App'">
+                    <div>
+                        <h3 style="font-size: 1.2rem;">FuelMate License Key</h3>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">1 Year Valid from Activation</p>
+                    </div>
+                </div>
+
+                <div class="price-row">
+                    <span>Official Price</span>
+                    <span style="text-decoration: line-through; opacity: 0.7;">&#8377;1450</span>
+                </div>
+                <div class="price-row">
+                    <span>Standard Price</span>
+                    <span id="display-standard">&#8377;999</span>
+                </div>
+                <div class="price-row" id="discount-row" style="display: none;">
+                    <span>Early Supporter</span>
+                    <span style="color: #4CAF50;">-&#8377;300</span>
+                </div>
+
+                <div class="price-total">
+                    <span>Total Pay</span>
+                    <span id="display-total">&#8377;999</span>
+                </div>
+
+                <div class="promo-box">
+                    <div style="margin-bottom: 5px; font-size: 0.9rem;">Have a promo code?</div>
+                    <input type="text" id="promo-code" placeholder="Enter Code">
+                    <button type="button" onclick="applyPromo()">Apply Code</button>
+                    <div id="promo-msg" style="margin-top: 8px; font-size: 0.85rem; display: none;"></div>
+                </div>
+
+                <div style="margin-top: 30px; opacity: 0.7; font-size: 0.85rem; text-align: center;">
+                    <i class="fas fa-lock"></i> 100% Secure Checkout process.
+                </div>
+            </div>
+
+            <!-- Right Side: Forms -->
+            <div class="form-section">
+
+                <!-- Step 1: User Details Form -->
+                <div id="details-form-section">
+                    <h3>Pump Details for License</h3>
+                    <form id="purchaseForm">
+                        <div class="form-group">
+                            <label for="name">Your Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pumpName">Petrol Pump Name (exact spelling)</label>
+                            <input type="text" id="pumpName" placeholder="Balaji Fuels" required>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="city">City / District</label>
+                                <input type="text" id="city" placeholder="Pune" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp Number</label>
+                                <input type="tel" id="whatsapp" placeholder="9876543210" pattern="[0-9]{10}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color: red;">*</span></label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Proceed to Payment</button>
+                    </form>
+                </div>
+
+                <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+// 1. Firebase Config (Console se details yahan bhariye)
+const firebaseConfig = {
+  apiKey: "AIzaSyDN-QrA2HVb-MdDHf7ieGXm7JWTVIw6Sws",
+  authDomain: "tap-meet.firebaseapp.com",
+  databaseURL: "https://tap-meet.firebaseio.com",
+  projectId: "tap-meet",
+  storageBucket: "tap-meet.firebasestorage.app",
+  messagingSenderId: "133937665992",
+  appId: "1:133937665992:web:c89e61476bfe959fd0d2fd",
+  measurementId: "G-KNPJGVRZP3"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+let price = 999;
+let promoLimit = 20; // Default limit
+
+// 2. Database se Promo Count Check karna (Real-time count)
+async function checkPromoCount() {
+    try {
+        const snapshot = await db.collection("licenses").where("isUsed", "==", false).get();
+        promoLimit = snapshot.size;
+        console.log("Promo slots available:", promoLimit);
+    } catch (err) {
+        console.error("Counter Error:", err);
+    }
+}
+checkPromoCount();
+
+// 🎟 PROMO APPLY (Logic updated with counting)
+function applyPromo() {
+    const code = document.getElementById('promo-code').value.trim().toUpperCase();
+    const msgEl = document.getElementById('promo-msg');
+    msgEl.style.display = 'block';
+
+    if (code === 'SUPPORT699' && promoLimit > 0) {
+        price = 699;
+
+        document.getElementById('discount-row').style.display = 'flex';
+        document.getElementById('display-total').innerHTML = '&#8377;699';
+        document.getElementById('pay-amount-text').innerHTML = '&#8377;699';
+
+        msgEl.style.color = '#4CAF50';
+        msgEl.innerText = `Early Supporter price unlocked! (${promoLimit} left)`;
+    } else if (code === 'SUPPORT699' && promoLimit <= 0) {
+        msgEl.style.color = '#ff4757';
+        msgEl.innerText = 'Promo limit reached! Please use regular price.';
+    } else {
+        price = 999;
+        document.getElementById('discount-row').style.display = 'none';
+        document.getElementById('display-total').innerHTML = '&#8377;999';
+        document.getElementById('pay-amount-text').innerHTML = '&#8377;999';
+
+        msgEl.style.color = '#ff4757';
+        msgEl.innerText = 'Invalid promo code.';
+    }
+}
+
+// 💰 PAYMENT OPEN
+function openPayment() {
+    if (price === 699 && promoLimit > 0) {
+        window.open("https://rzp.io/rzp/2haW6Cp", "_blank"); // promo link
+    } else {
+        window.open("https://rzp.io/rzp/LZ0jQB6", "_blank"); // normal link
+    }
+}
+
+// 🧾 FORM SUBMIT → SAVE DATA & SHOW PAYMENT
+document.getElementById('purchaseForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // User details save logic
+    const orderData = {
+        name: document.getElementById('name').value,
+        pumpName: document.getElementById('pumpName').value,
+        city: document.getElementById('city').value,
+        whatsapp: document.getElementById('whatsapp').value,
+        email: document.getElementById('email').value,
+        amount: price,
+        status: "pending",
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    try {
+        // Details save karein
+        await db.collection("orders").add(orderData);
+        
+        // Form hide karke payment dikhayein
+        document.getElementById('details-form-section').style.display = 'none';
+        document.getElementById('payment-section').style.display = 'block';
+        window.scrollTo(0,0);
+    } catch (error) {
+        alert("Details save nahi ho payi. Please try again.");
+    }
+});
+
+// 🔙 BACK BUTTON
+function goBack() {
+    document.getElementById('payment-section').style.display = 'none';
+    document.getElementById('details-form-section').style.display = 'block';
+}
+
+// Button click trigger
+document.getElementById('pay-button').onclick = function(e) {
+    e.preventDefault();
+    openPayment();
+};
+</script>

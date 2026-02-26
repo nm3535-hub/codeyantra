@@ -11,7 +11,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaskChat - Privacy Policy & Terms of Service</title>
+    <title>MaskChat - Privacy Policy & Terms</title>
     <link rel="icon" type="image/png" href="assets/logo_1.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
             --dark-bg: #1a0b2e;
             --light-bg: #fdfbff;
             --text-dark: #333;
+            --eu-blue: #003399; /* EU Flag Color */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,11 +54,11 @@
         .nav-links a { color: var(--text-dark); font-weight: 500; margin-left: 25px; transition: 0.3s; text-decoration: none; }
         .nav-links a:hover { color: var(--primary-purple); text-decoration: none; }
 
-        /* --- HERO SECTION (Compact) --- */
+        /* --- HERO SECTION --- */
         .hero-policy {
             background: linear-gradient(135deg, var(--accent-pink), var(--primary-purple));
             color: white;
-            padding: 80px 0 140px; /* Space for curve */
+            padding: 80px 0 140px; 
             text-align: center;
             position: relative;
         }
@@ -105,7 +106,7 @@
         .policy-content li { margin-bottom: 10px; color: #555; }
         .policy-content p { margin-bottom: 15px; color: #555; }
 
-        /* Alert Boxes */
+        /* Special Boxes */
         .alert-box {
             background-color: #fff0f3;
             border-left: 5px solid #d32f2f;
@@ -123,6 +124,23 @@
             color: #4a148c;
             border-radius: 8px;
         }
+        
+        /* EU Specific Box */
+        .eu-box {
+            background-color: #e3f2fd;
+            border: 2px solid var(--eu-blue);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        .eu-box h2 { 
+            color: var(--eu-blue); 
+            border-bottom: none; 
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -132,10 +150,7 @@
             position: relative;
             margin-top: 0; 
         }
-        
-        /* Footer Curve */
         .footer-curve { top: -79px; height: 80px; }
-
         .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
         .footer-links a { color: rgba(255,255,255,0.7); transition: 0.3s; text-decoration: none; font-weight: normal; }
         .footer-links a:hover { color: white; text-decoration: none; }
@@ -178,7 +193,7 @@
 
     <section class="content-section">
         <div class="container policy-content">
-            <p style="text-align: center; color: #888; margin-bottom: 30px;"><strong>Effective Date:</strong> December 09, 2025</p>
+            <p style="text-align: center; color: #888; margin-bottom: 30px;"><strong>Effective Date:</strong> February 18, 2026</p>
             <p>Welcome to <strong>MaskChat</strong>. Please read these Terms and Policies carefully before using our application. By downloading or using the app, you agree to be bound by these terms.</p>
 
             <h2>1. Privacy Policy</h2>
@@ -201,47 +216,72 @@
                 <li>Display advertisements via Google AdMob (to keep the app free).</li>
             </ul>
 
-            <h3>1.3 Account Deletion & Data Rights</h3>
+            <h3>1.3 Data Retention</h3>
+            <p>Chat messages, media, and metadata are automatically deleted from our servers after <strong>90 days</strong>. Inactive accounts may be removed after prolonged inactivity to ensure data minimization.</p>
+
+            <h3>1.4 Account Deletion</h3>
             <div class="info-box">
                 <strong>Instant Deletion:</strong> You have the right to delete your account and all associated data instantly. Go to <strong>Settings > Delete Account</strong> within the app. This action is irreversible and permanently removes your profile, chats, and media from our servers immediately.<br><br>
-                <strong>Web Request:</strong> If you are unable to access the app or wish to request deletion remotely, please contact us at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a> with the subject line "Account Deletion Request". We will process your request within the legally required timeframe.
+                <strong>Web Request:</strong> If you are unable to access the app, contact us at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a> with the subject line "Account Deletion Request".
             </div>
 
             <h2>2. Advertising & Monetization</h2>
             <p>MaskChat is a Freemium service supported by advertisements.</p>
             <ul>
                 <li><strong>Google AdMob:</strong> We use Google AdMob to serve ads. AdMob may use your device's Advertising ID to show personalized ads based on your interests.</li>
-                <li><strong>Opt-Out:</strong> You can opt-out of personalized tracking in your device settings (Settings > Google > Ads > Delete Advertising ID).</li>
+                <li><strong>User Choice:</strong> You can manage your ad preferences in your device settings. For users in the EEA/UK, we comply with the IAB TCF framework via Google's User Messaging Platform (UMP).</li>
             </ul>
 
-            <h2>3. Child Safety & Zero Tolerance (CSAE)</h2>
+            <h2>3. Child Safety & Zero Tolerance</h2>
             <div class="alert-box">
                 <i class="fas fa-exclamation-triangle"></i> <strong>STRICT POLICY: CHILD SEXUAL ABUSE MATERIAL (CSAM) IS PROHIBITED.</strong>
             </div>
-            <p>We are committed to the safety of minors. Our platform is strictly for users aged <strong>13 and above</strong>.</p>
+            <p>We are committed to the safety of minors. Our platform is strictly for users aged <strong>18 and above</strong>.</p>
             <ul>
                 <li><strong>Automated Detection:</strong> We utilize automated moderation tools to detect and block nudity and CSAM in profile images.</li>
                 <li><strong>Reporting to Authorities:</strong> If any CSAM is detected, we will preserve the data and report it to the <strong>National Center for Missing & Exploited Children (NCMEC)</strong> and relevant law enforcement agencies immediately.</li>
-                <li><strong>Permanent Ban:</strong> Any user involved in such activities will be permanently banned and their device ID blocked.</li>
             </ul>
 
             <h2>4. Terms of Service & Acceptable Use</h2>
             <p>By using MaskChat, you agree to conduct yourself responsibly. The following behaviors are strictly prohibited:</p>
             <ul>
                 <li><strong>Harassment & Bullying:</strong> Do not engage in targeted abuse or harassment.</li>
-                <li><strong>Hate Speech:</strong> Content promoting violence or hatred against individuals or groups based on race, religion, gender, or orientation is forbidden.</li>
+                <li><strong>Hate Speech:</strong> Content promoting violence or hatred against individuals or groups.</li>
                 <li><strong>Illegal Activities:</strong> Do not use the app for scams, fraud, or selling illegal goods.</li>
                 <li><strong>Impersonation:</strong> Do not pretend to be someone else or a representative of MaskChat.</li>
             </ul>
 
-            <p><strong>Enforcement:</strong> We reserve the right to suspend or terminate your account without notice if you violate these terms. Users can report or block abusive users directly from the chat screen.</p>
+            <h2>5. Limitation of Liability</h2>
+            <p>The Application is provided "AS IS" without warranties of any kind. To the maximum extent permitted by law, the Service Provider shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app.</p>
 
-            <h2>5. Limitation of Liability & Indemnification</h2>
-            <p><strong>Use at Your Own Risk:</strong> The Service Provider is not responsible for the actions, content, information, or data of third parties (other users). You utilize the app at your own risk.</p>
-            <p><strong>No Warranty:</strong> The Application is provided "AS IS" and "AS AVAILABLE" without any warranties of any kind, whether express or implied.</p>
-            <p><strong>Limitation of Liability:</strong> To the maximum extent permitted by law, the Service Provider shall not be liable for any indirect, incidental, special, consequential, or punitive damages.</p>
+            <div class="eu-box">
+                <h2><i class="fas fa-shield-alt"></i> For Users in the EU, EEA & UK (GDPR)</h2>
+                <p>If you are a resident of the European Economic Area (EEA), the UK, or Switzerland, you have specific rights regarding your personal data under the General Data Protection Regulation (GDPR).</p>
+                
+                <h3>8.1 Legal Basis for Processing</h3>
+                <ul>
+                    <li><strong>Consent:</strong> We process your location data and send notifications only with your explicit consent (which you can withdraw at any time in settings).</li>
+                    <li><strong>Contractual Necessity:</strong> We process your messages and profile data to fulfill our service of delivering chats to you.</li>
+                    <li><strong>Legitimate Interest:</strong> We process device identifiers for fraud prevention, security, and app analytics.</li>
+                </ul>
 
-            <h2>6. Governing Law</h2>
+                <h3>8.2 Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li><strong>Access & Portability:</strong> Request a copy of the personal data we hold about you.</li>
+                    <li><strong>Rectification:</strong> Correct any inaccurate data in your profile.</li>
+                    <li><strong>Erasure (Right to be Forgotten):</strong> Request deletion of your data (available instantly via the "Delete Account" button in the app).</li>
+                    <li><strong>Object to Processing:</strong> You may object to the processing of your data for marketing purposes.</li>
+                </ul>
+
+                <h3>8.3 International Data Transfers</h3>
+                <p>Your data is processed securely using <strong>Google Firebase</strong> infrastructure. Data transfers to servers outside the EEA are protected by Standard Contractual Clauses (SCCs) and robust security measures including encryption in transit and at rest.</p>
+
+                <h3>8.4 Contact & Complaints</h3>
+                <p>If you have concerns about your data, please contact our Data Protection Officer (DPO) at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a>. You also have the right to lodge a complaint with your local Data Protection Authority (DPA).</p>
+            </div>
+
+            <h2 style="margin-top: 40px;">6. Governing Law</h2>
             <p>These Terms shall be governed and construed in accordance with the laws of <strong>India</strong>.</p>
 
             <h2>7. Contact Us</h2>
@@ -252,7 +292,6 @@
     </section>
 
     <footer>
-        
         <div class="curve-container footer-curve">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                  <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#1a0b2e"></path>
@@ -268,7 +307,7 @@
                     <a href="app-ads.txt" style="color:white; font-weight:normal;">app-ads.txt</a>
                 </div>
                 <div class="footer-bottom">
-                    &copy; 2025 CodeYantra. All rights reserved.
+                    &copy; 2026 CodeYantra. All rights reserved.
                 </div>
             </div>
         </div>
