@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
     <style>
         :root {
@@ -398,10 +400,7 @@
                     </button>
                 </div>
 
-                <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-<script>
+                <script>
 // 1. Firebase Config (Console se details yahan bhariye)
 const firebaseConfig = {
   apiKey: "AIzaSyDN-QrA2HVb-MdDHf7ieGXm7JWTVIw6Sws",
@@ -463,9 +462,9 @@ function applyPromo() {
 // 💰 PAYMENT OPEN
 function openPayment() {
     if (price === 699 && promoLimit > 0) {
-        window.open("https://rzp.io/rzp/2haW6Cp", "_blank"); // promo link
+        window.open("https://rzp.io/rzp/mSFbIZQ5", "_blank"); // promo link ₹699
     } else {
-        window.open("https://rzp.io/rzp/LZ0jQB6", "_blank"); // normal link
+        window.open("https://rzp.io/rzp/J8o84FUm", "_blank"); // normal link ₹999
     }
 }
 
@@ -531,3 +530,11 @@ function startPaymentProcess(e) {
     console.log("Starting payment for price:", price);
     openPayment();
 }
+</script>
+
+            </div> <!-- /form-section -->
+        </div> <!-- /checkout-card -->
+    </main>
+
+</body>
+</html>
