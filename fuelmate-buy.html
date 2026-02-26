@@ -380,6 +380,24 @@
                     </form>
                 </div>
 
+                <!-- Step 2: Payment Section (hidden by default) -->
+                <div id="payment-section" style="display: none; text-align: center; margin-top: 20px;">
+                    <div style="background: #f0f8f0; border: 1px solid #4CAF50; border-radius: 8px; padding: 15px; margin-bottom: 20px; color: #2e7d32;">
+                        <i class="fas fa-check-circle"></i> Pump details saved successfully!
+                    </div>
+                    <h3 style="margin-bottom: 15px; color: var(--dark-blue);">Final Step: Payment</h3>
+                    <p style="margin-bottom: 20px; color: #666;">
+                        Proceed to pay <span id="pay-amount-text" style="font-weight: 800; color: var(--fuel-orange); font-size: 1.2rem;">&#8377;999</span>
+                    </p>
+                    <a href="#" class="pay-button" onclick="startPaymentProcess(event)">
+                        <i class="fas fa-lock"></i> Pay Now via Razorpay
+                    </a>
+                    <br>
+                    <button onclick="goBack()" style="background: none; border: none; color: #666; margin-top: 20px; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 0.9rem;">
+                        <i class="fas fa-edit"></i> Edit Details
+                    </button>
+                </div>
+
                 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
@@ -388,12 +406,10 @@
 const firebaseConfig = {
   apiKey: "AIzaSyDN-QrA2HVb-MdDHf7ieGXm7JWTVIw6Sws",
   authDomain: "tap-meet.firebaseapp.com",
-  databaseURL: "https://tap-meet.firebaseio.com",
-  projectId: "tap-meet",
+  projectId: "tap-meet", // Bilkul yahi hona chahiye
   storageBucket: "tap-meet.firebasestorage.app",
   messagingSenderId: "133937665992",
-  appId: "1:133937665992:web:c89e61476bfe959fd0d2fd",
-  measurementId: "G-KNPJGVRZP3"
+  appId: "1:133937665992:web:c89e61476bfe959fd0d2fd"
 };
 
 // Initialize Firebase
@@ -456,29 +472,44 @@ function openPayment() {
 // 🧾 FORM SUBMIT → SAVE DATA & SHOW PAYMENT
 document.getElementById('purchaseForm').addEventListener('submit', async function (e) {
     e.preventDefault();
+    
+    // Button ko disable karein taaki double entry na ho
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Saving Details...";
 
-    // User details save logic
+    // User details data object
     const orderData = {
         name: document.getElementById('name').value,
         pumpName: document.getElementById('pumpName').value,
         city: document.getElementById('city').value,
         whatsapp: document.getElementById('whatsapp').value,
         email: document.getElementById('email').value,
-        amount: price,
+        amount: price, // Current price variable
         status: "pending",
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
     };
 
     try {
-        // Details save karein
+        // Details Firestore ke 'orders' collection mein save karein
         await db.collection("orders").add(orderData);
         
+        // UPDATE: Payment section mein final amount text set karein
+        if(document.getElementById('pay-amount-text')) {
+            document.getElementById('pay-amount-text').innerText = '₹' + price;
+        }
+
         // Form hide karke payment dikhayein
         document.getElementById('details-form-section').style.display = 'none';
         document.getElementById('payment-section').style.display = 'block';
         window.scrollTo(0,0);
     } catch (error) {
-        alert("Details save nahi ho payi. Please try again.");
+        console.error("Save Error:", error);
+        alert("Details save nahi ho payi. Please check your internet and try again.");
+        
+        // Error aaye toh button wapas sahi kar dein
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Proceed to Payment";
     }
 });
 
@@ -486,11 +517,17 @@ document.getElementById('purchaseForm').addEventListener('submit', async functio
 function goBack() {
     document.getElementById('payment-section').style.display = 'none';
     document.getElementById('details-form-section').style.display = 'block';
+    
+    // Back aane par main button ko wapas enable kar dein
+    const mainBtn = document.querySelector('#purchaseForm button[type="submit"]');
+    if(mainBtn) {
+        mainBtn.disabled = false;
+        mainBtn.innerText = "Proceed to Payment";
+    }
 }
-
-// Button click trigger
-document.getElementById('pay-button').onclick = function(e) {
-    e.preventDefault();
+// 💰 FINAL PAYMENT TRIGGER
+function startPaymentProcess(e) {
+    if (e) e.preventDefault();
+    console.log("Starting payment for price:", price);
     openPayment();
-};
-</script>
+}
