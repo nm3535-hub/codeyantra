@@ -666,7 +666,7 @@
 
     async function updateLiveCounter() {
         try {
-            const snapshot = await db.collection("licenses").where("isUsed", "==", false).get();
+            const snapshot = await db.collection("license_keys").where("isUsed", "==", false).get();
             const available = snapshot.size;
             const total = 20; // Aapka total target
             const claimed = total - available;

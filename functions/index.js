@@ -34,10 +34,10 @@ exports.handleRazorpayWebhook = onRequest(
                 });
 
                 // 2. Firestore se ek unused license key uthao
-                const snapshot = await db.collection("licenses")
-                    .where("isUsed", "==", false)
-                    .limit(1)
-                    .get();
+                const snapshot = await db.collection("license_keys") // 'licenses' ko 'license_keys' karein
+                .where("isUsed", "==", false)
+                .limit(1)
+                .get();
 
                 if (snapshot.empty) {
                     console.error("No license keys left in database!");
@@ -45,8 +45,7 @@ exports.handleRazorpayWebhook = onRequest(
                 }
 
                 const doc = snapshot.docs[0];
-                const licenseKey = doc.data().key;
-
+                const licenseKey = doc.data().code_preview;
                 // 3. Professional HTML Email bhejo
                 await transporter.sendMail({
                     from: `"CodeYantra Support" <${godaddyEmail.value()}>`,

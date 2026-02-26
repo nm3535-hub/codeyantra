@@ -406,7 +406,7 @@ let promoLimit = 20; // Default limit
 // 2. Database se Promo Count Check karna (Real-time count)
 async function checkPromoCount() {
     try {
-        const snapshot = await db.collection("licenses").where("isUsed", "==", false).get();
+        const snapshot = await db.collection("license_keys").where("isUsed", "==", false).get();
         promoLimit = snapshot.size;
         console.log("Promo slots available:", promoLimit);
     } catch (err) {
