@@ -13,258 +13,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaskChat | Anonymous Social Discovery</title>
     <link rel="icon" type="image/png" href="assets/logo_1.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
         :root {
-            /* MaskChat Theme: Purple & Neon */
             --primary-purple: #4A00E0;
             --accent-pink: #8E2DE2;
-            --dark-bg: #1a0b2e;      /* Deep Purple/Black for Footer */
-            --light-bg: #fdfbff;     /* Very light purple tint */
-            --text-dark: #333333;
+            --dark-bg: #0a0e27;
+            --text-light: #e0e6ff;
+            --text-muted: #a0aac0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light-bg);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text-light); overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         a { text-decoration: none; }
 
-        /* --- HEADER --- */
+        /* --- HEADER (Clean & Fix) --- */
         header {
-            background: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: rgba(10, 14, 39, 0.9); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(142, 45, 226, 0.2);
         }
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
-        .nav-links a { color: var(--text-dark); font-weight: 500; margin-left: 25px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary-purple); }
+        .logo { display: flex; align-items: center; gap: 12px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: #fff; }
+        .logo img { height: 35px; width: auto; border-radius: 8px; }
+        .logo span { color: var(--accent-pink); }
+        .nav-links a { color: var(--text-muted); font-weight: 500; margin-left: 25px; transition: 0.3s; font-size: 0.9rem; }
+        .nav-links a:hover { color: #fff; text-shadow: 0 0 8px var(--accent-pink); }
 
-        /* --- HERO SECTION (Full Screen + m_banner) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            /* Using m_banner.png */
-            background: url('assets/m_banner.png') no-repeat top center;
-            background-size: cover;
-            background-attachment: fixed;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding: 100px 0 150px;
-            color: white;
+            background: linear-gradient(rgba(10, 14, 39, 0.7), rgba(10, 14, 39, 0.9)), 
+                        url('assets/m_banner.png') no-repeat center;
+            background-size: cover; background-attachment: fixed;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 80px 0;
         }
-
-        /* Dark Overlay to make neon text pop */
-        .hero-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(26, 11, 46, 0.8), rgba(74, 0, 224, 0.4));
-            z-index: 1;
-        }
-
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
-
+        .hero-content { max-width: 800px; }
         .app-icon {
-            width: 130px; 
-            background: rgba(255,255,255,0.1); 
-            backdrop-filter: blur(10px);
-            border-radius: 35px; 
-            padding: 15px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4); 
-            margin-bottom: 30px;
-            border: 2px solid rgba(142, 45, 226, 0.5); /* Purple Border */
+            width: 120px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            border-radius: 28px; padding: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); 
+            margin-bottom: 25px; border: 1px solid var(--accent-pink);
         }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; color: #fff; }
+        .hero p { font-size: 1.2rem; margin-bottom: 35px; color: var(--text-muted); }
 
-        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; text-shadow: 0 0 20px rgba(142, 45, 226, 0.6); }
-        .hero p { font-size: 1.4rem; margin-bottom: 40px; opacity: 0.95; line-height: 1.6; }
+        /* --- STYLISH PLAY BUTTON --- */
+        .play-store-btn {
+            display: inline-flex; align-items: center; gap: 15px;
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15); padding: 12px 28px;
+            border-radius: 18px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .play-store-btn:hover { transform: translateY(-6px); background: rgba(255, 255, 255, 0.12); border-color: var(--accent-pink); box-shadow: 0 15px 45px rgba(142, 45, 226, 0.3); }
+        .btn-icon { font-size: 2rem; color: #fff; background: linear-gradient(135deg, var(--accent-pink), var(--primary-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-text { text-align: left; line-height: 1.1; }
+        .btn-text span { font-size: 0.7rem; color: var(--text-muted); display: block; letter-spacing: 0.5px; }
+        .btn-text p { font-size: 1.3rem; color: #fff; font-weight: 700; margin: 0; }
 
-        /* Download Button */
-        .btn-download {
-            background: linear-gradient(135deg, var(--primary-purple), var(--accent-pink));
-            color: white;
-            padding: 18px 50px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            display: inline-flex; align-items: center; gap: 12px;
-            box-shadow: 0 15px 40px rgba(142, 45, 226, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            margin: 15px 10px;
-        }
-        .btn-download:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 20px 50px rgba(142, 45, 226, 0.6);
-            background: linear-gradient(135deg, var(--accent-pink), var(--primary-purple));
-        }
+        .badge { background: rgba(142, 45, 226, 0.2); color: #fff; padding: 6px 18px; border-radius: 50px; font-weight: 600; font-size: 0.8rem; margin-bottom: 20px; display: inline-block; border: 1px solid var(--accent-pink); }
 
-        .btn-explore {
-            background: transparent;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: inline-flex; align-items: center; gap: 10px;
-            border: 2px solid white;
-            transition: transform 0.3s, background 0.3s;
-        }
-        .btn-explore:hover { 
-            transform: translateY(-3px); 
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Coming Soon Badge */
-        .badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 20px; border-radius: 50px;
-            font-weight: bold; text-transform: uppercase;
-            font-size: 0.9rem; letter-spacing: 1px;
-            display: inline-block; margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.4);
-        }
-
-        /* APK Info Box */
-        .apk-info {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            border-radius: 20px;
-            margin-top: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
-            display: inline-block;
-        }
-        .apk-info p {
-            font-size: 0.95rem;
-            margin: 5px 0;
-            opacity: 0.9;
-        }
-
-        /* CURVE CONTAINER */
-        .curve-container {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 3;
-        }
-        .curve-container svg { display: block; width: 100%; height: 100px; }
-        
-        /* Matches Features Section Background */
-        .hero-curve { bottom: -1px; }
-
-        /* --- FEATURES SECTION --- */
-        .section { padding: 100px 0; background: #fff; position: relative; }
-        
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-tag { color: var(--primary-purple); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
-        .section-title { font-size: 2.5rem; color: var(--text-dark); font-weight: 700; }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .feature-card {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border: 1px solid rgba(0,0,0,0.05);
-            border-bottom: 4px solid var(--accent-pink); /* Pink/Purple Accent */
-            text-align: center;
-        }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        .feature-icon { 
-            font-size: 2.5rem; 
-            margin-bottom: 20px;
-            background: -webkit-linear-gradient(var(--accent-pink), var(--primary-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .feature-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #222; }
-        .feature-card p { color: #666; line-height: 1.6; }
-
-        /* --- MESSAGE SECTION --- */
-        .message-section {
-            background: #f9f9f9; padding: 80px 0; text-align: center;
-        }
+        /* --- FEATURES --- */
+        .section { padding: 80px 0; background: var(--dark-bg); }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .feature-card { background: rgba(26, 31, 58, 0.6); padding: 35px 25px; border-radius: 20px; transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
+        .feature-card:hover { transform: translateY(-8px); border-color: var(--accent-pink); background: rgba(26, 31, 58, 0.8); }
+        .feature-icon { font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-pink); }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 700; }
+        .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
 
         /* --- FOOTER --- */
-        footer {
-            background: var(--dark-bg);
-            color: white;
-            padding: 50px 0 30px;
-            position: relative;
-        }
-        
-        .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.7); transition: 0.3s; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
-
-        /* --- INSTALLATION GUIDE SECTION --- */
-        .install-guide {
-            background: linear-gradient(135deg, var(--primary-purple), var(--accent-pink));
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        .install-steps {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .step-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            min-width: 250px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .step-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, white, #e0e0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .step-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .step-card p { opacity: 0.9; line-height: 1.5; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .btn-download, .btn-explore { width: 100%; margin: 10px 0; }
-            .feature-grid { grid-template-columns: 1fr; }
-            .footer-links { flex-direction: column; gap: 15px; }
-            .install-steps { flex-direction: column; }
-        }
+        footer { padding: 50px 0 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
+        .footer-links a { color: var(--text-muted); font-size: 0.85rem; }
+        .footer-links a:hover { color: #fff; }
     </style>
 </head>
 <body>
@@ -272,154 +98,59 @@
     <header>
         <div class="container nav">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra
+                <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'"> 
+                CodeYantra <span>Technologies</span>
             </a>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="#features">Features</a>
-                <a href="maskchat_privacy_policy.html">Privacy & Safety</a>
+                <a href="maskchat_privacy_policy.html">Privacy</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <div class="badge">🚀 Download Now - Beta Version</div>
-            <br>
-            <img src="assets/maskchat_logo.png" alt="MaskChat Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/130?text=MaskChat'">
-            
+        <div class="hero-content">
+            <div class="badge">🚀 LIVE ON PLAY STORE</div><br>
+            <img src="assets/maskchat_logo.png" alt="MaskChat" class="app-icon" onerror="this.src='https://via.placeholder.com/120?text=App'">
             <h1>MaskChat</h1>
-            <p>Where connections happen naturally.<br><strong>Shake. Match. Groups.</strong><br><span style="font-size: 1rem; opacity: 0.8;">No swiping fatigue. Just pure conversation.</span></p>
+            <p>Connections happen naturally. <strong>Shake. Match. Groups.</strong><br>No swiping fatigue. Just pure conversation.</p>
             
-            <!-- Download Button -->
-            <a href="https://firebasestorage.googleapis.com/v0/b/fuelmate-pro-93101.firebasestorage.app/o/maskchat-v1.0.apk?alt=media&token=664a81f8-9fdb-41e8-a3b9-87060001837f" 
-               class="btn-download" 
-               download="maskchat-v1.0.apk">
-                <i class="fas fa-download"></i> Download APK (68.1 MB)
+            <a href="https://play.google.com/store/apps/details?id=com.codeyantra.maskchat" target="_blank" class="play-store-btn">
+                <div class="btn-icon"><i class="fab fa-google-play"></i></div>
+                <div class="btn-text"><span>GET IT ON</span><p>Google Play</p></div>
             </a>
-            
-            <a href="#features" class="btn-explore">
-                <i class="fas fa-arrow-down"></i> Explore Features
-            </a>
-            
-            <div class="apk-info">
-                <p><i class="fas fa-shield-alt"></i> 100% Safe & Verified</p>
-                <p><i class="fas fa-mobile-alt"></i> Android 8.0+ Required</p>
-            </div>
-        </div>
-
-        <div class="curve-container hero-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#ffffff"></path>
-            </svg>
         </div>
     </section>
 
     <section id="features" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Premium Experience</span>
-                <h2 class="section-title">Designed for Genuine Connections</h2>
-            </div>
-
             <div class="feature-grid">
-                <div class="feature-card">
-                    <i class="fas fa-mobile-alt feature-icon"></i>
-                    <h3>Shake to Connect</h3>
-                    <p>Why swipe when you can shake? Experience the thrill of finding someone new just by shaking your phone.</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-robot feature-icon"></i>
-                    <h3>AI Chat Partner</h3>
-                    <p>Feeling lonely? Chat with our caring, loving, and flirty AI companion who's always there to listen and engage.</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-sliders-h feature-icon"></i>
-                    <h3>Smart Matching</h3>
-                    <p>Find exactly who you're looking for. Filter connections by Age Group and Gender effortlessly.</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-map-marker-alt feature-icon"></i>
-                    <h3>Nearby & Global</h3>
-                    <p>Whether they are 200km away or across the globe, MaskChat brings you closer instantly.</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-users feature-icon"></i>
-                    <h3>Group Hangouts</h3>
-                    <p>Expand your circle. Create or join public groups based on your interests and build your community.</p>
-                </div>
-
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt feature-icon"></i>
-                    <h3>Safe Space</h3>
-                    <p>With AI-powered moderation and a strict 3-strike policy, we ensure a gentle and respectful community.</p>
-                </div>
+                <div class="feature-card"><i class="fas fa-mobile-alt feature-icon"></i><h3>Shake to Connect</h3><p>Find someone new just by shaking your phone.</p></div>
+                <div class="feature-card"><i class="fas fa-robot feature-icon"></i><h3>AI Chat Partner</h3><p>Chat with our caring AI companion anytime.</p></div>
+                <div class="feature-card"><i class="fas fa-shield-alt feature-icon"></i><h3>Safe Space</h3><p>AI-powered moderation for a respectful community.</p></div>
+                <div class="feature-card"><i class="fas fa-users feature-icon"></i><h3>Group Chats</h3><p>Create or join groups based on your interests.</p></div>
+                <div class="feature-card"><i class="fas fa-map-marker-alt feature-icon"></i><h3>Global Reach</h3><p>Connect with people across the globe instantly.</p></div>
+                <div class="feature-card"><i class="fas fa-sliders-h feature-icon"></i><h3>Smart Filters</h3><p>Filter connections by Age and Gender easily.</p></div>
             </div>
         </div>
     </section>
 
-    <section class="install-guide">
+    <footer>
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag" style="color: white;">Quick Start</span>
-                <h2 class="section-title" style="color: white;">How to Install</h2>
+            <div class="footer-links">
+                <a href="maskchat_privacy_policy.html">Privacy</a>
+                <a href="maskchat_privacy_policy.html">Terms</a>
+                <a href="app-ads.txt">app-ads.txt</a>
             </div>
-
-            <div class="install-steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Download APK</h3>
-                    <p>Click the download button above and save the file to your phone.</p>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Enable Unknown Sources</h3>
-                    <p>Go to Settings → Security → Allow "Install unknown apps" for your browser.</p>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Install & Enjoy</h3>
-                    <p>Open the downloaded file, tap "Install", and start chatting!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="message-section">
-        <div class="container">
-            <h2 style="color: #333; margin-bottom: 15px;">Be Gentle. Connect with Love.</h2>
-            <p style="color: #666; max-width: 600px; margin: 0 auto;">MaskChat is built for meaningful conversations. We encourage kindness and respect in every chat.</p>
-        </div>
-    </section>
-
-    <footer style="margin-top: 0;">
-        <div class="curve-container" style="top: -99px; height: 100px;">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#1a0b2e"></path>
-            </svg>
-        </div>
-
-        <div class="container" style="text-align: center;">
-            <div class="footer-content">
-                <h4 style="margin-bottom: 20px;">Legal & Safety</h4>
-                <div class="footer-links">
-                    <a href="maskchat_privacy_policy.html">Privacy Policy</a>
-                    <a href="maskchat_privacy_policy.html">Terms & Conditions</a>
-                    <a href="app-ads.txt">app-ads.txt</a>
-                </div>
-                <div class="footer-bottom">
-                    &copy; 2025 CodeYantra. All rights reserved.
-                </div>
+            <div style="opacity: 0.4; font-size: 0.8rem;">
+                &copy; <span id="current-year"></span> CodeYantra Technologies. All rights reserved.
             </div>
         </div>
     </footer>
 
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

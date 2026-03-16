@@ -11,155 +11,135 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaskChat - Privacy Policy & Terms</title>
+    <title>MaskChat Legal Center | CodeYantra Technologies</title>
     <link rel="icon" type="image/png" href="assets/logo_1.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
         :root {
-            /* MaskChat Theme */
             --primary-purple: #4A00E0;
             --accent-pink: #8E2DE2;
-            --dark-bg: #1a0b2e;
-            --light-bg: #fdfbff;
-            --text-dark: #333;
-            --eu-blue: #003399; /* EU Flag Color */
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #e0e6ff;
+            --text-muted: #a0aac0;
+            --alert-red: #ff4d4d;
+            --info-blue: #00d2ff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-main); 
+            line-height: 1.7; 
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        a { text-decoration: none; color: var(--primary-purple); font-weight: 600; }
-        a:hover { text-decoration: underline; }
+        /* Animated Background Spark */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(142, 45, 226, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
 
-        /* --- HEADER --- */
-        header {
-            background: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        .container { max-width: 950px; margin: 0 auto; padding: 0 25px; }
+
+        /* Header */
+        header { 
+            background: rgba(10, 14, 39, 0.85); 
+            backdrop-filter: blur(15px); 
+            position: sticky; top: 0; z-index: 1000; 
+            border-bottom: 1px solid rgba(142, 45, 226, 0.2);
         }
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
-        .nav-links a { color: var(--text-dark); font-weight: 500; margin-left: 25px; transition: 0.3s; text-decoration: none; }
-        .nav-links a:hover { color: var(--primary-purple); text-decoration: none; }
+        .logo { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem; font-weight: 800; 
+            color: #fff; display: flex; align-items: center; gap: 10px; 
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent-pink); }
 
-        /* --- HERO SECTION --- */
-        .hero-policy {
-            background: linear-gradient(135deg, var(--accent-pink), var(--primary-purple));
-            color: white;
-            padding: 80px 0 140px; 
+        /* Hero */
+        .hero-section {
+            padding: 100px 0 60px;
             text-align: center;
-            position: relative;
+            background: linear-gradient(to bottom, rgba(74, 0, 224, 0.15), transparent);
+        }
+        .hero-section h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 3rem; margin-bottom: 10px; 
+            background: linear-gradient(135deg, #fff 0%, var(--accent-pink) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .effective-date { color: var(--accent-pink); font-weight: 500; font-size: 0.9rem; margin-bottom: 20px; }
+
+        /* Main Content */
+        .legal-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         }
 
-        .hero-policy h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
-        .hero-policy p { opacity: 0.9; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-
-        /* CURVE STYLE */
-        .curve-container {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 3;
+        h2 { 
+            font-family: 'Montserrat', sans-serif;
+            color: #fff; margin-top: 50px; margin-bottom: 20px;
+            font-size: 1.7rem; display: flex; align-items: center; gap: 15px;
         }
-        .curve-container svg { display: block; width: 100%; height: 80px; }
-        .hero-curve { bottom: -1px; }
-
-        /* --- CONTENT SECTION --- */
-        .content-section {
-            background: var(--light-bg);
-            padding: 0 0 80px;
-            position: relative;
+        h2::after {
+            content: ""; flex: 1; height: 1px; 
+            background: linear-gradient(to right, rgba(142, 45, 226, 0.4), transparent);
         }
 
-        .policy-content {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            margin-top: -80px; /* Overlap effect */
-            position: relative;
-            z-index: 5;
-        }
-
-        .policy-content h2 { 
-            color: var(--primary-purple); 
-            margin-top: 40px; margin-bottom: 20px; 
-            font-size: 1.6rem; border-bottom: 2px solid rgba(74, 0, 224, 0.1); 
-            padding-bottom: 10px;
-        }
-        .policy-content h3 { color: #555; margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
-        .policy-content ul { padding-left: 20px; margin-bottom: 20px; }
-        .policy-content li { margin-bottom: 10px; color: #555; }
-        .policy-content p { margin-bottom: 15px; color: #555; }
+        h3 { color: var(--accent-pink); margin-top: 30px; margin-bottom: 15px; font-size: 1.2rem; }
+        p { margin-bottom: 20px; color: var(--text-muted); font-weight: 300; }
+        strong { color: #fff; font-weight: 600; }
+        
+        ul { margin-bottom: 25px; padding-left: 20px; }
+        li { margin-bottom: 12px; color: var(--text-muted); }
 
         /* Special Boxes */
         .alert-box {
-            background-color: #fff0f3;
-            border-left: 5px solid #d32f2f;
-            padding: 20px;
-            margin: 30px 0;
-            color: #b71c1c;
-            border-radius: 8px;
-            font-weight: 500;
+            background: rgba(255, 77, 77, 0.08);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            padding: 25px; border-radius: 15px; margin: 30px 0;
+            color: var(--alert-red); display: flex; align-items: center; gap: 15px;
         }
         .info-box {
-            background-color: #f3e5f5;
-            border-left: 5px solid var(--primary-purple);
-            padding: 20px;
-            margin: 25px 0;
-            color: #4a148c;
-            border-radius: 8px;
+            background: rgba(0, 210, 255, 0.05);
+            border-left: 4px solid var(--info-blue);
+            padding: 25px; border-radius: 0 15px 15px 0; margin: 30px 0;
         }
-        
-        /* EU Specific Box */
         .eu-box {
-            background-color: #e3f2fd;
-            border: 2px solid var(--eu-blue);
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-        .eu-box h2 { 
-            color: var(--eu-blue); 
-            border-bottom: none; 
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            background: rgba(74, 0, 224, 0.1);
+            border: 1px solid var(--primary-purple);
+            padding: 35px; border-radius: 20px; margin-top: 50px;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            background: var(--dark-bg);
-            color: white;
-            padding: 50px 0 30px;
-            position: relative;
-            margin-top: 0; 
+        a { color: var(--accent-pink); text-decoration: none; transition: 0.3s; }
+        a:hover { text-shadow: 0 0 10px var(--accent-pink); }
+
+        /* Footer */
+        footer { 
+            padding: 60px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); 
+            text-align: center; background: rgba(0,0,0,0.3);
         }
-        .footer-curve { top: -79px; height: 80px; }
-        .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.7); transition: 0.3s; text-decoration: none; font-weight: normal; }
-        .footer-links a:hover { color: white; text-decoration: none; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .footer-links a { color: var(--text-muted); font-size: 0.9rem; }
+        .footer-bottom { font-size: 0.8rem; color: var(--text-muted); opacity: 0.5; }
 
         @media (max-width: 768px) {
-            .hero-policy h1 { font-size: 2rem; }
-            .policy-content { padding: 25px; margin-top: -60px; }
-            .footer-links { flex-direction: column; gap: 15px; }
+            .legal-card { padding: 30px 20px; }
+            .hero-section h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -168,150 +148,100 @@
     <header>
         <div class="container nav">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra
+                <img src="assets/logo.png" alt="CodeYantra" style="height: 32px;"> 
+                CodeYantra <span>Technologies</span>
             </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="maskchat.html">MaskChat App</a>
-                <a href="index.html#contact">Contact</a>
+            <nav>
+                <a href="maskchat.html" style="color: var(--text-muted); font-size: 0.9rem;">Back to MaskChat</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero-policy">
+    <section class="hero-section">
         <div class="container">
             <h1>MaskChat Legal Center</h1>
-            <p>Transparency, Safety, and Trust are our core values.</p>
-        </div>
-
-        <div class="curve-container hero-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#ffffff"></path>
-            </svg>
+            <p class="effective-date">Effective Date: February 18, 2026</p>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">Transparency, Safety, and Trust are our core values. Please read these terms carefully before using our application.</p>
         </div>
     </section>
 
-    <section class="content-section">
-        <div class="container policy-content">
-            <p style="text-align: center; color: #888; margin-bottom: 30px;"><strong>Effective Date:</strong> February 18, 2026</p>
-            <p>Welcome to <strong>MaskChat</strong>. Please read these Terms and Policies carefully before using our application. By downloading or using the app, you agree to be bound by these terms.</p>
-
+    <main class="container">
+        <div class="legal-card">
             <h2>1. Privacy Policy</h2>
-            <p>This Privacy Policy explains how CodeYantra ("Service Provider", "we", "us") collects, uses, and protects your information.</p>
+            <p>This Privacy Policy explains how <strong>CodeYantra Technologies</strong> ("Service Provider", "we", "us") collects, uses, and protects your information.</p>
 
             <h3>1.1 Information We Collect</h3>
             <ul>
-                <li><strong>Location Data (Precise & Coarse):</strong> We collect your location data <em>only</em> when you actively use the "Shake & Connect" feature to find nearby users. This data is used for real-time matching and is not stored historically on our servers.</li>
-                <li><strong>Camera & Gallery Access:</strong> We request access to your device's camera and photo gallery to allow you to upload profile pictures or send images in chat. This data is only accessed when you explicitly choose to upload an image.</li>
-                <li><strong>Sensor Data (Accelerometer):</strong> We access your device's sensors (accelerometer/gyroscope) solely to detect the "Shake" gesture required to connect with new users. This sensor data is processed locally on your device.</li>
-                <li><strong>User Generated Content (UGC):</strong> Messages, profile photos, and other content you generate are processed securely through Google Firebase to enable chat functionality.</li>
-                <li><strong>Device & Identifiers:</strong> We collect IP addresses, Device IDs, and Advertising IDs to prevent fraud, enforce bans, and serve personalized advertisements.</li>
+                <li><strong>Location Data:</strong> Collected <em>only</em> when using "Shake & Connect". Not stored historically.</li>
+                <li><strong>Camera & Gallery:</strong> Accessed only for profile pictures or sending images in chat.</li>
+                <li><strong>Sensor Data:</strong> Accelerometer data processed locally for the "Shake" gesture.</li>
+                <li><strong>User Content:</strong> Messages and media processed securely through Google Firebase.</li>
+                <li><strong>Identifiers:</strong> IP, Device ID, and Ad IDs for security and monetization.</li>
             </ul>
 
             <h3>1.2 How We Use Your Data</h3>
-            <p>Your data is used to:</p>
-            <ul>
-                <li>Provide core functionality (messaging, matching nearby users).</li>
-                <li>Maintain safety and security (detecting spam, banning abusive users).</li>
-                <li>Display advertisements via Google AdMob (to keep the app free).</li>
-            </ul>
+            <p>Your data is used to provide core messaging, maintain safety (banning abusive users), and display advertisements via Google AdMob.</p>
 
-            <h3>1.3 Data Retention</h3>
-            <p>Chat messages, media, and metadata are automatically deleted from our servers after <strong>90 days</strong>. Inactive accounts may be removed after prolonged inactivity to ensure data minimization.</p>
-
-            <h3>1.4 Account Deletion</h3>
+            <h3>1.3 Data Retention & Deletion</h3>
+            <p>Messages and media are automatically deleted after <strong>90 days</strong>.</p>
             <div class="info-box">
-                <strong>Instant Deletion:</strong> You have the right to delete your account and all associated data instantly. Go to <strong>Settings > Delete Account</strong> within the app. This action is irreversible and permanently removes your profile, chats, and media from our servers immediately.<br><br>
-                <strong>Web Request:</strong> If you are unable to access the app, contact us at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a> with the subject line "Account Deletion Request".
+                <strong>Instant Deletion:</strong> You can delete your account and all associated data instantly via <strong>Settings > Delete Account</strong>. This is irreversible and immediate.
             </div>
 
-            <h2>2. Advertising & Monetization</h2>
-            <p>MaskChat is a Freemium service supported by advertisements.</p>
-            <ul>
-                <li><strong>Google AdMob:</strong> We use Google AdMob to serve ads. AdMob may use your device's Advertising ID to show personalized ads based on your interests.</li>
-                <li><strong>User Choice:</strong> You can manage your ad preferences in your device settings. For users in the EEA/UK, we comply with the IAB TCF framework via Google's User Messaging Platform (UMP).</li>
-            </ul>
+            <h2>2. Advertising</h2>
+            <p>MaskChat is supported by <strong>Google AdMob</strong>. You can manage personalized ad preferences in your device settings. For EU/UK users, we comply with the IAB TCF framework.</p>
 
             <h2>3. Child Safety & Zero Tolerance</h2>
             <div class="alert-box">
-                <i class="fas fa-exclamation-triangle"></i> <strong>STRICT POLICY: CHILD SEXUAL ABUSE MATERIAL (CSAM) IS PROHIBITED.</strong>
+                <i class="fas fa-exclamation-triangle fa-lg"></i>
+                <div>
+                    <strong>STRICT POLICY:</strong> Child Sexual Abuse Material (CSAM) is strictly prohibited. 
+                    Users must be <strong>18+ years old</strong>.
+                </div>
             </div>
-            <p>We are committed to the safety of minors. Our platform is strictly for users aged <strong>18 and above</strong>.</p>
-            <ul>
-                <li><strong>Automated Detection:</strong> We utilize automated moderation tools to detect and block nudity and CSAM in profile images.</li>
-                <li><strong>Reporting to Authorities:</strong> If any CSAM is detected, we will preserve the data and report it to the <strong>National Center for Missing & Exploited Children (NCMEC)</strong> and relevant law enforcement agencies immediately.</li>
-            </ul>
+            <p>We use automated moderation to block nudity. Any CSAM detected will be reported to <strong>NCMEC</strong> and law enforcement immediately.</p>
 
-            <h2>4. Terms of Service & Acceptable Use</h2>
-            <p>By using MaskChat, you agree to conduct yourself responsibly. The following behaviors are strictly prohibited:</p>
-            <ul>
-                <li><strong>Harassment & Bullying:</strong> Do not engage in targeted abuse or harassment.</li>
-                <li><strong>Hate Speech:</strong> Content promoting violence or hatred against individuals or groups.</li>
-                <li><strong>Illegal Activities:</strong> Do not use the app for scams, fraud, or selling illegal goods.</li>
-                <li><strong>Impersonation:</strong> Do not pretend to be someone else or a representative of MaskChat.</li>
-            </ul>
-
-            <h2>5. Limitation of Liability</h2>
-            <p>The Application is provided "AS IS" without warranties of any kind. To the maximum extent permitted by law, the Service Provider shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app.</p>
+            <h2>4. Acceptable Use</h2>
+            <p>Harassment, bullying, hate speech, illegal activities, and impersonation are strictly prohibited and will result in a permanent ban.</p>
 
             <div class="eu-box">
-                <h2><i class="fas fa-shield-alt"></i> For Users in the EU, EEA & UK (GDPR)</h2>
-                <p>If you are a resident of the European Economic Area (EEA), the UK, or Switzerland, you have specific rights regarding your personal data under the General Data Protection Regulation (GDPR).</p>
-                
-                <h3>8.1 Legal Basis for Processing</h3>
+                <h2 style="margin-top: 0; color: #fff;"><i class="fas fa-shield-alt"></i> GDPR Compliance (EU/UK)</h2>
+                <p>Residents of the EEA, UK, or Switzerland have specific rights:</p>
                 <ul>
-                    <li><strong>Consent:</strong> We process your location data and send notifications only with your explicit consent (which you can withdraw at any time in settings).</li>
-                    <li><strong>Contractual Necessity:</strong> We process your messages and profile data to fulfill our service of delivering chats to you.</li>
-                    <li><strong>Legitimate Interest:</strong> We process device identifiers for fraud prevention, security, and app analytics.</li>
+                    <li><strong>Legal Basis:</strong> Processing is based on Consent, Contractual Necessity, and Legitimate Interest.</li>
+                    <li><strong>Your Rights:</strong> Right to Access, Rectification, Erasure (Right to be Forgotten), and Portability.</li>
+                    <li><strong>Data Transfers:</strong> Protected by Standard Contractual Clauses (SCCs) via Google Firebase.</li>
                 </ul>
-
-                <h3>8.2 Your Rights</h3>
-                <p>You have the right to:</p>
-                <ul>
-                    <li><strong>Access & Portability:</strong> Request a copy of the personal data we hold about you.</li>
-                    <li><strong>Rectification:</strong> Correct any inaccurate data in your profile.</li>
-                    <li><strong>Erasure (Right to be Forgotten):</strong> Request deletion of your data (available instantly via the "Delete Account" button in the app).</li>
-                    <li><strong>Object to Processing:</strong> You may object to the processing of your data for marketing purposes.</li>
-                </ul>
-
-                <h3>8.3 International Data Transfers</h3>
-                <p>Your data is processed securely using <strong>Google Firebase</strong> infrastructure. Data transfers to servers outside the EEA are protected by Standard Contractual Clauses (SCCs) and robust security measures including encryption in transit and at rest.</p>
-
-                <h3>8.4 Contact & Complaints</h3>
-                <p>If you have concerns about your data, please contact our Data Protection Officer (DPO) at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a>. You also have the right to lodge a complaint with your local Data Protection Authority (DPA).</p>
+                <p>Contact our DPO at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a> for complaints.</p>
             </div>
 
-            <h2 style="margin-top: 40px;">6. Governing Law</h2>
+            <h2>5. Governing Law</h2>
             <p>These Terms shall be governed and construed in accordance with the laws of <strong>India</strong>.</p>
 
-            <h2>7. Contact Us</h2>
-            <p>If you have any questions about these Terms or our Privacy Policy, please contact us:</p>
-            <p><strong>Email:</strong> <a href="mailto:support@codeyantra.in">support@codeyantra.in</a></p>
-            <p><strong>Developer:</strong> CodeYantra Solutions</p>
+            <h2>6. Contact Us</h2>
+            <p><strong>Email:</strong> <a href="mailto:support@codeyantra.in">support@codeyantra.in</a><br>
+            <strong>Developer:</strong> CodeYantra Technologies</p>
         </div>
-    </section>
+    </main>
 
     <footer>
-        <div class="curve-container footer-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                 <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#1a0b2e"></path>
-            </svg>
-        </div>
-
-        <div class="container" style="text-align: center;">
-            <div class="footer-content">
-                <h4 style="margin-bottom: 20px;">Legal & Safety</h4>
-                <div class="footer-links">
-                    <a href="maskchat_privacy_policy.html" style="color:white; font-weight:normal;">Privacy Policy</a>
-                    <a href="maskchat_privacy_policy.html" style="color:white; font-weight:normal;">Terms & Conditions</a>
-                    <a href="app-ads.txt" style="color:white; font-weight:normal;">app-ads.txt</a>
-                </div>
-                <div class="footer-bottom">
-                    &copy; 2026 CodeYantra. All rights reserved.
-                </div>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="app-ads.txt">app-ads.txt</a>
             </div>
+            <div class="footer-bottom">
+    &copy; <span id="current-year"></span> CodeYantra Technologies. All rights reserved.
+</div>
         </div>
     </footer>
-
+<script>
+    // Ye code computer se aaj ka saal (year) nikaal kar 'current-year' wali jagah bhar dega
+    const yearSpan = document.getElementById('current-year');
+    if(yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+</script>
 </body>
 </html>

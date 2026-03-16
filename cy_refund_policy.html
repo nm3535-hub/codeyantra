@@ -3,47 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeYantra - Refund and Cancellation Policy</title>
+    <title>CodeYantra Technologies - Refund and Cancellation Policy</title>
     <link rel="icon" type="image/png" href="assets/logo_1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        :root { --primary: #0056b3; --dark: #001f5b; --light: #f4f7fb; --text-color: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--text-color); line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        a { text-decoration: none; color: var(--primary); font-weight: 600; }
+        :root { 
+            --primary: #00d4ff; 
+            --dark-bg: #0a0e27; 
+            --dark-secondary: #1a1f3a; 
+            --dark-tertiary: #252d47; 
+            --text-light: #e0e6ff; 
+            --text-muted: #a0aac0;
+            --accent: #8338ec;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--dark-bg); 
+            color: var(--text-light); 
+            line-height: 1.8;
+        }
+
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+
+        a { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
         
-        header { background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 10px; }
-        .nav-links a { color: var(--text-color); margin-left: 25px; font-weight: 500; text-decoration: none; }
+        /* HEADER */
+        header { 
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
 
-        .hero-policy { background: linear-gradient(135deg, var(--dark), var(--primary)); color: white; padding: 100px 0 160px; text-align: center; position: relative; }
-        .hero-policy h1 { font-size: 2.8rem; font-weight: 800; }
+        .nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 18px 0; 
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: var(--text-light); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a { 
+            color: var(--text-light); 
+            margin-left: 30px; 
+            font-weight: 500; 
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO SECTION */
+        .hero-policy { 
+            background: linear-gradient(135deg, rgba(10, 14, 39, 1), rgba(131, 56, 236, 0.2));
+            color: var(--text-light); 
+            padding: 80px 0; 
+            text-align: center; 
+            position: relative;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .hero-policy h1 { 
+            font-size: 2.5rem; 
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .hero-policy p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* POLICY CONTENT */
+        .policy-content { 
+            background: rgba(37, 45, 71, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 50px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+            margin: 60px auto; 
+            position: relative; 
+            z-index: 5;
+        }
+
+        .policy-content h2 { 
+            color: var(--primary); 
+            margin-top: 40px; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2); 
+            padding-bottom: 15px; 
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .policy-content h3 { 
+            color: var(--text-light); 
+            margin-top: 25px; 
+            margin-bottom: 15px; 
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .policy-content ul { 
+            padding-left: 25px; 
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .policy-content ul li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .policy-content p { 
+            margin-bottom: 15px; 
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .policy-content strong {
+            color: var(--text-light);
+        }
+
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        footer { 
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-light); 
+            padding: 50px 0 30px; 
+            position: relative; 
+            margin-top: 0;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .footer-links { 
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a { 
+            color: rgba(255,255,255,0.7); 
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom { 
+            text-align: center; 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            opacity: 0.6; 
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
         
-        .curve-container { position: absolute; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 3; }
-        .curve-container svg { display: block; width: 100%; height: 100px; }
-        .hero-curve { bottom: -1px; }
+        /* RESPONSIVE */
+        @media (max-width: 768px) { 
+            .hero-policy h1 {
+                font-size: 1.8rem;
+            }
 
-        .policy-content { background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-top: -100px; position: relative; z-index: 5; margin-bottom: 80px; }
-        .policy-content h2 { color: var(--primary); margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.5em; }
-        .policy-content ul { padding-left: 20px; margin-bottom: 15px; }
-        .policy-content p { margin-bottom: 15px; text-align: justify; }
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-        footer { background: var(--dark); color: white; padding: 50px 0 30px; position: relative; margin-top: 0; }
-        .footer-curve { top: -99px; height: 100px; }
-        .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.7); font-weight: normal; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
+            .nav-links a {
+                margin-left: 0;
+            }
+
+            .policy-content {
+                padding: 30px;
+            }
+
+            .footer-links { 
+                flex-direction: column; 
+                gap: 15px; 
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container nav">
-            <a href="index.html" class="logo"><img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra</a>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="CodeYantra Technologies" style="height: 30px;"> CodeYantra
+            </a>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="index.html#products">Products</a>
@@ -54,61 +270,129 @@
 
     <section class="hero-policy">
         <div class="container">
-            <h1>CodeYantra - Refund and Cancellation Policy</h1>
-            <p>Terms regarding subscriptions and payments.</p>
-        </div>
-        <div class="curve-container hero-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#ffffff"></path>
-            </svg>
+            <h1><i class="fas fa-undo"></i> Refund and Cancellation Policy</h1>
+            <p>Transparent and customer-friendly refund policies for all CodeYantra Technologies products and services.</p>
         </div>
     </section>
 
-    <div class="container policy-content">
-        <p>This policy applies to the mobile application **CodeYantra** and its digital subscription services.</p>
+    <div class="container">
+        <div class="policy-content">
+            <h2>1. Refund Eligibility</h2>
+            <p>CodeYantra Technologies offers refunds under the following conditions:</p>
+            <ul>
+                <li>Refund requests must be made within <strong>30 days</strong> of purchase</li>
+                <li>The product or service must not have been fully utilized or accessed</li>
+                <li>The refund request must include a valid reason for cancellation</li>
+                <li>For subscription services, refunds are available if the service has not been actively used</li>
+            </ul>
 
-        <h2>1. Subscription and Charges</h2>
-        <p>CodeYantra provides a digital subscription service. Payments made by you ensure continuous access to the special features of the app on a [Monthly/Quarterly/Annual] basis.</p>
+            <h2>2. Non-Refundable Items</h2>
+            <p>The following items and services are <strong>non-refundable</strong>:</p>
+            <ul>
+                <li>Products or services that have been fully accessed or utilized</li>
+                <li>Refund requests made after 30 days of purchase</li>
+                <li>Purchases made with promotional or discount codes (unless specified otherwise)</li>
+                <li>Custom development or consulting services that have been initiated</li>
+                <li>Digital products that have been downloaded or accessed</li>
+            </ul>
 
-        <h2>2. Refund Policy</h2>
-        <ul>
-            <li><strong>No Refunds After Payment:</strong> Since our services are digital and access is granted instantly upon payment processing, **no partial or full refunds will be issued under any circumstances** once the payment is processed. Users are requested to fully evaluate the service nature and quality before making a purchase.</li>
-            <li>The absence of app usage during the subscription period does not qualify for a refund.</li>
-        </ul>
+            <h2>3. Refund Process</h2>
+            <p>To request a refund, please follow these steps:</p>
+            <ul>
+                <li><strong>Step 1:</strong> Contact our support team at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a></li>
+                <li><strong>Step 2:</strong> Provide your order number, purchase date, and reason for refund</li>
+                <li><strong>Step 3:</strong> Our team will review your request within 5-7 business days</li>
+                <li><strong>Step 4:</strong> If approved, the refund will be processed to your original payment method</li>
+                <li><strong>Step 5:</strong> Refunds typically appear in your account within 7-14 business days</li>
+            </ul>
 
-        <h2>3. Cancellation Policy</h2>
-        <ul>
-            <li><strong>Subscription Cancellation:</strong> Users may choose to cancel their subscription at any time.</li>
-            <li><strong>Continuation of Service:</strong> If a user cancels the subscription, they will continue to have access to the special features of the app until the end of the current paid period.</li>
-            <li><strong>No Pro-Rata Refund:</strong> No partial or pro-rata refund will be provided for any unused portion of a subscription term following cancellation.</li>
-        </ul>
+            <div class="highlight-box">
+                <strong><i class="fas fa-info-circle"></i> Note:</strong> Refund processing time depends on your bank or payment provider. We recommend contacting them if you don't see the refund within 14 days.
+            </div>
 
-        <h2>4. Technical Exception</h2>
-        <ul>
-            <li><strong>Technical Failure:</strong> Refunds may only be considered in the event of a severe technical failure originating from CodeYantra's side, preventing the user from accessing the service for a continuous period exceeding **72 hours**.</li>
-            <li>Any refund under this exception is **solely at the discretion of CodeYantra management**.</li>
-        </ul>
+            <h2>4. Subscription Cancellation</h2>
+            <p>For subscription-based services:</p>
+            <ul>
+                <li>You can cancel your subscription at any time</li>
+                <li>Cancellation takes effect at the end of your current billing cycle</li>
+                <li>No refund is provided for the current billing period</li>
+                <li>You will retain access to the service until the end of your billing cycle</li>
+                <li>To cancel, contact support or use the cancellation option in your account settings</li>
+            </ul>
 
-        <h2>5. Dispute Resolution</h2>
-        <p>For any questions regarding refunds or cancellations, please contact us within **7 days** of the payment date at the following email address:</p>
-        <p>Email: <a href="mailto:codeyantra.net@gmail.com">codeyantra.net@gmail.com</a></p>
+            <h2>5. Partial Refunds</h2>
+            <p>Partial refunds may be considered in the following cases:</p>
+            <ul>
+                <li>Service was partially used or accessed</li>
+                <li>Technical issues prevented full use of the service</li>
+                <li>Product did not meet specifications as described</li>
+            </ul>
+            <p>Partial refund amounts will be determined on a case-by-case basis by our support team.</p>
+
+            <h2>6. Refund for Defective Products</h2>
+            <p>If you receive a defective product or service:</p>
+            <ul>
+                <li>Report the issue within 7 days of purchase</li>
+                <li>Provide photographic or video evidence of the defect</li>
+                <li>We will offer a replacement or full refund at your choice</li>
+                <li>Return shipping costs will be covered by CodeYantra Technologies</li>
+            </ul>
+
+            <h2>7. Technical Issues and Service Failures</h2>
+            <p>If you experience technical issues or service failures:</p>
+            <ul>
+                <li>Contact our support team immediately at <a href="mailto:support@codeyantra.in">support@codeyantra.in</a></li>
+                <li>We will attempt to resolve the issue within 24-48 hours</li>
+                <li>If the issue cannot be resolved, a full or partial refund may be offered</li>
+                <li>For critical failures, we may provide service credits instead of refunds</li>
+            </ul>
+
+            <h2>8. Exceptions and Special Cases</h2>
+            <p>CodeYantra Technologies reserves the right to deny refunds in cases of:</p>
+            <ul>
+                <li>Fraudulent or suspicious transactions</li>
+                <li>Violation of terms and conditions</li>
+                <li>Abuse of the refund policy</li>
+                <li>Requests made with false or misleading information</li>
+            </ul>
+
+            <h2>9. Refund Policy Changes</h2>
+            <p>CodeYantra Technologies may update this refund policy at any time. Changes will be effective immediately upon posting to the website. Your continued use of our services indicates your acceptance of any changes to this policy.</p>
+
+            <h2>10. Contact Us</h2>
+            <p>For refund requests or questions about this policy, please contact:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:support@codeyantra.in">support@codeyantra.in</a></li>
+                <li><strong>Telegram:</strong> <a href="https://t.me/codeyantrabot" target="_blank">@codeyantrabot</a></li>
+                <li><strong>Website:</strong> <a href="index.html">CodeYantra Technologies</a></li>
+            </ul>
+
+            <p style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(0, 212, 255, 0.1); color: var(--text-muted); font-size: 0.9rem;">
+                <strong>Last Updated:</strong> March 2026<br>
+                This Refund and Cancellation Policy is effective as of the date listed above and applies to all purchases from CodeYantra Technologies.
+            </p>
+        </div>
     </div>
 
     <footer>
-        <div class="curve-container footer-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                 <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#001f5b"></path>
-            </svg>
-        </div>
         <div class="container">
             <div class="footer-links">
+                <a href="index.html">Home</a>
                 <a href="cy_privacy_policy.html">Privacy Policy</a>
                 <a href="cy_term_conditions.html">Terms of Service</a>
-                <a href="cy_refund_policy.html">Refund Policy</a>
+                <a href="index.html#contact">Contact</a>
             </div>
-            <div class="footer-bottom">&copy; 2025 CodeYantra. All rights reserved.</div>
+            <div class="footer-bottom">
+    &copy; <span id="current-year"></span> CodeYantra Technologies. All rights reserved.
+</div>
         </div>
     </footer>
-
+<script>
+    // Ye code computer se aaj ka saal (year) nikaal kar 'current-year' wali jagah bhar dega
+    const yearSpan = document.getElementById('current-year');
+    if(yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+</script>
 </body>
 </html>

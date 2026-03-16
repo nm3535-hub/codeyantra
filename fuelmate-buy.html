@@ -398,6 +398,7 @@
                     <button onclick="goBack()" style="background: none; border: none; color: #666; margin-top: 20px; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 0.9rem;">
                         <i class="fas fa-edit"></i> Edit Details
                     </button>
+                    
                 </div>
 
                 <script>
@@ -535,6 +536,18 @@ function startPaymentProcess(e) {
             </div> <!-- /form-section -->
         </div> <!-- /checkout-card -->
     </main>
+
+    <footer>
+        &copy; <span id="current-year"></span> CodeYantra Technologies. All rights reserved.
+    </footer>
+
+    <script>
+        // Ab ye sahi se kaam karega kyunki 'current-year' upar define ho chuka hai
+        const yearSpan = document.getElementById('current-year');
+        if(yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
 
 </body>
 </html>

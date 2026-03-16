@@ -3,142 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions | FuelMate</title>
+    <title>Terms & Conditions | FuelMate | CodeYantra Technologies</title>
     <link rel="icon" type="image/png" href="assets/logo_1.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
         :root {
-            --fuel-orange: #FF8008;
-            --dark-blue: #001f5b;
-            --light-bg: #fff;
-            --text-dark: #333;
+            --primary-orange: #FF8008;
+            --dark-bg: #0a0e27; /* Deep Navy International Look */
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #e0e6ff;
+            --text-muted: #a0aac0;
+            --border-glow: rgba(255, 128, 8, 0.2);
         }
-        body { font-family: 'Poppins', sans-serif; background: #f9f9f9; color: var(--text-dark); margin: 0; padding: 0; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        a { text-decoration: none; color: var(--fuel-orange); font-weight: 600; }
 
-        /* HEADER */
-        header { background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-main); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 128, 8, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 25px; }
+
+        /* Header */
+        header { 
+            background: rgba(10, 14, 39, 0.8); 
+            backdrop-filter: blur(15px); 
+            position: sticky; top: 0; z-index: 1000; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 10px; }
-        .nav-links a { color: var(--text-dark); margin-left: 25px; font-weight: 500; text-decoration: none; }
-        .nav-links a:hover { color: var(--fuel-orange); }
-
-        /* HERO */
-        .hero-legal {
-            background: linear-gradient(135deg, #FF8008, #FFC837);
-            color: white; padding: 80px 0 140px; text-align: center; position: relative;
+        .logo { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem; font-weight: 800; 
+            color: #fff; display: flex; align-items: center; gap: 10px; 
+            text-decoration: none;
         }
-        .hero-legal h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
-        
-        .curve-container { position: absolute; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 3; }
-        .curve-container svg { display: block; width: 100%; height: 100px; }
-        .hero-curve { bottom: -1px; }
+        .logo span { color: var(--primary-orange); }
 
-        /* CONTENT */
-        .legal-content {
-            background: white; padding: 50px; border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-top: -100px; position: relative; z-index: 5; margin-bottom: 80px;
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(255, 128, 8, 0.1), transparent);
         }
-        .legal-content h2 { color: var(--fuel-orange); margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 1.5em; }
-        .meta-info { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 40px; display: block; }
-        .legal-content p { margin-bottom: 15px; text-align: justify; }
-        .legal-content ul { padding-left: 20px; margin-bottom: 15px; }
+        .hero-section h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 3rem; margin-bottom: 10px; 
+            letter-spacing: -1px;
+        }
+        .effective-date { color: var(--primary-orange); font-weight: 500; font-size: 0.9rem; opacity: 0.8; }
 
-        /* FOOTER */
-        footer { background: var(--dark-blue); color: white; padding: 50px 0 30px; position: relative; margin-top: 0; }
-        .footer-curve { top: -99px; height: 100px; }
-        .footer-links { list-style: none; display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.7); font-weight: normal; }
-        .footer-links a:hover { color: white; }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; font-size: 0.9rem; }
+        /* Main Content Card */
+        .legal-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 80px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .meta-info { 
+            background: rgba(255, 128, 8, 0.1); 
+            padding: 10px 20px; border-radius: 50px; 
+            display: inline-block; font-size: 0.8rem; 
+            margin-bottom: 30px; border: 1px solid var(--border-glow);
+        }
+
+        h2 { 
+            font-family: 'Montserrat', sans-serif;
+            color: #fff; margin-top: 45px; margin-bottom: 20px;
+            font-size: 1.6rem; display: flex; align-items: center; gap: 12px;
+        }
+        h2::before {
+            content: ""; width: 4px; height: 24px; 
+            background: var(--primary-orange); border-radius: 2px; display: inline-block;
+        }
+
+        p { margin-bottom: 20px; color: var(--text-muted); font-weight: 300; }
+        strong { color: #fff; font-weight: 600; }
         
-        @media (max-width: 768px) { .footer-links { flex-direction: column; gap: 15px; } }
+        ul { margin-bottom: 25px; padding-left: 20px; }
+        li { margin-bottom: 10px; color: var(--text-muted); }
+        
+        a { color: var(--primary-orange); text-decoration: none; transition: 0.3s; }
+        a:hover { text-shadow: 0 0 8px var(--primary-orange); }
+
+        /* Footer */
+        footer { 
+            padding: 60px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); 
+            text-align: center; background: rgba(0,0,0,0.2);
+        }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .footer-links a { color: var(--text-muted); font-size: 0.9rem; font-weight: 400; }
+        .footer-bottom { font-size: 0.8rem; color: var(--text-muted); opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .legal-card { padding: 30px 20px; }
+            .hero-section h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container nav">
-            <a href="index.html" class="logo"><img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra</a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="fuelmate.html">FuelMate</a>
-                <a href="fuelmate_policy.html">Privacy Policy</a>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="CodeYantra" style="height: 32px;"> 
+                CodeYantra <span>Technologies</span>
+            </a>
+            <nav>
+                <a href="index.html" style="color: var(--text-muted); font-size: 0.9rem;">Back to Home</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero-legal">
+    <section class="hero-section">
         <div class="container">
             <h1>Terms & Conditions</h1>
-            <p>Effective Date: 2025-10-28</p>
-        </div>
-        <div class="curve-container hero-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#ffffff"></path>
-            </svg>
+            <p class="effective-date">Effective Date: October 28, 2025</p>
         </div>
     </section>
 
-    <div class="container legal-content">
-        <p class="meta-info"><strong>Application:</strong> FUELMATE Dip & Density (CODEYANTRA)</p>
+    <main class="container">
+        <div class="legal-card">
+            <div class="meta-info">Application: <strong>FUELMATE Dip & Density</strong></div>
 
-        <p>These terms and conditions apply to the <strong>Fuelmate Dip & Density</strong> app (hereby referred to as "Application") for mobile devices that was created by <strong>Code-Yantra</strong> (hereby referred to as "Service Provider") as an Ad Supported service.</p>
+            <p>These terms and conditions apply to the <strong>Fuelmate Dip & Density</strong> app (hereby referred to as "Application") for mobile devices that was created by <strong>CodeYantra Technologies</strong> (hereby referred to as "Service Provider") as an Ad Supported service.</p>
 
-        <p>Upon downloading or utilizing the Application, you are automatically agreeing to the following terms. It is strongly advised that you thoroughly read and understand these terms prior to using the Application.</p>
+            <p>Upon downloading or utilizing the Application, you are automatically agreeing to the following terms. It is strongly advised that you thoroughly read and understand these terms prior to using the Application.</p>
 
-        <h2>1. Intellectual Property</h2>
-        <p>Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p>
+            <h2>1. Intellectual Property</h2>
+            <p>Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p>
 
-        <h2>2. Service Modifications</h2>
-        <p>The Service Provider is dedicated to ensuring that the Application is as beneficial and efficient as possible. As such, they reserve the right to modify the Application or charge for their services at any time and for any reason. The Service Provider assures you that any charges for the Application or its services will be clearly communicated to you.</p>
+            <h2>2. Service Modifications</h2>
+            <p>The Service Provider is dedicated to ensuring that the Application is as beneficial and efficient as possible. As such, they reserve the right to modify the Application or charge for their services at any time and for any reason. The Service Provider assures you that any charges for the Application or its services will be clearly communicated to you.</p>
 
-        <h2>3. Data Security & Device Usage</h2>
-        <p>The Application stores and processes personal data that you have provided to the Service Provider in order to provide the Service. It is your responsibility to maintain the security of your phone and access to the Application.</p>
-        <p>The Service Provider strongly advises against jailbreaking or rooting your phone, which involves removing software restrictions and limitations imposed by the official operating system of your device. Such actions could expose your phone to malware, viruses, malicious programs, compromise your phone's security features, and may result in the Application not functioning correctly or at all.</p>
+            <h2>3. Data Security & Device Usage</h2>
+            <p>The Application stores and processes personal data that you have provided to the Service Provider in order to provide the Service. It is your responsibility to maintain the security of your phone and access to the Application.</p>
+            <p>The Service Provider strongly advises against jailbreaking or rooting your phone. Such actions could expose your phone to malware, viruses, malicious programs, compromise your phone's security features, and may result in the Application not functioning correctly.</p>
 
-        <h2>4. Third-Party Services</h2>
-        <p>Please note that the Application utilizes third-party services that have their own Terms and Conditions. Below are the links to the Terms and Conditions of the third-party service providers used by the Application:</p>
-        <ul>
-            <li><a href="https://developers.google.com/admob/terms" target="_blank">AdMob</a></li>
-        </ul>
+            <h2>4. Third-Party Services</h2>
+            <p>Please note that the Application utilizes third-party services that have their own Terms and Conditions:</p>
+            <ul>
+                <li><a href="https://developers.google.com/admob/terms" target="_blank"><i class="fa-solid fa-link"></i> AdMob Terms & Conditions</a></li>
+            </ul>
 
-        <h2>5. Connectivity & Charges</h2>
-        <p>Please be aware that the Service Provider does not assume responsibility for certain aspects. Some functions of the Application require an active internet connection, which can be Wi-Fi or provided by your mobile network provider. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.</p>
-        <p>If you are using the application outside of a Wi-Fi area, please be aware that your mobile network provider's agreement terms still apply. Consequently, you may incur charges from your mobile provider for data usage during the connection to the application, or other third-party charges. By using the application, you accept responsibility for any such charges, including roaming data charges if you use the application outside of your home territory (i.e., region or country) without disabling data roaming.</p>
+            <h2>5. Connectivity & Charges</h2>
+            <p>Some functions of the Application require an active internet connection (Wi-Fi or Mobile Data). The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.</p>
+            <p>By using the application, you accept responsibility for any charges from your mobile provider, including roaming data charges if used outside of your home territory.</p>
 
-        <h2>6. Limitations of Liability</h2>
-        <p>The Service Provider cannot always assume responsibility for your usage of the application. For instance, it is your responsibility to ensure that your device remains charged. If your device runs out of battery and you are unable to access the Service, the Service Provider cannot be held responsible.</p>
-        <p>In terms of the Service Provider's responsibility for your use of the application, it is important to note that while they strive to ensure that it is updated and accurate at all times, they do rely on third parties to provide information to them so that they can make it available to you. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying entirely on this functionality of the application.</p>
+            <h2>6. Limitations of Liability</h2>
+            <p>The Service Provider cannot always assume responsibility for your usage of the application. For instance, it is your responsibility to ensure that your device remains charged. </p>
+            <p>While we strive for accuracy, we rely on third parties to provide information. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying entirely on the functionality of the application.</p>
 
-        <h2>7. Updates & Termination</h2>
-        <p>The Service Provider may wish to update the application at some point. The application is currently available as per the requirements for the operating system (and for any additional systems they decide to extend the availability of the application to) may change, and you will need to download the updates if you want to continue using the application. The Service Provider does not guarantee that it will always update the application so that it is relevant to you and/or compatible with the particular operating system version installed on your device. However, you agree to always accept updates to the application when offered to you. The Service Provider may also wish to cease providing the application and may terminate its use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the application, and (if necessary) delete it from your device.</p>
+            <h2>7. Updates & Termination</h2>
+            <p>The Service Provider may wish to update the application at some point. You agree to always accept updates when offered. The Service Provider may also cease providing the application and may terminate its use at any time without prior notice.</p>
 
-        <h2>8. Changes to These Terms</h2>
-        <p>The Service Provider may periodically update their Terms and Conditions. Therefore, you are advised to review this page regularly for any changes. The Service Provider will notify you of any changes by posting the new Terms and Conditions on this page.</p>
+            <h2>8. Changes to These Terms</h2>
+            <p>We may periodically update our Terms and Conditions. You are advised to review this page regularly. We will notify you of any changes by posting the new Terms on this page.</p>
 
-        <h2>9. Contact Us</h2>
-        <p>If you have any questions or suggestions about the Terms and Conditions, please do not hesitate to contact the Service Provider at <a href="mailto:codeyantra.net@gmail.com">codeyantra.net@gmail.com</a>.</p>
-    </div>
+            <h2>9. Contact Us</h2>
+            <p>If you have any questions or suggestions, please contact CodeYantra Technologies at: <br>
+            <a href="mailto:codeyantra.net@gmail.com" style="font-size: 1.2rem; display: block; margin-top: 10px;">
+                <i class="fa-solid fa-envelope"></i> codeyantra.net@gmail.com
+            </a></p>
+        </div>
+    </main>
 
     <footer>
-        <div class="curve-container footer-curve">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                 <path d="M0,60 C400,140 800,20 1200,90 L1200,120 L0,120 Z" fill="#001f5b"></path>
-            </svg>
-        </div>
         <div class="container">
             <div class="footer-links">
-                <a href="fuelmate_terms.html">Terms & Conditions</a>
+                <a href="fuelmate_terms.html">Terms</a>
                 <a href="disclaimer.html">Disclaimer</a>
-                <a href="app-ads.txt">app-ads.txt</a>
+                <a href="privacy.html">Privacy Policy</a>
             </div>
-            <div class="footer-bottom">&copy; 2025 CodeYantra. All rights reserved.</div>
+            <div class="footer-bottom">
+    &copy; <span id="current-year"></span> CodeYantra Technologies. All rights reserved.
+</div>
         </div>
     </footer>
-
+<script>
+    // Ye code computer se aaj ka saal (year) nikaal kar 'current-year' wali jagah bhar dega
+    const yearSpan = document.getElementById('current-year');
+    if(yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+</script>
 </body>
 </html>
