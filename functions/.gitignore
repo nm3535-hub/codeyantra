@@ -1,2 +1,38 @@
+# Dependency directories
 node_modules/
+
+# Environment variables (Most Important)
+.env
+.env.local
+.env.production
+.env.development
 *.local
+
+# Firebase specific
+.firebase/
+firebaselog.log
+firebase-debug.log*
+ui-debug.log*
+
+# Build and Dist
+dist/
+build/
+lib/
+
+# Logs and runtime
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor specific (VS Code)
+.vscode/
+.history/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.index
+*.cache

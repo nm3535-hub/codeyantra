@@ -2,19 +2,24 @@ const { onRequest } = require("firebase-functions/v2/https");
 const { defineSecret } = require("firebase-functions/params");
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
-const axios = require("axios"); // Telegram ke liye axios add kiya hai
+const axios = require("axios");
 
 admin.initializeApp();
 
+// 🔐 Defining Secrets (Inhe .env file ya CLI se set kiya jata hai)
 const godaddyEmail = defineSecret("GODADDY_EMAIL");
 const godaddyPass = defineSecret("GODADDY_PASSWORD");
+
 
 // 🛡️ Telegram Bot Details (Yahan apni details bharein)
 const TELEGRAM_TOKEN = "";
 const TELEGRAM_CHAT_ID = "";
+const telegramToken = defineSecret("TELEGRAM_TOKEN");
+const telegramChatId = defineSecret("TELEGRAM_CHAT_ID");
 
 exports.handleRazorpayWebhook = onRequest(
-    { secrets: [godaddyEmail, godaddyPass] },
+    // 🛡️ Sabhi secrets ko list mein add karna zaroori hai
+    { secrets: [godaddyEmail, godaddyPass, telegramToken, telegramChatId] },
     async (req, res) => {
         const event = req.body.event;
         const payment = req.body.payload.payment.entity;
@@ -41,10 +46,10 @@ exports.handleRazorpayWebhook = onRequest(
                     .where("isUsed", "==", false).limit(1).get();
                 
                 if (keySnapshot.empty) {
-                    // 🚨 Stock khatam ho gaya toh alert bhejo
-                    await axios.post(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: "⚠️ ALERT: License keys exhausted! Customer paid but didn't get a key."
+                    // 🚨 Stock khatam ho gaya toh alert bhejo (Secrets used here)
+                    await axios.post(`https://api.telegram.org/bot${telegramToken.value()}/sendMessage`, {
+                        chat_id: telegramChatId.value(),
+                        text: `⚠️ ALERT: License keys exhausted! Customer (${targetEmail}) paid but didn't get a key.`
                     });
                     return res.status(500).send("No keys available");
                 }
@@ -94,7 +99,7 @@ exports.handleRazorpayWebhook = onRequest(
                 // 5. Database Batch Update
                 const batch = db.batch();
                 batch.update(keyDoc.ref, {
-                    isUsed: false, // User app se true karega
+                    isUsed: false, 
                     status: "assigned",
                     assignedTo: targetEmail,
                     paymentId: payment.id,
@@ -108,10 +113,10 @@ exports.handleRazorpayWebhook = onRequest(
                 });
                 await batch.commit();
 
-                // 🚀 6. Telegram Instant Alert
+                // 🚀 6. Telegram Instant Alert (Secrets used here)
                 const msg = `🚀 *New Sale Alert!*\n\n👤 *Customer:* ${orderData.name}\n⛽ *Pump:* ${orderData.pumpName}\n💰 *Amount:* ₹${orderData.amount}\n🔑 *Key:* ${licenseKey}`;
-                await axios.post(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-                    chat_id: TELEGRAM_CHAT_ID,
+                await axios.post(`https://api.telegram.org/bot${telegramToken.value()}/sendMessage`, {
+                    chat_id: telegramChatId.value(),
                     text: msg,
                     parse_mode: "Markdown"
                 });
