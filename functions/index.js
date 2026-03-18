@@ -10,8 +10,8 @@ const godaddyEmail = defineSecret("GODADDY_EMAIL");
 const godaddyPass = defineSecret("GODADDY_PASSWORD");
 
 // 🛡️ Telegram Bot Details (Yahan apni details bharein)
-const TELEGRAM_TOKEN = "8121448807:AAH2Fp1jRWlyyFLfB5LjFDK6Oyjf_3eSVqE";
-const TELEGRAM_CHAT_ID = "7748415893";
+const TELEGRAM_TOKEN = "";
+const TELEGRAM_CHAT_ID = "";
 
 exports.handleRazorpayWebhook = onRequest(
     { secrets: [godaddyEmail, godaddyPass] },
