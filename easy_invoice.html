@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Invoice — GST Billing App | CodeYantra Technologies</title>
+
+    <link rel="icon" type="image/png" href="assets/logo_1.png">
+    <link rel="apple-touch-icon" href="assets/logo_1.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --primary-dark: #0099cc;
+            --dark-bg: #0a0e27;
+            --dark-secondary: #1a1f3a;
+            --dark-tertiary: #252d47;
+            --text-light: #e0e6ff;
+            --text-muted: #a0aac0;
+            --accent: #ff006e;
+            --accent-secondary: #8338ec;
+            --orange: #FF8C00;
+            --green: #00c853;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .nav-logo img { height: 40px; }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* HERO */
+        .hero {
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 10% 30%, rgba(0, 212, 255, 0.12), transparent),
+                radial-gradient(ellipse 50% 60% at 90% 80%, rgba(255, 140, 0, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 200, 83, 0.12);
+            border: 1px solid rgba(0, 200, 83, 0.3);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.78rem;
+            color: var(--green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; display: inline-block; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #FF8C00, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 36px;
+            max-width: 500px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF8C00, #e67e00);
+            color: #fff;
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(255, 140, 0, 0.5);
+        }
+
+        .btn-outline {
+            background: rgba(0, 212, 255, 0.08);
+            color: var(--primary);
+            border: 1.5px solid rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 212, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* APP ICON */
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .app-icon-wrapper {
+            position: relative;
+        }
+
+        .app-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.2), transparent 70%);
+            border-radius: 50%;
+            animation: iconGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes iconGlow {
+            from { opacity: 0.5; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+
+        .app-icon {
+            width: 200px;
+            height: 200px;
+            border-radius: 44px;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,140,0,0.2);
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .offline-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(37, 45, 71, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 14px;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .offline-badge i { color: var(--green); font-size: 1.1rem; }
+
+        /* PRICING */
+        .pricing-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(131, 56, 236, 0.07), transparent);
+            pointer-events: none;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 64px;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: rgba(26, 31, 58, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 24px;
+            padding: 40px 36px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF8C00, #FFD700);
+        }
+
+        .plan-card.popular {
+            border-color: rgba(255, 140, 0, 0.35);
+            background: rgba(255, 140, 0, 0.06);
+            transform: scale(1.02);
+        }
+
+        .plan-card.popular::before {
+            background: linear-gradient(90deg, #FF8C00, #e67e00);
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: rgba(255, 140, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(255, 140, 0, 0.1);
+        }
+
+        .plan-card.popular:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF8C00, #e67e00);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .plan-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .plan-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 28px; }
+
+        .plan-price {
+            margin-bottom: 28px;
+        }
+
+        .plan-price .amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1;
+        }
+
+        .plan-price .currency {
+            font-size: 1.4rem;
+            vertical-align: super;
+            color: var(--orange);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .plan-price .period {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .plan-perks {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .plan-perks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .plan-perks li i {
+            color: var(--green);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .btn-plan {
+            width: 100%;
+            justify-content: center;
+            background: rgba(255, 140, 0, 0.12);
+            color: var(--orange);
+            border: 1.5px solid rgba(255, 140, 0, 0.35);
+            border-radius: 12px;
+            padding: 13px;
+            font-size: 0.9rem;
+        }
+
+        .btn-plan:hover {
+            background: linear-gradient(135deg, #FF8C00, #e67e00);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.35);
+        }
+
+        .plan-card.popular .btn-plan {
+            background: linear-gradient(135deg, #FF8C00, #e67e00);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.3);
+        }
+
+        /* FEATURES SECTION */
+        .features-section {
+            padding: 100px 0;
+            background: rgba(26, 31, 58, 0.3);
+            border-top: 1px solid rgba(0, 212, 255, 0.08);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 26px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(255, 140, 0, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            background: rgba(255, 140, 0, 0.12);
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* INVOICE TYPES */
+        .invoice-types-section {
+            padding: 100px 0;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .type-chip {
+            background: rgba(26, 31, 58, 0.7);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 16px;
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .type-chip:hover {
+            border-color: rgba(255, 140, 0, 0.3);
+            background: rgba(255, 140, 0, 0.05);
+            transform: translateX(4px);
+        }
+
+        .type-emoji {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .type-chip h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-light);
+        }
+
+        .type-chip p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* PRIVACY STRIP */
+        .privacy-strip {
+            background: linear-gradient(135deg, rgba(0, 200, 83, 0.08), rgba(0, 212, 255, 0.06));
+            border: 1px solid rgba(0, 200, 83, 0.2);
+            border-radius: 20px;
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .privacy-icon {
+            font-size: 3rem;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+
+        .privacy-text h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .privacy-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .privacy-section {
+            padding: 80px 0;
+        }
+
+        /* GST HIGHLIGHT */
+        .gst-section {
+            padding: 100px 0;
+            background: rgba(10, 14, 39, 0.4);
+            border-top: 1px solid rgba(0, 212, 255, 0.08);
+        }
+
+        .gst-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .gst-feature-list {
+            list-style: none;
+        }
+
+        .gst-feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.07);
+        }
+
+        .gst-feature-list li:last-child { border-bottom: none; }
+
+        .gst-feature-list .fi-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 140, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            color: var(--orange);
+        }
+
+        .gst-feature-list .fi-text strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-light);
+        }
+
+        .gst-feature-list .fi-text span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .gst-visual {
+            background: rgba(26, 31, 58, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 24px;
+            padding: 36px;
+        }
+
+        .invoice-preview {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            color: #1a1a1a;
+            font-size: 0.78rem;
+        }
+
+        .inv-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #FF8C00;
+        }
+
+        .inv-title {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #FF8C00;
+        }
+
+        .inv-no {
+            font-size: 0.7rem;
+            color: #666;
+        }
+
+        .inv-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.72rem;
+        }
+
+        .inv-meta-label { color: #888; font-size: 0.65rem; text-transform: uppercase; }
+        .inv-meta-value { font-weight: 600; color: #333; }
+
+        .inv-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; margin-bottom: 12px; }
+        .inv-table th { background: #f5f5f5; padding: 6px 8px; text-align: left; font-weight: 700; color: #555; border-bottom: 1px solid #eee; }
+        .inv-table td { padding: 6px 8px; border-bottom: 1px solid #f0f0f0; color: #444; }
+
+        .inv-totals { margin-left: auto; width: 55%; }
+        .inv-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.72rem; color: #555; }
+        .inv-row.total { border-top: 2px solid #FF8C00; padding-top: 8px; font-weight: 800; color: #1a1a1a; font-size: 0.85rem; }
+
+        .inv-hsn-badge {
+            display: inline-block;
+            background: #fff3e0;
+            color: #e65100;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid rgba(0, 212, 255, 0.08);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            opacity: 0.7;
+        }
+
+        /* CLOUD COMING SOON STRIP */
+        .cloud-coming-strip {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.12), rgba(0, 212, 255, 0.08));
+            border: 1px solid rgba(131, 56, 236, 0.25);
+            border-radius: 14px;
+            padding: 14px 20px;
+            margin-top: 24px;
+            max-width: 480px;
+        }
+
+        .cloud-icon-wrap {
+            font-size: 1.4rem;
+            color: var(--accent-secondary);
+            flex-shrink: 0;
+        }
+
+        .cloud-text { flex: 1; }
+
+        .cloud-text strong {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 3px;
+        }
+
+        .cloud-text span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .cloud-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: rgba(131, 56, 236, 0.2);
+            color: #c084fc;
+            padding: 4px 10px;
+            border-radius: 50px;
+            flex-shrink: 0;
+            border: 1px solid rgba(131, 56, 236, 0.3);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero-desc { max-width: 100%; }
+            .hero-ctas { justify-content: center; }
+            .hero-visual { order: -1; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .plan-card.popular { transform: none; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .types-grid { grid-template-columns: 1fr; }
+            .gst-inner { grid-template-columns: 1fr; }
+            .privacy-strip { flex-direction: column; text-align: center; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 500px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.webp" alt="CodeYantra Technologies" onerror="this.style.display='none'">
+            CodeYantra Technologies
+        </a>
+        <div class="nav-links">
+            <a href="index.html">← Home</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#invoice-types">Invoice Types</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span></span> GST Ready &amp; Petroleum Ready
+                </div>
+                <h1>
+                    Billing Made<br>
+                    <span class="highlight">Ridiculously Easy</span>
+                </h1>
+                <p class="hero-desc">
+                    Create professional GST invoices in seconds. Auto-apply IGST or CGST+SGST based on location, HSN codes, multiple premium templates — all stored locally on your device. No cloud, no data theft.
+                </p>
+                <div class="hero-ctas">
+                    <a href="https://firebasestorage.googleapis.com/v0/b/tap-meet.firebasestorage.app/o/Easy%20Invoice.exe?alt=media&token=1881b24b-09e8-4b7e-a81d-175756285c14" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download for Windows
+                    </a>
+                    <a href="#pricing" class="btn btn-outline">
+                        <i class="fas fa-tag"></i> View Plans
+                    </a>
+                </div>
+
+                <div class="cloud-coming-strip">
+                    <div class="cloud-icon-wrap"><i class="fas fa-cloud-arrow-up"></i></div>
+                    <div class="cloud-text">
+                        <strong>Cloud Sync — Coming Soon!</strong>
+                        <span>Bill from your phone, tablet, or any PC. All devices stay in sync automatically.</span>
+                    </div>
+                    <div class="cloud-tag">🚀 Soon</div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="app-icon-wrapper">
+                    <img src="assets/easy_invoice.png" alt="Easy Invoice App" class="app-icon" onerror="this.src='assets/logo_1.png'">
+                </div>
+                <div class="offline-badge">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>100% Offline · Data stays on your device · No cloud storage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <p class="section-label">Pricing</p>
+        <h2 class="section-title">Simple, One-Time Payment</h2>
+        <p class="section-subtitle">No subscriptions. Pay once, use forever. Choose the plan that fits your business.</p>
+
+        <div class="pricing-grid">
+            <!-- 1 Year -->
+            <div class="plan-card">
+                <div class="plan-name">1 Year License</div>
+                <p class="plan-desc">Perfect to get started. Full features for a full year.</p>
+                <div class="plan-price">
+                    <span class="currency">₹</span><span class="amount">3,999</span>
+                    <span class="period">One-time payment · 1 Year validity</span>
+                </div>
+                <ul class="plan-perks">
+                    <li><i class="fas fa-check"></i> All invoice types included</li>
+                    <li><i class="fas fa-check"></i> GST + HSN auto-calculation</li>
+                    <li><i class="fas fa-check"></i> Multiple premium templates</li>
+                    <li><i class="fas fa-check"></i> IGST / CGST+SGST auto-apply</li>
+                    <li><i class="fas fa-check"></i> Petroleum Ready billing</li>
+                    <li><i class="fas fa-check"></i> Full offline — no cloud</li>
+                </ul>
+                <a href="ei_payment.html?plan=yearly" class="btn btn-plan">
+                    <i class="fas fa-bolt"></i> Buy Now — ₹3,999
+                </a>
+            </div>
+
+            <!-- 5 Year -->
+            <div class="plan-card popular">
+                <div class="plan-badge">⭐ Best Value</div>
+                <div class="plan-name">5 Year License</div>
+                <p class="plan-desc">Long-term peace of mind. Save ₹4,996 vs 5×1-year plans.</p>
+                <div class="plan-price">
+                    <span class="currency">₹</span><span class="amount">14,999</span>
+                    <span class="period">One-time payment · 5 Year validity</span>
+                </div>
+                <ul class="plan-perks">
+                    <li><i class="fas fa-check"></i> Everything in 1-Year plan</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                    <li><i class="fas fa-check"></i> Free feature updates</li>
+                    <li><i class="fas fa-check"></i> Ledger &amp; Reports access</li>
+                    <li><i class="fas fa-check"></i> Inventory management</li>
+                    <li><i class="fas fa-check"></i> Bowser tracking module</li>
+                </ul>
+                <a href="ei_payment.html?plan=5year" class="btn btn-plan">
+                    <i class="fas fa-bolt"></i> Buy Now — ₹14,999
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features-section">
+    <div class="container">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Everything Your Business Needs</h2>
+        <p class="section-subtitle">No complicated menus. Just powerful billing tools that work.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧾</div>
+                <h4>GST Invoice Creation</h4>
+                <p>Create & manage invoices with automatic GST calculations. HSN code support built-in.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>GST Compliance</h4>
+                <p>GSTR-3B reports, audit trails, and multi-state support for complete tax compliance.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h4>Inventory Management</h4>
+                <p>Track stock levels, set reorder alerts, and manage cost tracking effortlessly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h4>Ledger &amp; Reports</h4>
+                <p>Party-wise, bank, and custom ledgers with drill-down analysis for sharp insights.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⛽</div>
+                <h4>Petroleum Ready</h4>
+                <p>Purpose-built for fuel stations. Bowser invoices, petroleum-specific billing flows.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚗</div>
+                <h4>Bowser Tracking</h4>
+                <p>Manage fuel inventory with automatic reconciliation and delivery tracking.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h4>Auto IGST / CGST+SGST</h4>
+                <p>Smart tax routing — automatically applies inter-state or intra-state GST based on party location.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h4>Premium Templates</h4>
+                <p>Multiple professional invoice templates. Impress clients with polished, branded invoices.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h4>100% Local Storage</h4>
+                <p>All data stored on your device only. No cloud upload, no risk of data theft. Complete privacy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INVOICE TYPES -->
+<section id="invoice-types" class="invoice-types-section">
+    <div class="container">
+        <p class="section-label">Invoice Types</p>
+        <h2 class="section-title">One App, All Your Documents</h2>
+        <p class="section-subtitle">From quotations to credit vouchers — every business document in one place.</p>
+
+        <div class="types-grid">
+            <div class="type-chip">
+                <div class="type-emoji">🧾</div>
+                <div>
+                    <h5>Direct Invoice</h5>
+                    <p>Simple, fast billing with clean UI. No complicated steps.</p>
+                </div>
+            </div>
+            <div class="type-chip">
+                <div class="type-emoji">📋</div>
+                <div>
+                    <h5>Purchase Order</h5>
+                    <p>Professional POs for vendor payments and procurement.</p>
+                </div>
+            </div>
+            <div class="type-chip">
+                <div class="type-emoji">💬</div>
+                <div>
+                    <h5>Quotation</h5>
+                    <p>Send detailed quotes to clients before closing the deal.</p>
+                </div>
+            </div>
+            <div class="type-chip">
+                <div class="type-emoji">⛽</div>
+                <div>
+                    <h5>Bowser Invoice</h5>
+                    <p>Petroleum-specific invoice for fuel delivery operations.</p>
+                </div>
+            </div>
+            <div class="type-chip">
+                <div class="type-emoji">🪪</div>
+                <div>
+                    <h5>Credit Voucher</h5>
+                    <p>Credit slip-based billing for credit account customers.</p>
+                </div>
+            </div>
+            <div class="type-chip">
+                <div class="type-emoji">📝</div>
+                <div>
+                    <h5>More Coming</h5>
+                    <p>Debit notes, delivery challans, and more in future updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GST DETAIL SECTION -->
+<section class="gst-section">
+    <div class="container">
+        <div class="gst-inner">
+            <div>
+                <p class="section-label" style="text-align:left;">GST Smart Engine</p>
+                <h2 class="section-title" style="text-align:left; font-size:2rem;">Auto Tax. Zero Confusion.</h2>
+                <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:32px; line-height:1.8;">Our smart GST engine detects whether your buyer is in the same state or another state — and automatically applies the correct tax structure without you lifting a finger.</p>
+
+                <ul class="gst-feature-list">
+                    <li>
+                        <div class="fi-icon"><i class="fas fa-location-dot"></i></div>
+                        <div class="fi-text">
+                            <strong>Same State → CGST + SGST</strong>
+                            <span>Intra-state transactions split into 50/50 CGST &amp; SGST automatically</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fi-icon"><i class="fas fa-arrows-left-right"></i></div>
+                        <div class="fi-text">
+                            <strong>Different State → IGST</strong>
+                            <span>Inter-state supply correctly billed as a single Integrated GST</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fi-icon"><i class="fas fa-barcode"></i></div>
+                        <div class="fi-text">
+                            <strong>HSN Code Support</strong>
+                            <span>Add HSN/SAC codes per line item for full GST compliance</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fi-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div class="fi-text">
+                            <strong>GSTR-3B Ready Reports</strong>
+                            <span>Export data in a format that makes your CA's life easier</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="gst-visual">
+                <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Invoice Preview</div>
+                <div class="invoice-preview">
+                    <div class="inv-header">
+                        <div>
+                            <div class="inv-title">TAX INVOICE</div>
+                            <div class="inv-no">INV-2024-00847</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div class="inv-hsn-badge">GST COMPLIANT</div>
+                            <div style="font-size:0.65rem; color:#888; margin-top:4px;">Date: 03/04/2026</div>
+                        </div>
+                    </div>
+                    <div class="inv-meta">
+                        <div>
+                            <div class="inv-meta-label">Billed To</div>
+                            <div class="inv-meta-value">Sharma Traders, Delhi</div>
+                            <div style="font-size:0.65rem; color:#888;">GSTIN: 07AABC1234M1Z5</div>
+                        </div>
+                        <div>
+                            <div class="inv-meta-label">From</div>
+                            <div class="inv-meta-value">Your Business, Punjab</div>
+                            <div style="font-size:0.65rem; color:#888;">GSTIN: 03XYZK5678N1A2</div>
+                        </div>
+                    </div>
+                    <table class="inv-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>HSN</th>
+                                <th>Qty</th>
+                                <th>Rate</th>
+                                <th>Amt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HSD Diesel</td>
+                                <td>2710</td>
+                                <td>500L</td>
+                                <td>₹92</td>
+                                <td>₹46,000</td>
+                            </tr>
+                            <tr>
+                                <td>MS Petrol</td>
+                                <td>2710</td>
+                                <td>200L</td>
+                                <td>₹105</td>
+                                <td>₹21,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="inv-totals">
+                        <div class="inv-row"><span>Subtotal</span><span>₹67,000</span></div>
+                        <div class="inv-row" style="color:#e65100;"><span>IGST @18%</span><span>₹12,060</span></div>
+                        <div class="inv-row" style="font-size:0.65rem; color:#888; font-style:italic;"><span colspan="2">Inter-state → IGST applied</span></div>
+                        <div class="inv-row total"><span>Total</span><span>₹79,060</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRIVACY SECTION -->
+<section class="privacy-section">
+    <div class="container">
+        <div class="privacy-strip">
+            <div class="privacy-icon"><i class="fas fa-lock"></i></div>
+            <div class="privacy-text">
+                <h3>Your Data Never Leaves Your Device</h3>
+                <p>Easy Invoice stores all invoices, ledgers, and business data 100% locally on your device. There is no cloud server, no syncing, no account creation needed. Your sensitive business data stays with you — completely worry-free from data theft, server breaches, or unauthorized access.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="index.html">← Back to CodeYantra</a>
+            <a href="fuelmate.html">FuelMate</a>
+            <a href="maskchat.html">MaskChat</a>
+            <a href="ei_privacy_policy.html">Privacy Policy</a>
+            <a href="ei_terms.html">Terms of Service</a>
+            <a href="ei_refund.html">Refund Policy</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="yr"></span> CodeYantra Technologies. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

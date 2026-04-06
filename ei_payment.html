@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Easy Invoice | CodeYantra Technologies</title>
+    <link rel="icon" type="image/png" href="assets/logo_1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --dark-bg: #0a0e27;
+            --dark-secondary: #1a1f3a;
+            --dark-tertiary: #252d47;
+            --text-light: #e0e6ff;
+            --text-muted: #a0aac0;
+            --accent-secondary: #8338ec;
+            --orange: #FF8C00;
+            --orange-dark: #e67e00;
+            --green: #00c853;
+            --red: #ff4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(10,14,39,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,212,255,0.1);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--text-light);
+            font-weight: 700; font-size: 1rem;
+        }
+
+        .nav-logo img { height: 34px; }
+
+        .back-link {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.85rem; display: flex; align-items: center;
+            gap: 6px; transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--primary); }
+
+        /* MAIN LAYOUT */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 48px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 20%, rgba(255,140,0,0.08), transparent),
+                radial-gradient(ellipse 50% 60% at 80% 80%, rgba(131,56,236,0.08), transparent);
+            pointer-events: none;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            max-width: 920px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* LEFT — ORDER SUMMARY */
+        .order-summary {
+            background: rgba(26,31,58,0.7);
+            border: 1px solid rgba(0,212,255,0.1);
+            border-radius: 24px;
+            padding: 36px;
+            height: fit-content;
+        }
+
+        .summary-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .product-row {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,212,255,0.08);
+        }
+
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(255,140,0,0.15), rgba(255,215,0,0.08));
+            border: 1px solid rgba(255,140,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .product-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .product-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .product-info .plan-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 50px;
+            background: rgba(255,140,0,0.12);
+            border: 1px solid rgba(255,140,0,0.25);
+            color: var(--orange);
+            margin-bottom: 6px;
+        }
+
+        .product-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .price-breakdown {
+            margin-bottom: 24px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.88rem;
+        }
+
+        .price-row:last-child { border-bottom: none; }
+        .price-row .label { color: var(--text-muted); }
+        .price-row .value { font-weight: 600; color: var(--text-light); }
+
+        .price-row.total {
+            padding-top: 14px;
+            margin-top: 4px;
+            border-top: 1px solid rgba(0,212,255,0.15);
+            border-bottom: none;
+        }
+
+        .price-row.total .label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .price-row.total .value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            color: var(--orange);
+        }
+
+        .perks-list {
+            list-style: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,212,255,0.08);
+        }
+
+        .perks-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 9px;
+        }
+
+        .perks-list li i { color: var(--green); font-size: 0.75rem; }
+
+        /* TRUST BADGES */
+        .trust-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
+            padding: 6px 10px;
+        }
+
+        .trust-badge i { color: var(--green); }
+
+        /* RIGHT — PAYMENT FORM */
+        .payment-form-wrap {
+            background: rgba(26,31,58,0.7);
+            border: 1px solid rgba(0,212,255,0.1);
+            border-radius: 24px;
+            padding: 36px;
+            height: fit-content;
+        }
+
+        .form-label-top {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: rgba(10,14,39,0.6);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 12px;
+            padding: 13px 16px;
+            color: var(--text-light);
+            font-family: 'Sora', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: rgba(255,140,0,0.5);
+            box-shadow: 0 0 0 3px rgba(255,140,0,0.08);
+        }
+
+        .form-group input.error-field {
+            border-color: rgba(255,68,68,0.5);
+            box-shadow: 0 0 0 3px rgba(255,68,68,0.08);
+        }
+
+        .form-group input::placeholder { color: rgba(160,170,192,0.5); }
+
+        .field-hint {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            opacity: 0.7;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        /* PAY BUTTON */
+        .pay-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Sora', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+            box-shadow: 0 6px 24px rgba(255,140,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pay-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pay-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 36px rgba(255,140,0,0.4);
+        }
+
+        .pay-btn:hover:not(:disabled)::before { opacity: 1; }
+
+        .pay-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .pay-btn .btn-amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.05rem;
+        }
+
+        /* DIVIDER */
+        .or-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 18px 0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.07);
+        }
+
+        /* RAZORPAY BADGE */
+        .rzp-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+
+        .rzp-badge i { font-size: 0.8rem; }
+
+        /* ERROR MSG */
+        .error-msg {
+            display: none;
+            background: rgba(255,68,68,0.08);
+            border: 1px solid rgba(255,68,68,0.25);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.82rem;
+            color: #ff8080;
+            margin-top: 14px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* SUCCESS STATE */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(0,200,83,0.12);
+            border: 2px solid rgba(0,200,83,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--green);
+            margin: 0 auto 24px;
+            animation: scaleIn 0.4s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .success-screen h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .success-screen p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .success-pid {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            background: rgba(0,212,255,0.06);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 8px;
+            padding: 8px 14px;
+            color: var(--primary);
+            margin: 16px 0;
+            word-break: break-all;
+        }
+
+        /* SPINNER */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            width: 18px; height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: none;
+        }
+
+        /* PLAN SWITCHER */
+        .plan-switcher {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .switcher-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,212,255,0.15);
+            background: rgba(10,14,39,0.5);
+            color: var(--text-muted);
+            font-family: 'Sora', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .switcher-btn.active {
+            background: rgba(255,140,0,0.12);
+            border-color: rgba(255,140,0,0.35);
+            color: var(--orange);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .checkout-grid { grid-template-columns: 1fr; }
+            .input-row { grid-template-columns: 1fr; }
+            main { padding: 28px 16px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.webp" alt="CodeYantra" onerror="this.style.display='none'">
+        CodeYantra
+    </a>
+    <a href="easy_invoice.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Easy Invoice
+    </a>
+</header>
+
+<main>
+    <div class="checkout-grid">
+
+        <!-- LEFT: ORDER SUMMARY -->
+        <div class="order-summary">
+            <div class="summary-label"><i class="fas fa-receipt" style="margin-right:6px;"></i>Order Summary</div>
+
+            <div class="product-row">
+                <div class="product-icon">
+                    <img src="assets/easy_invoice.png" alt="Easy Invoice" onerror="this.parentElement.innerHTML='🧾'">
+                </div>
+                <div class="product-info">
+                    <h3>Easy Invoice</h3>
+                    <div class="plan-tag" id="summary-plan-tag">1 Year License</div>
+                    <p>GST billing for Windows — fully offline, petroleum ready</p>
+                </div>
+            </div>
+
+            <div class="price-breakdown">
+                <div class="price-row">
+                    <span class="label">License Price</span>
+                    <span class="value" id="summary-base-price">₹3,999</span>
+                </div>
+                <div class="price-row">
+                    <span class="label">Discount</span>
+                    <span class="value" style="color:var(--green);">₹0</span>
+                </div>
+                <div class="price-row total">
+                    <span class="label">Total Payable</span>
+                    <span class="value" id="summary-total">₹3,999</span>
+                </div>
+            </div>
+
+            <ul class="perks-list" id="perks-list">
+                <li><i class="fas fa-check-circle"></i> All invoice types included</li>
+                <li><i class="fas fa-check-circle"></i> GST + HSN auto-calculation</li>
+                <li><i class="fas fa-check-circle"></i> Auto IGST / CGST+SGST routing</li>
+                <li><i class="fas fa-check-circle"></i> Multiple premium templates</li>
+                <li><i class="fas fa-check-circle"></i> Petroleum &amp; Bowser billing</li>
+                <li><i class="fas fa-check-circle"></i> License key via email instantly</li>
+            </ul>
+
+            <div class="trust-row">
+                <div class="trust-badge"><i class="fas fa-lock"></i> Secure Payment</div>
+                <div class="trust-badge"><i class="fas fa-bolt"></i> Instant Delivery</div>
+                <div class="trust-badge"><i class="fas fa-shield-halved"></i> 7-Day Refund</div>
+            </div>
+        </div>
+
+        <!-- RIGHT: PAYMENT FORM -->
+        <div class="payment-form-wrap">
+            <div class="form-label-top"><i class="fas fa-credit-card" style="margin-right:6px;"></i>Payment Details</div>
+
+            <!-- Plan Switcher -->
+            <div class="plan-switcher">
+                <button class="switcher-btn" id="switch-yearly" onclick="switchPlan('yearly')">
+                    1 Year · ₹3,999
+                </button>
+                <button class="switcher-btn" id="switch-5year" onclick="switchPlan('5year')">
+                    5 Years · ₹14,999 ⭐
+                </button>
+            </div>
+
+            <!-- Form -->
+            <div id="payment-form">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="field-name" placeholder="Your full name" autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="field-email" placeholder="License key will be sent here" autocomplete="email">
+                    <div class="field-hint"><i class="fas fa-info-circle" style="margin-right:4px;"></i>Make sure this email is correct — your license key will be delivered here.</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="field-phone" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel">
+                </div>
+
+                <div class="form-group">
+                    <label>Business Name <span style="color:var(--text-muted); font-weight:400;">(Optional)</span></label>
+                    <input type="text" id="field-business" placeholder="Your business / firm name">
+                </div>
+
+                <div class="form-group">
+                    <label>GSTIN <span style="color:var(--text-muted); font-weight:400;">(Optional — for invoice)</span></label>
+                    <input type="text" id="field-gstin" placeholder="22AAAAA0000A1Z5" maxlength="15" style="text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()">
+                </div>
+
+                <div id="error-msg" class="error-msg">
+                    <i class="fas fa-circle-exclamation"></i>
+                    <span id="error-text">Please fill all required fields.</span>
+                </div>
+
+                <button class="pay-btn" id="pay-btn" onclick="initiatePayment()">
+                    <i class="fas fa-bolt" id="btn-icon"></i>
+                    <span>Pay Securely</span>
+                    <span class="btn-amount" id="btn-amount">₹3,999</span>
+                    <div class="spinner" id="btn-spinner"></div>
+                </button>
+
+                <div class="rzp-badge">
+                    <i class="fas fa-lock"></i>
+                    Secured by Razorpay &nbsp;·&nbsp; UPI, Cards, Net Banking, Wallets accepted
+                </div>
+            </div>
+
+            <!-- Success Screen -->
+            <div id="success-screen" class="success-screen">
+                <div class="success-icon"><i class="fas fa-check"></i></div>
+                <h3>Payment Successful! 🎉</h3>
+                <p>Your Easy Invoice license has been activated. Check your email for the license key.</p>
+                <div class="success-pid" id="success-pid"></div>
+                <p style="margin-top:8px; font-size:0.8rem;">Didn't receive the email? Contact us on Telegram — <a href="https://t.me/codeyantrasupportbot" target="_blank" style="color:var(--primary);text-decoration:none;">@codeyantrasupportbot</a></p>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    // ─── PLAN CONFIG ───
+    const PLANS = {
+        yearly: {
+        key: 'yearly',
+        label: '1 Year License',
+        amount: 300,       // ✅ FIX: 300 ko 399900 karo
+        display: '₹3',
+            description: '1 Year License — Easy Invoice',
+            perks: [
+                'All invoice types included',
+                'GST + HSN auto-calculation',
+                'Auto IGST / CGST+SGST routing',
+                'Multiple premium templates',
+                'Petroleum &amp; Bowser billing',
+                'License key via email instantly'
+            ]
+        },
+        '5year': {
+            key: '5year',
+            label: '5 Year License',
+            amount: 1499900,      // paise mein (₹14,999)
+            display: '₹14,999',
+            description: '5 Year License — Easy Invoice',
+            perks: [
+                'Everything in 1-Year plan',
+                'Priority support',
+                'Free feature updates (5 years)',
+                'Ledger &amp; Reports access',
+                'Inventory management',
+                'License key via email instantly'
+            ]
+        }
+    };
+
+    let currentPlan = 'yearly';
+
+    // ─── INIT FROM URL PARAM ───
+    function init() {
+        const params = new URLSearchParams(window.location.search);
+        const plan = params.get('plan');
+        if (plan && PLANS[plan]) {
+            switchPlan(plan);
+        } else {
+            switchPlan('yearly');
+        }
+    }
+
+    // ─── SWITCH PLAN ───
+    function switchPlan(plan) {
+        currentPlan = plan;
+        const p = PLANS[plan];
+
+        // Update URL silently
+        const url = new URL(window.location.href);
+        url.searchParams.set('plan', plan);
+        window.history.replaceState({}, '', url);
+
+        // Update summary
+        document.getElementById('summary-plan-tag').textContent = p.label;
+        document.getElementById('summary-base-price').textContent = p.display;
+        document.getElementById('summary-total').textContent = p.display;
+        document.getElementById('btn-amount').textContent = p.display;
+
+        // Update perks
+        const perksList = document.getElementById('perks-list');
+        perksList.innerHTML = p.perks.map(perk =>
+            `<li><i class="fas fa-check-circle"></i> ${perk}</li>`
+        ).join('');
+
+        // Update switcher buttons
+        document.getElementById('switch-yearly').classList.toggle('active', plan === 'yearly');
+        document.getElementById('switch-5year').classList.toggle('active', plan === '5year');
+    }
+
+    // ─── VALIDATE ───
+    function validate() {
+        const name = document.getElementById('field-name').value.trim();
+        const email = document.getElementById('field-email').value.trim();
+        const phone = document.getElementById('field-phone').value.trim();
+
+        // Clear previous errors
+        ['field-name','field-email','field-phone'].forEach(id => {
+            document.getElementById(id).classList.remove('error-field');
+        });
+
+        if (!name) {
+            showError('Please enter your full name.', 'field-name');
+            return false;
+        }
+
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRe.test(email)) {
+            showError('Please enter a valid email address.', 'field-email');
+            return false;
+        }
+
+        const phoneRe = /^[6-9]\d{9}$/;
+        if (!phone || !phoneRe.test(phone)) {
+            showError('Please enter a valid 10-digit Indian mobile number.', 'field-phone');
+            return false;
+        }
+
+        hideError();
+        return true;
+    }
+
+    function showError(msg, fieldId) {
+        document.getElementById('error-text').textContent = msg;
+        const errDiv = document.getElementById('error-msg');
+        errDiv.style.display = 'flex';
+        if (fieldId) document.getElementById(fieldId).classList.add('error-field');
+    }
+
+    function hideError() {
+        document.getElementById('error-msg').style.display = 'none';
+    }
+
+    // ─── SET LOADING STATE ───
+    function setLoading(loading) {
+        const btn = document.getElementById('pay-btn');
+        const icon = document.getElementById('btn-icon');
+        const spinner = document.getElementById('btn-spinner');
+        btn.disabled = loading;
+        icon.style.display = loading ? 'none' : 'block';
+        spinner.style.display = loading ? 'block' : 'none';
+    }
+
+    // ─── INITIATE PAYMENT ───
+    function initiatePayment() {
+        if (!validate()) return;
+
+        const plan = PLANS[currentPlan];
+        const name = document.getElementById('field-name').value.trim();
+        const email = document.getElementById('field-email').value.trim();
+        const phone = document.getElementById('field-phone').value.trim();
+
+        setLoading(true);
+
+        const options = {
+            key: 'rzp_live_SZS3T05qC5C3GI',          // 🔑 Apni Razorpay Live Key yahan dalo
+            amount: plan.amount,
+            currency: 'INR',
+            name: 'Easy Invoice',
+            description: plan.description,
+            image: 'assets/easy_invoice.png',
+            prefill: {
+                name: name,
+                email: email,
+                contact: '+91' + phone
+            },
+            notes: {
+                plan: currentPlan,
+                business: document.getElementById('field-business').value.trim(),
+                gstin: document.getElementById('field-gstin').value.trim()
+            },
+            theme: {
+                color: '#FF8C00'
+            },
+            modal: {
+                ondismiss: function() {
+                    setLoading(false);
+                }
+            },
+            handler: async function(response) {
+                try {
+                    // Supabase Edge Function se verify
+                    const verifyRes = await fetch(
+                        'https://vfdlbkwbvnsjrevzqxro.supabase.co/functions/v1/payment-verify',
+                        {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                order_id: response.razorpay_order_id,
+                                payment_id: response.razorpay_payment_id,
+                                signature: response.razorpay_signature,
+                                email: email,
+                                name: name,
+                                phone: phone,
+                                plan: currentPlan,
+                                business: document.getElementById('field-business').value.trim(),
+                                gstin: document.getElementById('field-gstin').value.trim()
+                            })
+                        }
+                    );
+
+                    const result = await verifyRes.json();
+
+                    setLoading(false);
+
+                    if (verifyRes.ok) { // Backend 'ok: true' bhej raha hai, 'success: true' nahi
+    showSuccess(response.razorpay_payment_id);
+                    } else {
+                        showError(
+                            'Payment received but verification pending. Please contact support with Payment ID: ' +
+                            response.razorpay_payment_id
+                        );
+                    }
+                } catch (err) {
+                    setLoading(false);
+                    // Payment hua hai, verification mein error — user ko payment ID dikhao
+                    showSuccess(response.razorpay_payment_id, true);
+                }
+            }
+        };
+
+        const rzp = new Razorpay(options);
+
+        rzp.on('payment.failed', function(response) {
+            setLoading(false);
+            showError('Payment failed: ' + (response.error.description || 'Please try again.'));
+        });
+
+        rzp.open();
+    }
+
+    // ─── SHOW SUCCESS ───
+    function showSuccess(paymentId, manualCheck = false) {
+        document.getElementById('payment-form').style.display = 'none';
+        document.getElementById('success-screen').style.display = 'block';
+        document.getElementById('success-pid').textContent = 'Payment ID: ' + paymentId;
+
+        if (manualCheck) {
+            document.querySelector('.success-screen p').textContent =
+                'Payment received! Our team will verify and send your license key within a few minutes.';
+        }
+    }
+
+    // ─── RUN ───
+    init();
+</script>
+
+</body>
+</html>

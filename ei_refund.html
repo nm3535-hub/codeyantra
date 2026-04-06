@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy — Easy Invoice | CodeYantra Technologies</title>
+    <link rel="icon" type="image/png" href="assets/logo_1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --dark-bg: #0a0e27;
+            --text-light: #e0e6ff;
+            --text-muted: #a0aac0;
+            --accent-secondary: #8338ec;
+            --orange: #FF8C00;
+            --green: #00c853;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Sora', sans-serif; background: var(--dark-bg); color: var(--text-light); line-height: 1.8; }
+        header { background: rgba(10,14,39,0.9); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0,212,255,0.1); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-light); font-weight: 700; font-size: 1rem; }
+        .nav-logo img { height: 36px; }
+        .back-link { color: var(--primary); text-decoration: none; font-size: 0.88rem; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+        .back-link:hover { gap: 10px; }
+        .hero-banner { background: linear-gradient(135deg, rgba(255,140,0,0.1), rgba(131,56,236,0.08)); border-bottom: 1px solid rgba(0,212,255,0.08); padding: 64px 24px 48px; text-align: center; }
+        .page-tag { display: inline-block; background: rgba(255,140,0,0.12); border: 1px solid rgba(255,140,0,0.25); color: var(--orange); font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+        .hero-banner h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+        .hero-banner p { color: var(--text-muted); font-size: 0.92rem; max-width: 540px; margin: 0 auto; }
+        .updated-date { display: inline-block; margin-top: 16px; font-size: 0.78rem; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 5px 14px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.08); }
+        .content-wrap { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+        .section-block { margin-bottom: 44px; }
+        .section-block h2 { font-size: 1.2rem; font-weight: 700; color: var(--orange); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+        .section-block h2 i { font-size: 1rem; opacity: 0.8; }
+        .section-block p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px; line-height: 1.85; }
+        .section-block ul { list-style: none; padding: 0; }
+        .section-block ul li { display: flex; align-items: flex-start; gap: 10px; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.7; }
+        .section-block ul li i { margin-top: 3px; flex-shrink: 0; }
+
+        /* Refund scenario cards */
+        .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+        .scenario-card { border-radius: 14px; padding: 20px; }
+        .scenario-card.yes { background: rgba(0,200,83,0.07); border: 1px solid rgba(0,200,83,0.2); }
+        .scenario-card.no { background: rgba(255,68,68,0.06); border: 1px solid rgba(255,68,68,0.18); }
+        .scenario-card h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .scenario-card.yes h4 { color: var(--green); }
+        .scenario-card.no h4 { color: #ff6b6b; }
+        .scenario-card ul { list-style: none; padding: 0; }
+        .scenario-card ul li { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.6; }
+        .scenario-card.yes ul li i { color: var(--green); margin-top: 2px; }
+        .scenario-card.no ul li i { color: #ff6b6b; margin-top: 2px; }
+
+        .process-steps { counter-reset: step; }
+        .process-step { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; padding: 18px; background: rgba(26,31,58,0.5); border: 1px solid rgba(0,212,255,0.1); border-radius: 14px; }
+        .step-num { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #FF8C00, #e67e00); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+        .step-content strong { display: block; font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; color: var(--text-light); }
+        .step-content span { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+        .divider { border: none; border-top: 1px solid rgba(0,212,255,0.08); margin: 40px 0; }
+        .contact-block { background: rgba(26,31,58,0.5); border: 1px solid rgba(0,212,255,0.12); border-radius: 16px; padding: 28px; text-align: center; }
+        .contact-block p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; }
+        .contact-block a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        footer { background: rgba(10,14,39,0.95); border-top: 1px solid rgba(0,212,255,0.08); padding: 28px 24px; text-align: center; font-size: 0.82rem; color: var(--text-muted); opacity: 0.8; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 8px; }
+
+        @media (max-width: 600px) {
+            .scenario-grid { grid-template-columns: 1fr; }
+            .hero-banner h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.webp" alt="CodeYantra" onerror="this.style.display='none'">
+        CodeYantra Technologies
+    </a>
+    <a href="easy_invoice.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Easy Invoice
+    </a>
+</header>
+
+<div class="hero-banner">
+    <div class="page-tag">Legal</div>
+    <h1>Refund Policy</h1>
+    <p>Easy Invoice — GST Billing App by CodeYantra Technologies</p>
+    <div class="updated-date"><i class="fas fa-calendar-alt" style="margin-right:6px;"></i>Last Updated: April 03, 2026</div>
+</div>
+
+<div class="content-wrap">
+
+    <div class="section-block">
+        <h2><i class="fas fa-circle-info"></i> 1. Overview</h2>
+        <p>At CodeYantra Technologies, we want you to be completely satisfied with Easy Invoice. This Refund Policy outlines the conditions under which we offer refunds for license purchases.</p>
+        <p>Please read this policy carefully before purchasing. By completing a purchase, you acknowledge that you have read and agreed to these refund terms.</p>
+    </div>
+
+    <div class="section-block">
+        <h2><i class="fas fa-clock-rotate-left"></i> 2. Refund Window</h2>
+        <p>We offer a <strong>7-day refund window</strong> from the date of license purchase. Refund requests raised after 7 days from the purchase date will not be eligible.</p>
+    </div>
+
+    <div class="section-block">
+        <h2><i class="fas fa-list-check"></i> 3. When Refunds Are Granted / Not Granted</h2>
+
+        <div class="scenario-grid">
+            <div class="scenario-card yes">
+                <h4><i class="fas fa-circle-check"></i> Eligible for Refund</h4>
+                <ul>
+                    <li><i class="fas fa-check"></i> App fails to install on your Windows system despite following our support steps</li>
+                    <li><i class="fas fa-check"></i> Core billing features are completely non-functional and we cannot fix within 72 hours</li>
+                    <li><i class="fas fa-check"></i> You were charged twice for the same order (duplicate payment)</li>
+                    <li><i class="fas fa-check"></i> License key was never delivered after payment confirmation</li>
+                </ul>
+            </div>
+            <div class="scenario-card no">
+                <h4><i class="fas fa-circle-xmark"></i> Not Eligible for Refund</h4>
+                <ul>
+                    <li><i class="fas fa-times"></i> You changed your mind after purchase</li>
+                    <li><i class="fas fa-times"></i> You purchased the wrong plan (we can help you upgrade/adjust)</li>
+                    <li><i class="fas fa-times"></i> You did not use the App during your license period</li>
+                    <li><i class="fas fa-times"></i> Request raised after 7 days of purchase</li>
+                    <li><i class="fas fa-times"></i> Dissatisfaction with a specific design preference or template style</li>
+                    <li><i class="fas fa-times"></i> License was shared or misused in violation of Terms of Service</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><i class="fas fa-arrows-spin"></i> 4. How to Request a Refund</h2>
+        <p>To initiate a refund, follow these steps:</p>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <strong>Contact Support</strong>
+                    <span>Reach out within 7 days of purchase via email at support@codeyantra.in or via our Telegram support bot @codeyantrasupportbot</span>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <strong>Provide Details</strong>
+                    <span>Share your order/payment reference number, the email used for purchase, and a brief description of the issue you faced</span>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <strong>Review &amp; Resolution</strong>
+                    <span>Our team will review your request within 2 business days. We may attempt to resolve the issue before processing a refund</span>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <strong>Refund Processed</strong>
+                    <span>Approved refunds are processed within 5–7 business days to the original payment method. Your license will be deactivated upon refund</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><i class="fas fa-headset"></i> 5. Our Support-First Approach</h2>
+        <p>Before raising a refund request, we strongly encourage you to contact our support team. Most issues — installation problems, GST configuration, template questions — can be resolved quickly. Our team is available via:</p>
+        <ul>
+            <li><i class="fas fa-envelope" style="color:var(--orange)"></i> Email: support@codeyantra.in</li>
+            <li><i class="fab fa-telegram-plane" style="color:var(--primary)"></i> Telegram: <a href="https://t.me/codeyantrasupportbot" target="_blank" style="color:var(--primary); text-decoration:none;">@codeyantrasupportbot</a></li>
+        </ul>
+    </div>
+
+    <div class="section-block">
+        <h2><i class="fas fa-pen-to-square"></i> 6. Changes to This Policy</h2>
+        <p>CodeYantra Technologies reserves the right to modify this Refund Policy at any time. Updated policies will be published on this page with a revised date. Purchases made before a policy change are governed by the policy in effect at the time of purchase.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="contact-block">
+        <p><i class="fas fa-envelope" style="color:var(--orange); margin-right:8px;"></i>Need help with a refund or have a question?</p>
+        <a href="mailto:support@codeyantra.in">support@codeyantra.in</a> &nbsp;|&nbsp;
+        <a href="https://t.me/codeyantrasupportbot" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram Support</a>
+    </div>
+
+</div>
+
+<footer>
+    &copy; <span id="yr"></span> CodeYantra Technologies &nbsp;|&nbsp;
+    <a href="easy_invoice.html">Easy Invoice</a>
+    <a href="ei_privacy_policy.html">Privacy Policy</a>
+    <a href="ei_terms.html">Terms of Service</a>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
