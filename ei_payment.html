@@ -576,11 +576,11 @@
 
             <!-- Plan Switcher -->
             <div class="plan-switcher">
-                <button class="switcher-btn" id="switch-yearly" onclick="switchPlan('yearly')">
-                    1 Year · ₹3,999
+                <button class="switcher-btn" id="switch-basic" onclick="switchPlan('basic')">
+                    BASIC · ₹2,499
                 </button>
-                <button class="switcher-btn" id="switch-5year" onclick="switchPlan('5year')">
-                    5 Years · ₹14,999 ⭐
+                <button class="switcher-btn" id="switch-pro" onclick="switchPlan('pro')">
+                    PRO · ₹3,999 ⭐
                 </button>
             </div>
 
@@ -646,39 +646,47 @@
 <script>
     // ─── PLAN CONFIG ───
     const PLANS = {
+<<<<<<< HEAD
         yearly: {
         key: 'yearly',
         label: '1 Year License',
         amount: 399900,       // ✅ FIX: 300 ko 399900 karo
         display: '₹3,999',
             description: '1 Year License — Easy Invoice',
+=======
+        basic: {
+            key: 'basic',
+            label: 'BASIC (Local Only)',
+            amount: 249900,
+            display: '₹2,499',
+            description: '1 Year Basic License — Easy Invoice',
+>>>>>>> aae7a5d (Banner image and UI card updated)
             perks: [
-                'All invoice types included',
-                'GST + HSN auto-calculation',
-                'Auto IGST / CGST+SGST routing',
-                'Multiple premium templates',
-                'Petroleum &amp; Bowser billing',
-                'License key via email instantly'
+                'Standard GST Invoicing',
+                'Party Ledgers & Reports',
+                'Petroleum Billing Support',
+                'NO Cloud Backup (Risk of Deletion)',
+                'NO Restore if PC is Formatted'
             ]
         },
-        '5year': {
-            key: '5year',
-            label: '5 Year License',
-            amount: 1499900,      // paise mein (₹14,999)
-            display: '₹14,999',
-            description: '5 Year License — Easy Invoice',
+        pro: {
+            key: 'pro',
+            label: 'PRO (Cloud Protected)',
+            amount: 399900,
+            display: '₹3,999',
+            description: '1 Year Pro License — Easy Invoice',
             perks: [
-                'Everything in 1-Year plan',
-                'Priority support',
-                'Free feature updates (5 years)',
-                'Ledger &amp; Reports access',
-                'Inventory management',
-                'License key via email instantly'
+                'Real-time Cloud Sync',
+                'One-Click Data Restore',
+                'Safe from Disk Crash & Formatting',
+                'Automatic Daily Backups',
+                'Full Bowser & Inventory Support',
+                'Priority 24/7 Tech Support'
             ]
         }
     };
 
-    let currentPlan = 'yearly';
+    let currentPlan = 'pro';
 
     // ─── INIT FROM URL PARAM ───
     function init() {
@@ -687,7 +695,7 @@
         if (plan && PLANS[plan]) {
             switchPlan(plan);
         } else {
-            switchPlan('yearly');
+            switchPlan('pro');
         }
     }
 
@@ -714,8 +722,8 @@
         ).join('');
 
         // Update switcher buttons
-        document.getElementById('switch-yearly').classList.toggle('active', plan === 'yearly');
-        document.getElementById('switch-5year').classList.toggle('active', plan === '5year');
+        document.getElementById('switch-basic').classList.toggle('active', plan === 'basic');
+        document.getElementById('switch-pro').classList.toggle('active', plan === 'pro');
     }
 
     // ─── VALIDATE ───

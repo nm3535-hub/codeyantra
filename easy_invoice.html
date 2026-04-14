@@ -339,6 +339,31 @@
             transform: translateY(-6px) scale(1.03);
         }
 
+        .data-loss-warning {
+            max-width: 800px;
+            margin: 48px auto 0;
+            background: rgba(255, 68, 68, 0.07);
+            border: 1px solid rgba(255, 68, 68, 0.2);
+            border-radius: 16px;
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .data-loss-warning i {
+            font-size: 1.8rem;
+            color: #ff4444;
+            flex-shrink: 0;
+        }
+
+        .data-loss-warning p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
         .plan-badge {
             display: inline-block;
             background: linear-gradient(135deg, #FF8C00, #e67e00);
@@ -362,28 +387,84 @@
 
         .plan-price {
             margin-bottom: 28px;
-        }
-
-        .plan-price .amount {
             font-family: 'Space Mono', monospace;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--text-light);
             line-height: 1;
         }
 
-        .plan-price .currency {
-            font-size: 1.4rem;
-            vertical-align: super;
-            color: var(--orange);
-            font-family: 'Space Mono', monospace;
+        .plan-price span {
+            font-family: 'Sora', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
         }
 
-        .plan-price .period {
+        .risk-badge-red {
+            display: inline-block;
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 68, 68, 0.3);
+        }
+
+        .secure-badge-green {
+            display: inline-block;
+            background: rgba(0, 200, 83, 0.1);
+            color: var(--green);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 200, 83, 0.3);
+        }
+
+        .btn-risk {
             display: block;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 6px;
+            text-align: center;
+            background: rgba(255, 68, 68, 0.08);
+            color: #ff4444;
+            border: 1.5px solid rgba(255, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-risk:hover {
+            background: #ff4444;
+            color: #fff;
+            border-color: #ff4444;
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.3);
+        }
+
+        .btn-secure {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #00c853, #009624);
+            color: #fff;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 200, 83, 0.3);
+            margin-top: 20px;
+        }
+
+        .btn-secure:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 200, 83, 0.4);
         }
 
         .plan-perks {
@@ -813,8 +894,15 @@
                     Create professional GST invoices in seconds. Auto-apply IGST or CGST+SGST based on location, HSN codes, multiple premium templates — all stored locally on your device. No cloud, no data theft.
                 </p>
                 <div class="hero-ctas">
+<<<<<<< HEAD
                     <a href="https://github.com/nm3535-hub/codeyantra/releases/download/v2.0.0/EasyInvoiceSetup.exe" class="btn btn-primary" download>
                         <i class="fas fa-download"></i> Download for Windows
+=======
+                    <a href="https://github.com/nm3535-hub/codeyantra/releases/latest/download/EasyInvoiceSetup.exe" 
+                       class="btn btn-primary" 
+                       id="downloadBtn">
+                        <i class="fas fa-download"></i> Download for Windows (Free Trial)
+>>>>>>> aae7a5d (Banner image and UI card updated)
                     </a>
                     <a href="#pricing" class="btn btn-outline">
                         <i class="fas fa-tag"></i> View Plans
@@ -846,53 +934,49 @@
 <!-- PRICING -->
 <section id="pricing" class="pricing-section">
     <div class="container">
-        <p class="section-label">Pricing</p>
-        <h2 class="section-title">Simple, One-Time Payment</h2>
-        <p class="section-subtitle">No subscriptions. Pay once, use forever. Choose the plan that fits your business.</p>
+        <p class="section-label">Investment for Business Continuity</p>
+        <h2 class="section-title">Make Your Business Data Indestructible</h2>
+        <p class="section-subtitle">Hard drives can crash. Windows can get corrupted. Is risking an entire year's worth of data worth a saving of just ₹1,500? Choose wisely.</p>
 
         <div class="pricing-grid">
-            <!-- 1 Year -->
-            <div class="plan-card">
-                <div class="plan-name">1 Year License</div>
-                <p class="plan-desc">Perfect to get started. Full features for a full year.</p>
-                <div class="plan-price">
-                    <span class="currency">₹</span><span class="amount">3,999</span>
-                    <span class="period">One-time payment · 1 Year validity</span>
-                </div>
+            
+            <div class="plan-card basic">
+                <div class="risk-badge-red"><i class="fas fa-biohazard"></i> HIGH RISK: OFFLINE ONLY</div>
+                <div class="plan-name">BASIC (Local Only)</div>
+                <p style="font-size: 0.8rem; color:var(--text-muted)">No cloud safety. Manual responsibility.</p>
+                <div class="plan-price">₹2,499 <span>/Yr</span></div>
                 <ul class="plan-perks">
-                    <li><i class="fas fa-check"></i> All invoice types included</li>
-                    <li><i class="fas fa-check"></i> GST + HSN auto-calculation</li>
-                    <li><i class="fas fa-check"></i> Multiple premium templates</li>
-                    <li><i class="fas fa-check"></i> IGST / CGST+SGST auto-apply</li>
-                    <li><i class="fas fa-check"></i> Petroleum Ready billing</li>
-                    <li><i class="fas fa-check"></i> Full offline — no cloud</li>
+                    <li><i class="fas fa-times" style="color:#ff4444"></i> NO Cloud Backup (Risk of Deletion)</li>
+                    <li><i class="fas fa-times" style="color:#ff4444"></i> NO Restore if PC is Formatted</li>
+                    <li><i class="fas fa-check"></i> Standard GST Invoicing</li>
+                    <li><i class="fas fa-check"></i> Party Ledgers &amp; Reports</li>
+                    <li><i class="fas fa-check"></i> Petroleum Billing Support</li>
                 </ul>
-                <a href="ei_payment.html?plan=yearly" class="btn btn-plan">
-                    <i class="fas fa-bolt"></i> Buy Now — ₹3,999
-                </a>
+                <a href="ei_payment.html?plan=basic" class="btn btn-risk">I'll Take the Risk — ₹2,499</a>
             </div>
 
-            <!-- 5 Year -->
             <div class="plan-card popular">
-                <div class="plan-badge">⭐ Best Value</div>
-                <div class="plan-name">5 Year License</div>
-                <p class="plan-desc">Long-term peace of mind. Save ₹4,996 vs 5×1-year plans.</p>
-                <div class="plan-price">
-                    <span class="currency">₹</span><span class="amount">14,999</span>
-                    <span class="period">One-time payment · 5 Year validity</span>
-                </div>
+                <div class="secure-badge-green"><i class="fas fa-shield-check"></i> RECOMMENDED: ZERO DATA LOSS</div>
+                <div class="plan-name">PRO (Cloud Protected)</div>
+                <p style="font-size: 0.8rem; color:var(--text-muted)">Real-time backup. One-click recovery.</p>
+                <div class="plan-price">₹3,999 <span>/Yr</span></div>
                 <ul class="plan-perks">
-                    <li><i class="fas fa-check"></i> Everything in 1-Year plan</li>
-                    <li><i class="fas fa-check"></i> Priority support</li>
-                    <li><i class="fas fa-check"></i> Free feature updates</li>
-                    <li><i class="fas fa-check"></i> Ledger &amp; Reports access</li>
-                    <li><i class="fas fa-check"></i> Inventory management</li>
-                    <li><i class="fas fa-check"></i> Bowser tracking module</li>
+                    <li style="color:#fff; font-weight:700"><i class="fas fa-check"></i> Real-time Cloud Sync</li>
+                    <li style="color:#fff; font-weight:700"><i class="fas fa-check"></i> One-Click Data Restore</li>
+                    <li><i class="fas fa-check"></i> Safe from Disk Crash &amp; Formatting</li>
+                    <li><i class="fas fa-check"></i> Automatic Daily Backups</li>
+                    <li><i class="fas fa-check"></i> Full Bowser &amp; Inventory Support</li>
+                    <li><i class="fas fa-check"></i> Priority 24/7 Tech Support</li>
                 </ul>
-                <a href="ei_payment.html?plan=5year" class="btn btn-plan">
-                    <i class="fas fa-bolt"></i> Buy Now — ₹14,999
-                </a>
+                <a href="ei_payment.html?plan=pro" class="btn btn-secure">Secure My Business — ₹3,999</a>
             </div>
+        </div>
+
+        <div class="data-loss-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>
+                <strong>Hard Truth:</strong> Hard drive recovery costs start from ₹15,000. The <strong>PRO Version</strong> protects you from this massive loss for just ₹1,500 extra. <strong>Don't wait for your business to shut down.</strong>
+            </p>
         </div>
     </div>
 </section>
