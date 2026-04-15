@@ -385,52 +385,91 @@ let price = 699;
 let savedOrderId = null;  // Firestore doc ID store karega
 let savedUserData = {};   // Payment prefill ke liye
 
-// 💰 RAZORPAY SDK SE PAYMENT OPEN
-function openPayment() {
-    const options = {
-        key: 'rzp_live_SZS3T05qC5C3GI',
-        amount: price * 100,         // Razorpay paise mein leta hai
-        currency: 'INR',
-        name: 'FuelMate — CodeYantra',
-        description: 'FuelMate 1 Year License',
-        image: 'assets/logo_1.png',
-        prefill: {
-            name: savedUserData.name || '',
-            email: savedUserData.email || '',
-            contact: '91' + (savedUserData.whatsapp || '')
-        },
-        notes: {
-            pump_name: savedUserData.pumpName || '',
-            city: savedUserData.city || ''
-        },
-        theme: { color: '#0056b3' },
-        modal: {
-            ondismiss: function () {
-                console.log('Payment modal closed');
-            }
-        },
-        handler: async function (response) {
-            // Firestore order status update karo
-            if (savedOrderId) {
-                try {
-                    await db.collection('orders').doc(savedOrderId).update({
-                        status: 'paid',
-                        payment_id: response.razorpay_payment_id,
-                        paid_at: firebase.firestore.FieldValue.serverTimestamp()
-                    });
-                } catch (err) {
-                    console.error('Status update error:', err);
-                }
-            }
-            showSuccess(response.razorpay_payment_id);
-        }
-    };
+// Firebase Function URL — deploy ke baad update karo
+const CREATE_ORDER_URL = 'https://us-central1-tap-meet.cloudfunctions.net/createRazorpayOrder';
 
-    const rzp = new Razorpay(options);
-    rzp.on('payment.failed', function (response) {
-        alert('Payment failed: ' + (response.error.description || 'Please try again.'));
-    });
-    rzp.open();
+// 💰 RAZORPAY SDK SE PAYMENT OPEN (Backend Order ID se)
+async function openPayment() {
+    const payBtn = document.querySelector('.pay-button');
+    const originalText = payBtn.innerHTML;
+    payBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating order...';
+    payBtn.style.pointerEvents = 'none';
+
+    try {
+        // Step 1: Backend se Razorpay order create karo
+        const res = await fetch(CREATE_ORDER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                amount: price * 100,        // paise mein
+                firestoreOrderId: savedOrderId
+            })
+        });
+
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.error || 'Order creation failed');
+        }
+
+        const orderData = await res.json();
+
+        // Step 2: Razorpay checkout open karo with order_id
+        const options = {
+            key: orderData.key,
+            amount: orderData.amount,
+            currency: orderData.currency,
+            order_id: orderData.order_id,       // ← Exact match ke liye
+            name: 'FuelMate — CodeYantra',
+            description: 'FuelMate 1 Year License',
+            image: 'assets/logo_1.png',
+            prefill: {
+                name: savedUserData.name || '',
+                email: savedUserData.email || '',
+                contact: '91' + (savedUserData.whatsapp || '')
+            },
+            notes: {
+                pump_name: savedUserData.pumpName || '',
+                city: savedUserData.city || ''
+            },
+            theme: { color: '#0056b3' },
+            modal: {
+                ondismiss: function () {
+                    payBtn.innerHTML = originalText;
+                    payBtn.style.pointerEvents = 'auto';
+                }
+            },
+            handler: async function (response) {
+                // Firestore status update (webhook bhi karega, ye backup hai)
+                if (savedOrderId) {
+                    try {
+                        await db.collection('orders').doc(savedOrderId).update({
+                            status: 'paid',
+                            payment_id: response.razorpay_payment_id,
+                            razorpay_order_id: response.razorpay_order_id,
+                            paid_at: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                    } catch (err) {
+                        console.error('Status update error:', err);
+                    }
+                }
+                showSuccess(response.razorpay_payment_id);
+            }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.on('payment.failed', function (response) {
+            payBtn.innerHTML = originalText;
+            payBtn.style.pointerEvents = 'auto';
+            alert('Payment failed: ' + (response.error.description || 'Please try again.'));
+        });
+        rzp.open();
+
+    } catch (err) {
+        console.error('Payment init error:', err);
+        payBtn.innerHTML = originalText;
+        payBtn.style.pointerEvents = 'auto';
+        alert('Payment shuru nahi ho paya. Please dobara try karein.\n\nError: ' + err.message);
+    }
 }
 
 // 🧾 FORM SUBMIT → SAVE DATA & SHOW PAYMENT
