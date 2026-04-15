@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <style>
         :root {
@@ -131,37 +132,6 @@
             color: var(--fuel-orange);
         }
 
-        .promo-box {
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .promo-box input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            font-family: inherit;
-        }
-
-        .promo-box button {
-            width: 100%;
-            padding: 10px;
-            background: white;
-            color: var(--dark-blue);
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .promo-box button:hover {
-            background: #eee;
-        }
 
         .form-section {
             padding: 40px;
@@ -322,25 +292,10 @@
                     <span>Official Price</span>
                     <span style="text-decoration: line-through; opacity: 0.7;">&#8377;1450</span>
                 </div>
-                <div class="price-row">
-                    <span>Standard Price</span>
-                    <span id="display-standard">&#8377;999</span>
-                </div>
-                <div class="price-row" id="discount-row" style="display: none;">
-                    <span>Early Supporter</span>
-                    <span style="color: #4CAF50;">-&#8377;300</span>
-                </div>
 
                 <div class="price-total">
                     <span>Total Pay</span>
-                    <span id="display-total">&#8377;999</span>
-                </div>
-
-                <div class="promo-box">
-                    <div style="margin-bottom: 5px; font-size: 0.9rem;">Have a promo code?</div>
-                    <input type="text" id="promo-code" placeholder="Enter Code">
-                    <button type="button" onclick="applyPromo()">Apply Code</button>
-                    <div id="promo-msg" style="margin-top: 8px; font-size: 0.85rem; display: none;"></div>
+                    <span id="display-total">&#8377;699</span>
                 </div>
 
                 <div style="margin-top: 30px; opacity: 0.7; font-size: 0.85rem; text-align: center;">
@@ -389,7 +344,7 @@
                     </div>
                     <h3 style="margin-bottom: 15px; color: var(--dark-blue);">Final Step: Payment</h3>
                     <p style="margin-bottom: 20px; color: #666;">
-                        Proceed to pay <span id="pay-amount-text" style="font-weight: 800; color: var(--fuel-orange); font-size: 1.2rem;">&#8377;999</span>
+                        Proceed to pay <span id="pay-amount-text" style="font-weight: 800; color: var(--fuel-orange); font-size: 1.2rem;">&#8377;699</span>
                     </p>
                     <a href="#" class="pay-button" onclick="startPaymentProcess(event)">
                         <i class="fas fa-lock"></i> Pay Now via Razorpay
@@ -398,7 +353,17 @@
                     <button onclick="goBack()" style="background: none; border: none; color: #666; margin-top: 20px; cursor: pointer; text-decoration: underline; font-family: inherit; font-size: 0.9rem;">
                         <i class="fas fa-edit"></i> Edit Details
                     </button>
-                    
+                </div>
+
+                <!-- Step 3: Success Screen (hidden by default) -->
+                <div id="success-section" style="display: none; text-align: center; padding: 40px 20px;">
+                    <div style="width:80px; height:80px; border-radius:50%; background:#e6f9ee; border:2px solid #4CAF50; display:flex; align-items:center; justify-content:center; font-size:2rem; color:#28a745; margin: 0 auto 20px;">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 style="color: var(--dark-blue); font-size:1.5rem; margin-bottom:12px;">Payment Successful!</h3>
+                    <p style="color:#555; margin-bottom:8px;">Your FuelMate license key will be sent to your email shortly.</p>
+                    <div id="success-pid" style="font-family: monospace; font-size:0.8rem; background:#f4f7fb; border:1px solid #ddd; border-radius:6px; padding:10px 16px; color:#0056b3; margin: 16px auto; max-width: 320px; word-break:break-all;"></div>
+                    <p style="font-size:0.85rem; color:#888;">Need help? Contact us on Telegram: <a href="https://t.me/codeyantrasupportbot" target="_blank" style="color:var(--primary-blue);">@codeyantrasupportbot</a></p>
                 </div>
 
                 <script>
@@ -416,57 +381,56 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-let price = 999;
-let promoLimit = 20; // Default limit
+let price = 699;
+let savedOrderId = null;  // Firestore doc ID store karega
+let savedUserData = {};   // Payment prefill ke liye
 
-// 2. Database se Promo Count Check karna (Real-time count)
-async function checkPromoCount() {
-    try {
-        const snapshot = await db.collection("license_keys").where("isUsed", "==", false).get();
-        promoLimit = snapshot.size;
-        console.log("Promo slots available:", promoLimit);
-    } catch (err) {
-        console.error("Counter Error:", err);
-    }
-}
-checkPromoCount();
-
-// 🎟 PROMO APPLY (Logic updated with counting)
-function applyPromo() {
-    const code = document.getElementById('promo-code').value.trim().toUpperCase();
-    const msgEl = document.getElementById('promo-msg');
-    msgEl.style.display = 'block';
-
-    if (code === 'SUPPORT699' && promoLimit > 0) {
-        price = 699;
-
-        document.getElementById('discount-row').style.display = 'flex';
-        document.getElementById('display-total').innerHTML = '&#8377;699';
-        document.getElementById('pay-amount-text').innerHTML = '&#8377;699';
-
-        msgEl.style.color = '#4CAF50';
-        msgEl.innerText = `Early Supporter price unlocked! (${promoLimit} left)`;
-    } else if (code === 'SUPPORT699' && promoLimit <= 0) {
-        msgEl.style.color = '#ff4757';
-        msgEl.innerText = 'Promo limit reached! Please use regular price.';
-    } else {
-        price = 999;
-        document.getElementById('discount-row').style.display = 'none';
-        document.getElementById('display-total').innerHTML = '&#8377;999';
-        document.getElementById('pay-amount-text').innerHTML = '&#8377;999';
-
-        msgEl.style.color = '#ff4757';
-        msgEl.innerText = 'Invalid promo code.';
-    }
-}
-
-// 💰 PAYMENT OPEN
+// 💰 RAZORPAY SDK SE PAYMENT OPEN
 function openPayment() {
-    if (price === 699 && promoLimit > 0) {
-        window.open("https://rzp.io/rzp/2haW6Cp", "_blank"); // promo link ₹699
-    } else {
-        window.open("https://rzp.io/rzp/LZ0jQB6", "_blank"); // normal link ₹999
-    }
+    const options = {
+        key: 'rzp_live_SZS3T05qC5C3GI',
+        amount: price * 100,         // Razorpay paise mein leta hai
+        currency: 'INR',
+        name: 'FuelMate — CodeYantra',
+        description: 'FuelMate 1 Year License',
+        image: 'assets/logo_1.png',
+        prefill: {
+            name: savedUserData.name || '',
+            email: savedUserData.email || '',
+            contact: '91' + (savedUserData.whatsapp || '')
+        },
+        notes: {
+            pump_name: savedUserData.pumpName || '',
+            city: savedUserData.city || ''
+        },
+        theme: { color: '#0056b3' },
+        modal: {
+            ondismiss: function () {
+                console.log('Payment modal closed');
+            }
+        },
+        handler: async function (response) {
+            // Firestore order status update karo
+            if (savedOrderId) {
+                try {
+                    await db.collection('orders').doc(savedOrderId).update({
+                        status: 'paid',
+                        payment_id: response.razorpay_payment_id,
+                        paid_at: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                } catch (err) {
+                    console.error('Status update error:', err);
+                }
+            }
+            showSuccess(response.razorpay_payment_id);
+        }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.on('payment.failed', function (response) {
+        alert('Payment failed: ' + (response.error.description || 'Please try again.'));
+    });
+    rzp.open();
 }
 
 // 🧾 FORM SUBMIT → SAVE DATA & SHOW PAYMENT
@@ -479,20 +443,24 @@ document.getElementById('purchaseForm').addEventListener('submit', async functio
     submitBtn.innerText = "Saving Details...";
 
     // User details data object
-    const orderData = {
+    savedUserData = {
         name: document.getElementById('name').value,
         pumpName: document.getElementById('pumpName').value,
         city: document.getElementById('city').value,
         whatsapp: document.getElementById('whatsapp').value,
-        email: document.getElementById('email').value,
-        amount: price, // Current price variable
+        email: document.getElementById('email').value
+    };
+    const orderData = {
+        ...savedUserData,
+        amount: price,
         status: "pending",
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
     };
 
     try {
         // Details Firestore ke 'orders' collection mein save karein
-        await db.collection("orders").add(orderData);
+        const docRef = await db.collection("orders").add(orderData);
+        savedOrderId = docRef.id;
         
         // UPDATE: Payment section mein final amount text set karein
         if(document.getElementById('pay-amount-text')) {
@@ -530,6 +498,14 @@ function startPaymentProcess(e) {
     if (e) e.preventDefault();
     console.log("Starting payment for price:", price);
     openPayment();
+}
+
+// ✅ SUCCESS SCREEN
+function showSuccess(paymentId) {
+    document.getElementById('payment-section').style.display = 'none';
+    document.getElementById('success-section').style.display = 'block';
+    document.getElementById('success-pid').textContent = 'Payment ID: ' + paymentId;
+    window.scrollTo(0, 0);
 }
 </script>
 

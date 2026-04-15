@@ -638,58 +638,11 @@
                 </div>
 
                 <div style="padding: 40px; text-align: center;">
-                    <div style="text-decoration: line-through; color: #999; font-size: 1.2rem; margin-bottom: 5px;">
+                    <div style="text-decoration: line-through; color: #999; font-size: 1.2rem; margin-bottom: 8px;">
                         Official Price: &#8377;1450</div>
-                    <div style="font-size: 1.5rem; margin-bottom: 15px; font-weight: 600; color: #666;">
-                        Standard Price: &#8377;999</div>
                     <div style="font-size: 2.8rem; font-weight: 800; color: var(--text-dark); line-height: 1;">
                         &#8377;699</div>
-                    <p style="color: var(--fuel-orange); font-weight: 600; margin-top: 10px; margin-bottom: 25px;">Early
-                        Supporter Price</p>
-
-                    <div style="background: rgba(255,128,8,0.1); border: 1px solid var(--fuel-orange); border-radius: 10px; padding: 20px; margin: 0 auto 25px; display: inline-block; width: 100%; max-width: 400px;">
-    <span style="display: block; font-weight: 700; color: var(--dark-blue); margin-bottom: 15px; font-size: 1rem;">Limited Early Supporter Licenses Available</span>
-    <div style="width: 100%; height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; margin-bottom: 10px;">
-        <div id="promo-progress-bar" style="width: 100%; height: 100%; background: var(--fuel-orange); border-radius: 5px; transition: 0.5s;"></div>
-    </div>
-    <span id="promo-counter-text" style="font-weight: 800; color: var(--fuel-orange); font-size: 1.1rem;">Checking availability...</span>
-    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">*When promo ends, price becomes ₹1450.</p>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script>
-    // Apni wahi Config yahan bhi paste karein
-    const firebaseConfig = { /* ... aapki config ... */ };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    async function updateLiveCounter() {
-        try {
-            const snapshot = await db.collection("license_keys").where("isUsed", "==", false).get();
-            const available = snapshot.size;
-            const total = 20; // Aapka total target
-            const claimed = total - available;
-
-            document.getElementById('promo-counter-text').innerText = `${claimed} of ${total} Claimed`;
-            // Progress bar update (min 10% dikhaye taaki khali na lage)
-            const percentage = Math.max((claimed / total) * 100, 10);
-            document.getElementById('promo-progress-bar').style.width = percentage + "%";
-        } catch (e) {
-            document.getElementById('promo-counter-text').innerText = "Special Discount Active";
-        }
-    }
-    updateLiveCounter();
-</script>
-
-                    <div
-                        style="background: #f8f9fa; border: 1px dashed #ccc; padding: 15px; border-radius: 10px; display: inline-block; margin-bottom: 30px; width: 100%; max-width: 400px;">
-                        <span style="color: #666; font-size: 0.95rem;">To get this price, use promo code at
-                            checkout:</span>
-                        <div
-                            style="font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; color: var(--dark-blue); margin-top: 5px;">
-                            SUPPORT699</div>
-                    </div>
+                    <p style="color: var(--fuel-orange); font-weight: 600; margin-top: 10px; margin-bottom: 25px;">Early Supporter Price</p>
 
                     <ul style="list-style: none; text-align: left; max-width: 300px; margin: 0 auto 40px;">
                         <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
