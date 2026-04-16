@@ -144,9 +144,10 @@ exports.handleRazorpayWebhook = onRequest(
 
             const targetEmail = orderData.email;
 
-            // ── Fetch unused license key ──
+            // ── Fetch available license key (isUsed:false + available:true) ──
             const keySnap = await db.collection("license_keys")
                 .where("isUsed", "==", false)
+                .where("available", "==", true)
                 .limit(1)
                 .get();
 
@@ -176,41 +177,84 @@ exports.handleRazorpayWebhook = onRequest(
                 }
             });
 
+            const emailHtml = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:30px 0;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #e0e0e0;max-width:600px;">
+
+      <!-- Header -->
+      <tr><td style="background:#0056b3;padding:28px 30px;text-align:center;">
+        <img src="https://firebasestorage.googleapis.com/v0/b/fuelmate-pro-93101.firebasestorage.app/o/codeyantra.png?alt=media&token=0f91bd3c-bd1a-4916-9bd6-9efec602594d"
+             alt="CodeYantra Technologies" style="max-height:60px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+        <p style="margin:0;color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:1px;">CodeYantra Technologies</p>
+      </td></tr>
+
+      <!-- Body -->
+      <tr><td style="padding:35px 30px;">
+        <p style="margin:0 0 16px;font-size:16px;color:#333;">Dear ${orderData.name},</p>
+        <p style="margin:0 0 24px;font-size:15px;color:#555;line-height:1.6;">
+          Thank you for purchasing <strong>FuelMate</strong>. Your payment has been confirmed and your activation key is ready.
+        </p>
+
+        <!-- Key Box -->
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="background:#f0f6ff;border:2px dashed #0056b3;border-radius:8px;padding:24px;text-align:center;">
+            <p style="margin:0 0 8px;font-size:12px;font-weight:bold;color:#666;text-transform:uppercase;letter-spacing:1px;">Your Activation Key</p>
+            <p style="margin:0 0 10px;font-size:28px;font-weight:bold;color:#0056b3;font-family:'Courier New',monospace;letter-spacing:6px;">${licenseKey}</p>
+            <p style="margin:0;font-size:12px;color:#888;">Open FuelMate App &rarr; Subscription &rarr; Activate License</p>
+          </td></tr>
+        </table>
+
+        <!-- Order Details -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;border-collapse:collapse;">
+          <tr><td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;color:#666;">Petrol Pump Name</td>
+              <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;color:#333;font-weight:bold;text-align:right;">${orderData.pumpName}</td></tr>
+          <tr><td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;color:#666;">Amount Paid</td>
+              <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px;color:#333;font-weight:bold;text-align:right;">&#8377;${orderData.amount}.00</td></tr>
+          <tr><td style="padding:10px 0;font-size:13px;color:#888;">Payment ID</td>
+              <td style="padding:10px 0;font-size:13px;color:#888;text-align:right;">${payment.id}</td></tr>
+        </table>
+
+        <p style="margin:24px 0 0;font-size:14px;color:#555;line-height:1.6;">
+          If you need any help with activation, please contact us on Telegram:
+          <a href="https://t.me/codeyantrasupportbot" style="color:#0056b3;text-decoration:none;">@codeyantrasupportbot</a>
+        </p>
+      </td></tr>
+
+      <!-- Footer -->
+      <tr><td style="background:#f8f9fa;padding:18px 30px;text-align:center;border-top:1px solid #e0e0e0;">
+        <p style="margin:0;font-size:12px;color:#999;">&copy; ${new Date().getFullYear()} CodeYantra Technologies. All rights reserved.</p>
+        <p style="margin:4px 0 0;font-size:12px;color:#bbb;">This is a transactional email regarding your purchase.</p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+
+            const emailText = `Dear ${orderData.name},\n\nThank you for purchasing FuelMate.\n\nYour Activation Key: ${licenseKey}\n\nTo activate: Open FuelMate App > Subscription > Activate License\n\nPetrol Pump: ${orderData.pumpName}\nAmount Paid: Rs.${orderData.amount}.00\nPayment ID: ${payment.id}\n\nNeed help? Contact us on Telegram: @codeyantrasupportbot\n\nCodeYantra Technologies`;
+
             await transporter.sendMail({
                 from: `"CodeYantra Technologies" <${godaddyEmail.value()}>`,
                 to: targetEmail,
                 bcc: "codeyantra.official@gmail.com",
-                subject: `FuelMate License Key — ${orderData.pumpName}`,
-                html: `
-                    <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; background-color: #ffffff;">
-                        <div style="padding: 30px; text-align: center; border-bottom: 3px solid #1a73e8;">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/fuelmate-pro-93101.firebasestorage.app/o/codeyantra.png?alt=media&token=0f91bd3c-bd1a-4916-9bd6-9efec602594d"
-                                 alt="CodeYantra" style="max-height: 70px; margin-bottom: 10px;">
-                            <h1 style="margin: 0; font-size: 26px; color: #1a73e8;">CodeYantra</h1>
-                            <p style="margin: 0; font-size: 10px; letter-spacing: 2px; color: #5f6368; font-weight: bold; text-transform: uppercase;">Innovation Labs</p>
-                        </div>
-                        <div style="padding: 30px;">
-                            <p>Hi ${orderData.name}, FuelMate upgrade ke liye shukriya! 🎉</p>
-                            <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; text-align: center; border: 1px dashed #1a73e8; margin-bottom: 25px;">
-                                <p style="margin: 0; color: #5f6368; font-size: 13px; font-weight: bold;">YOUR LICENSE KEY</p>
-                                <h2 style="margin: 10px 0; color: #1a73e8; font-family: 'Courier New', monospace; letter-spacing: 4px; font-size: 28px;">${licenseKey}</h2>
-                                <p style="margin: 0; color: #777; font-size: 11px;">(FuelMate App > Subscription > Activate)</p>
-                            </div>
-                            <p>Pump Name: <b>${orderData.pumpName}</b></p>
-                            <p>Total Amount Paid: <b>₹${orderData.amount}.00</b></p>
-                            <p>Payment ID: <code>${payment.id}</code></p>
-                        </div>
-                        <div style="padding: 15px 30px; background: #f8f9fa; text-align: center; font-size: 12px; color: #999;">
-                            Help chahiye? Telegram: <a href="https://t.me/codeyantrasupportbot">@codeyantrasupportbot</a>
-                        </div>
-                    </div>
-                `
+                replyTo: godaddyEmail.value(),
+                subject: `Your FuelMate Activation Key — Order Confirmed`,
+                text: emailText,
+                html: emailHtml,
+                headers: {
+                    "X-Mailer": "CodeYantra Mailer",
+                    "List-Unsubscribe": `<mailto:${godaddyEmail.value()}?subject=unsubscribe>`
+                }
             });
 
             // ── Batch Update Firestore ──
             const batch = db.batch();
             batch.update(keyDoc.ref, {
-                isUsed: true,                   // ✅ BUG FIX: was false
+                isUsed: false,          // App activation ke liye false rakho — app khud true karega
+                available: false,       // Re-assignment rokne ke liye
                 status: "assigned",
                 assignedTo: targetEmail,
                 paymentId: payment.id,
@@ -225,11 +269,21 @@ exports.handleRazorpayWebhook = onRequest(
             await batch.commit();
 
             // ── Telegram Sale Alert ──
-            const msg = `🚀 *New FuelMate Sale!*\n\n👤 *Customer:* ${orderData.name}\n⛽ *Pump:* ${orderData.pumpName}\n🏙️ *City:* ${orderData.city}\n💰 *Amount:* ₹${orderData.amount}\n🔑 *Key:* \`${licenseKey}\`\n🆔 *Payment ID:* ${payment.id}`;
-            await axios.post(
-                `https://api.telegram.org/bot${telegramToken.value()}/sendMessage`,
-                { chat_id: telegramChatId.value(), text: msg, parse_mode: "Markdown" }
-            );
+            try {
+                const tToken = telegramToken.value();
+                const tChat  = telegramChatId.value();
+                if (tToken && tChat) {
+                    const msg = `🚀 *New FuelMate Sale!*\n\n👤 *Customer:* ${orderData.name}\n⛽ *Pump:* ${orderData.pumpName}\n🏙️ *City:* ${orderData.city}\n💰 *Amount:* ₹${orderData.amount}\n🔑 *Key:* \`${licenseKey}\`\n🆔 *Payment ID:* ${payment.id}`;
+                    await axios.post(
+                        `https://api.telegram.org/bot${tToken}/sendMessage`,
+                        { chat_id: tChat, text: msg, parse_mode: "Markdown" }
+                    );
+                } else {
+                    console.warn("Telegram secrets not set — skipping alert");
+                }
+            } catch (tgErr) {
+                console.error("Telegram alert failed (non-critical):", tgErr.message);
+            }
 
             return res.status(200).send("Success");
 
