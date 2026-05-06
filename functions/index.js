@@ -186,7 +186,7 @@ exports.handleRazorpayWebhook = onRequest(
 
       <!-- Header -->
       <tr><td style="background:#0056b3;padding:28px 30px;text-align:center;">
-        <img src="https://firebasestorage.googleapis.com/v0/b/fuelmate-pro-93101.firebasestorage.app/o/codeyantra.png?alt=media&token=0f91bd3c-bd1a-4916-9bd6-9efec602594d"
+        <img src="https://firebasestorage.googleapis.com/v0/b/fuelmate-pro-93101.firebasestorage.app/o/hero_logo.png?alt=media&token=3e51cd6e-e6ab-4dbd-8fa1-b01e78574fba"
              alt="CodeYantra Technologies" style="max-height:60px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
         <p style="margin:0;color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:1px;">CodeYantra Technologies</p>
       </td></tr>

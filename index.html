@@ -754,6 +754,33 @@
             color: var(--text-muted);
         }
 
+        /* CATEGORY LABELS */
+        .category-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .coming-soon-tag {
+            display: inline-block;
+            background: rgba(131, 56, 236, 0.15);
+            color: var(--accent-secondary);
+            border: 1px solid rgba(131, 56, 236, 0.3);
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
         /* RESPONSIVE */
         @media(max-width: 768px) {
             .hero h1 {
@@ -841,25 +868,11 @@
     <section id="products" class="section">
         <div class="container">
 
-            <div class="flagship-card">
-                <div class="flagship-card-content">
-                    <img src="assets/f_banner.webp" alt="FuelMate Flagship" onerror="this.style.display='none'">
-                    <h3>FuelMate — Complete Fuel Station Management</h3>
-                    <p>Replace paper registers, generate official reports, manage compliance, inspections, staff records and operations—all from one powerful app.</p>
-                    <div class="flagship-buttons">
-                        <a href="fuelmate.html" class="hero-btn hero-btn-primary">
-                            <i class="fas fa-info-circle"></i> Learn More
-                        </a>
-                        <a href="fuelmate-buy.html" class="hero-btn hero-btn-secondary">
-                            <i class="fas fa-shopping-cart"></i> Buy FuelMate
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             <h2 class="section-title">Our Product Range</h2>
             <p class="section-subtitle">Innovative applications designed to simplify, connect, and empower your digital journey.</p>
 
+            <!-- Utility Apps -->
+            <p class="category-label">Utility Apps</p>
             <div class="grid">
                 <!-- FuelMate -->
                 <div class="card">
@@ -873,19 +886,34 @@
                     </div>
                 </div>
 
-<div class="card">
-    <div class="card-img-container">
-        <img src="assets/fp_banner.webp" alt="FuelMate Pro" onerror="this.style.display='none'">
-    </div>
-    <div class="card-content">
-        <h3>FuelMate Pro</h3>
-        <p>Advanced enterprise analytics and multi-station management for large-scale operations.</p>
-        <a href="fuelmate_pro.html">
-            <i class="fas fa-arrow-right"></i> Explore
-        </a>
-    </div>
-</div>
+                <!-- FuelMate Pro -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/fp_banner.webp" alt="FuelMate Pro" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>FuelMate Pro</h3>
+                        <p>Advanced enterprise analytics and multi-station management for large-scale operations.</p>
+                        <a href="fuelmate_pro.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                    </div>
+                </div>
 
+                <!-- Easy Invoice -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/easy.webp" alt="Easy Invoice" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Easy Invoice</h3>
+                        <p>GST billing app with auto IGST/CGST+SGST, HSN codes, petroleum-ready invoices, and 100% offline local storage — no data theft risk.</p>
+                        <a href="easy_invoice.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat & Social Apps -->
+            <p class="category-label" style="margin-top: 60px;">Chat &amp; Social</p>
+            <div class="grid">
                 <!-- MaskChat -->
                 <div class="card">
                     <div class="card-img-container">
@@ -898,25 +926,13 @@
                     </div>
                 </div>
 
-                <!-- Easy Invoice -->
-                <div class="card" style="border-color: rgba(10, 14, 70, 0.767);">
-                    <div class="card-img-container" style="background: linear-gradient(135deg, rgba(255,140,0,0.12), rgba(255,215,0,0.08)); display:flex; align-items:center; justify-content:center;">
-                        <img src="assets/easy.webp" alt="Easy Invoice" onerror="this.style.display='none'" style="max-width: 100%; max-height: 100%; object-fit: contain; width: auto; height: auto;">
-                    </div>
-                    <div class="card-content">
-                        <h3>Easy Invoice</h3>
-                        <p>GST billing app with auto IGST/CGST+SGST, HSN codes, petroleum-ready invoices, and 100% offline local storage — no data theft risk.</p>
-                        <a href="easy_invoice.html" style="color:#FF8C00;"><i class="fas fa-arrow-right"></i> Explore</a>
-                    </div>
-                </div>
-
                 <!-- UnMute -->
-                <div class="card" style="opacity: 0.7;">
-                    <div class="card-img-container" style="filter: grayscale(60%);">
+                <div class="card">
+                    <div class="card-img-container">
                         <img src="assets/u_banner.webp" alt="UnMute" onerror="this.style.display='none'">
                     </div>
                     <div class="card-content">
-                        <h3>UnMute</h3>
+                        <h3>UnMute <span class="coming-soon-tag">Coming Soon</span></h3>
                         <p>Voice-based expression and audio broadcasting platform for authentic communication.</p>
                         <span style="color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="fas fa-hourglass-end"></i> Coming Soon</span>
                     </div>
@@ -1014,9 +1030,9 @@
                   </div>
                      <h3>Email Support</h3>
                     <p>Reach out to our support team for any inquiries or assistance.</p>
-                     <a href="/cdn-cgi/l/email-protection#6b181e1b1b04191f2b08040f0e120a051f190a450205" class="support-link">
-                     <span class="__cf_email__" data-cfemail="e794929797889593a7848883829e8689939586c98e89">[email&#160;protected]</span> <i class="fas fa-external-link-alt"></i>
-                     </a>
+                    <a href="mailto:support@codeyantra.in" class="support-link">
+                        support@codeyantra.in <i class="fas fa-external-link-alt"></i>
+                    </a>
                  </div>
 
 
@@ -1079,9 +1095,7 @@
                 </div>
                 <div>
                     <h4>Support</h4>
-                    <a href="/cdn-cgi/l/email-protection#f98a8c8989968b8db99a969d9c8098978d8b98d79097">
-  <span class="__cf_email__" data-cfemail="43303633332c313703202c27263a222d3731226d2a2d">[email&#160;protected]</span>
-</a>
+                    <a href="mailto:support@codeyantra.in">support@codeyantra.in</a>
                     <p><a href="https://t.me/codeyantrasupportbot" target="_blank">Telegram Bot</a></p>
                 </div>
             </div>
@@ -1092,8 +1106,8 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // 1. AUTO-UPDATE YEAR: Har saal apne aap badlega
+    <script>
+        // Auto-update year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // 2. FORMSPREE SUBMISSION (Netlify Friendly)
