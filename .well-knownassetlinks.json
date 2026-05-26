@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.codeyantra.fuelmatepro",
+    "sha256_cert_fingerprints": [
+      "C6:44:60:AD:6F:0C:79:28:A7:85:E6:3C:5E:36:1E:C0:01:60:17:05:4A:3A:69:11:83:A6:45:67:8C:4C:92:37"
+    ]
+  }
+}]
