@@ -295,9 +295,9 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            max-width: 800px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 1120px;
             margin: 0 auto;
         }
 
@@ -1520,7 +1520,7 @@
                     <span class="highlight">Ridiculously Easy</span>
                 </h1>
                 <p class="hero-desc">
-                    GST billing with multi-warehouse stock tracking, per-invoice outstanding printing, auto IGST/CGST+SGST, HSN codes, and premium templates. Choose <strong>Basic</strong> for offline-only, or <strong>Pro</strong> for cloud backup &amp; zero data loss.
+                    GST billing with multi-warehouse stock tracking, per-invoice outstanding printing, auto IGST/CGST+SGST, HSN codes, and premium templates. Choose <strong>Basic</strong> for synced core billing, <strong>Pro</strong> for full operations, or <strong>Elite</strong> for premium templates and priority service.
                 </p>
                 <div class="hero-ctas">
                     <a href="https://github.com/nm3535-hub/codeyantra/releases/latest/download/EasyInvoiceSetup.exe"
@@ -1536,8 +1536,8 @@
                 <a href="#pricing" class="cloud-coming-strip">
                     <div class="cloud-icon-wrap"><i class="fas fa-cloud-arrow-up"></i></div>
                     <div class="cloud-text">
-                        <strong>Easy Invoice Pro — Cloud Backup & Sync</strong>
-                        <span>Auto backup, zero data loss, access from any device. Available now in Pro plan.</span>
+                        <strong>Easy Invoice plans now start with cloud sync</strong>
+                        <span>Basic includes backup &amp; restore. Pro unlocks full operations. Elite adds premium templates and priority support.</span>
                     </div>
                     <div class="cloud-tag">PRO</div>
                 </a>
@@ -1548,7 +1548,7 @@
                 </div>
                 <div class="offline-badge">
                     <i class="fas fa-shield-halved"></i>
-                    <span>Basic: 100% Offline &amp; Private &nbsp;|&nbsp; Pro: Cloud Sync &amp; Backup</span>
+                    <span>Basic: Cloud Sync &amp; Core Billing &nbsp;|&nbsp; Pro: Full App &nbsp;|&nbsp; Elite: Premium Support</span>
                 </div>
             </div>
         </div>
@@ -1720,11 +1720,12 @@
     <div class="container">
         <p class="section-label">Simple, Honest Pricing</p>
         <h2 class="section-title">Pick the Plan That Fits You</h2>
-        <p class="section-subtitle">Both plans give you full GST billing power. The difference is where your data lives — local on your PC, or safely backed up in the cloud.</p>
+        <p class="section-subtitle">Basic covers core billing with sync. Pro unlocks warehouse, purchase, accounting, and GST operations. Elite adds premium templates and priority service.</p>
 
         <div class="plan-pills">
-            <span class="plan-pill offline"><i class="fas fa-laptop"></i> Basic: Works fully offline, no internet needed</span>
-            <span class="plan-pill cloud"><i class="fas fa-cloud"></i> Pro: Cloud backup + sync across devices</span>
+            <span class="plan-pill offline"><i class="fas fa-cloud"></i> Basic: Core billing + cloud sync</span>
+            <span class="plan-pill cloud"><i class="fas fa-briefcase"></i> Pro: Full business operations</span>
+            <span class="plan-pill cloud"><i class="fas fa-crown"></i> Elite: Premium templates + priority support</span>
         </div>
 
         <div class="pricing-grid">
@@ -1732,44 +1733,53 @@
             <div class="plan-card basic">
                 <div class="plan-badge">BASIC</div>
                 <div class="plan-name">Easy Invoice Basic</div>
-                <p class="plan-desc">Offline billing. Great for solo users &amp; small shops who manage their own backups.</p>
-                <div class="plan-price">₹2,499 <span>/Yr</span></div>
+                <p class="plan-desc">Core billing with cloud sync. Best for users who need reliable invoices, parties, products, and reports.</p>
+                <div class="plan-price">₹3,999 <span>/Yr</span></div>
                 <ul class="plan-perks">
-                    <li><i class="fas fa-check"></i> Full GST Invoicing (IGST / CGST+SGST)</li>
-                    <li><i class="fas fa-check"></i> Party Ledgers &amp; Business Reports</li>
-                    <li><i class="fas fa-check"></i> Industry-Specific Billing Modes</li>
-                    <li><i class="fas fa-check"></i> HSN Codes &amp; Premium Templates</li>
-                    <li style="color:#fff; font-weight:600"><i class="fas fa-warehouse" style="color:var(--orange);"></i> Multi-Warehouse Stock Tracking</li>
-                    <li style="color:#fff; font-weight:600"><i class="fas fa-indian-rupee-sign" style="color:var(--orange);"></i> Outstanding Balance on Invoice</li>
-                    <li style="color:#fff; font-weight:600"><i class="fas fa-money-bill-transfer" style="color:var(--orange);"></i> Vendor Payment — Dual-Side Tracking</li>
-                    <li><i class="fas fa-check"></i> 100% Offline — No Internet Required</li>
+                    <li><i class="fas fa-check"></i> Unlimited parties, products, invoices, and payments</li>
+                    <li><i class="fas fa-check"></i> Cloud sync and one-click restore included</li>
+                    <li><i class="fas fa-check"></i> PDF invoice, print, and share</li>
+                    <li><i class="fas fa-check"></i> Statement, party ledger, and stock report</li>
+                    <li><i class="fas fa-check"></i> Good for core billing without advanced modules</li>
                 </ul>
-                <a href="ei_payment.html?plan=basic" class="btn btn-plan"><i class="fas fa-download"></i> Get Basic — ₹2,499/yr</a>
+                <a href="ei_payment.html?plan=basic" class="btn btn-plan"><i class="fas fa-cloud"></i> Get Basic - ₹3,999/yr</a>
             </div>
 
             <div class="plan-card popular">
                 <div class="plan-badge" style="background: linear-gradient(135deg, #00c853, #009624);">RECOMMENDED</div>
                 <div class="plan-name">Easy Invoice Pro</div>
-                <p class="plan-desc">Everything in Basic + automatic cloud backup, so your data is always safe.</p>
-                <div class="plan-price">₹3,999 <span>/Yr</span></div>
+                <p class="plan-desc">Full app access for serious operations: billing, stock, warehouse, purchase, GST, and accounting.</p>
+                <div class="plan-price">₹5,999 <span>/Yr</span></div>
                 <ul class="plan-perks">
-                    <li><i class="fas fa-check"></i> Everything in Basic, including:</li>
-                    <li style="color:#fff; font-weight:600"><i class="fas fa-warehouse" style="color:var(--orange);"></i> Multi-Warehouse Stock Tracking</li>
-                    <li style="color:#fff; font-weight:600"><i class="fas fa-indian-rupee-sign" style="color:var(--orange);"></i> Outstanding Balance on Invoice</li>
-                    <li style="color:#fff; font-weight:600"><i class="fas fa-money-bill-transfer" style="color:var(--orange);"></i> Vendor Payment — Dual-Side Tracking</li>
-                    <li><i class="fas fa-check"></i> <strong style="color:#fff">Plus:</strong> Real-time Cloud Sync &amp; Backup</li>
-                    <li><i class="fas fa-check"></i> One-Click Data Restore Anytime</li>
-                    <li><i class="fas fa-check"></i> Automatic Daily Backups</li>
-                    <li><i class="fas fa-check"></i> Priority 24/7 Tech Support</li>
+                    <li><i class="fas fa-check"></i> Everything in Basic</li>
+                    <li style="color:#fff; font-weight:600"><i class="fas fa-warehouse" style="color:var(--orange);"></i> Multi-warehouse billing and stock transfers</li>
+                    <li><i class="fas fa-check"></i> Purchase invoices, expenses, credit/debit notes</li>
+                    <li><i class="fas fa-check"></i> Accounting ledgers, bank ledger, P&amp;L, balance sheet</li>
+                    <li><i class="fas fa-check"></i> GST reports: GSTR-1 and GSTR-3B</li>
                 </ul>
-                <a href="ei_payment.html?plan=pro" class="btn btn-secure"><i class="fas fa-shield-check"></i> Get Pro — ₹3,999/yr</a>
+                <a href="ei_payment.html?plan=pro" class="btn btn-secure"><i class="fas fa-shield-check"></i> Get Pro - ₹5,999/yr</a>
+            </div>
+
+            <div class="plan-card elite">
+                <div class="plan-badge" style="background: linear-gradient(135deg, #7c3aed, #4c1d95);">ELITE</div>
+                <div class="plan-name">Easy Invoice Elite</div>
+                <p class="plan-desc">Everything in Pro plus premium invoice presentation and faster help when your business needs attention.</p>
+                <div class="plan-price">₹7,499 <span>/Yr</span></div>
+                <ul class="plan-perks">
+                    <li><i class="fas fa-check"></i> Everything in Pro</li>
+                    <li><i class="fas fa-check"></i> Premium invoice templates</li>
+                    <li><i class="fas fa-check"></i> Advanced print styling and brand controls</li>
+                    <li><i class="fas fa-check"></i> Priority support and onboarding help</li>
+                    <li><i class="fas fa-check"></i> Best for mobile + desktop multi-device use</li>
+                </ul>
+                <a href="ei_payment.html?plan=elite" class="btn btn-secure"><i class="fas fa-crown"></i> Get Elite - ₹7,499/yr</a>
             </div>
         </div>
 
         <div class="data-loss-warning" style="background: rgba(131,56,236,0.07); border-color: rgba(131,56,236,0.2);">
             <i class="fas fa-circle-info" style="color: #c084fc;"></i>
             <p>
-                <strong style="color: var(--text-light);">Which plan is right for you?</strong> Go with <strong>Basic</strong> if you're comfortable taking manual backups and don't need cloud access. Choose <strong>Pro</strong> if you want automatic, worry-free data protection and peace of mind — for just ₹1,500 more per year.
+                <strong style="color: var(--text-light);">Which plan is right for you?</strong> Choose <strong>Basic</strong> for synced core billing, <strong>Pro</strong> for full operations, and <strong>Elite</strong> when premium templates plus priority support matter.
             </p>
         </div>
     </div>
@@ -1836,7 +1846,7 @@
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h4>Your Data, Your Choice</h4>
-                <p>Basic: fully offline on your PC. Pro: encrypted cloud backup with one-click restore.</p>
+                <p>Basic includes encrypted cloud sync and restore. Pro adds full operations. Elite adds premium templates and priority support.</p>
             </div>
         </div>
     </div>
@@ -2008,15 +2018,15 @@
             <div class="privacy-strip" style="margin: 0;">
                 <div class="privacy-icon" style="font-size: 2.2rem;"><i class="fas fa-laptop"></i></div>
                 <div class="privacy-text">
-                    <h3 style="font-size: 1.05rem;">Basic — 100% Offline & Private</h3>
+                    <h3 style="font-size: 1.05rem;">Basic - Core Billing + Sync</h3>
                     <p>All data stays on your PC only. No internet, no accounts, no servers. You own everything — zero risk of cloud leaks or third-party access.</p>
                 </div>
             </div>
             <div class="privacy-strip" style="margin: 0; background: linear-gradient(135deg, rgba(131, 56, 236, 0.1), rgba(0, 212, 255, 0.06)); border-color: rgba(131, 56, 236, 0.25);">
                 <div class="privacy-icon" style="font-size: 2.2rem; color: #c084fc;"><i class="fas fa-cloud-arrow-up"></i></div>
                 <div class="privacy-text">
-                    <h3 style="font-size: 1.05rem;">Pro — Encrypted Cloud Backup</h3>
-                    <p>Your data is securely backed up to the cloud with encryption. Restore in one click if your PC is ever lost, formatted, or damaged. Always accessible.</p>
+                    <h3 style="font-size: 1.05rem;">Pro - Full Business Operations</h3>
+                    <p>Pro adds the full operating stack: warehouse billing, purchase entries, GST reports, accounting ledgers, P&L, balance sheet, and bank/cash tracking.</p>
                 </div>
             </div>
         </div>

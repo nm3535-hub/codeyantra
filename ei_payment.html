@@ -535,14 +535,14 @@
                 <div class="product-info">
                     <h3>Easy Invoice</h3>
                     <div class="plan-tag" id="summary-plan-tag">1 Year License</div>
-                    <p>GST billing for Windows — fully offline, petroleum ready</p>
+                    <p>GST billing for mobile and desktop with cloud sync options</p>
                 </div>
             </div>
 
             <div class="price-breakdown">
                 <div class="price-row">
                     <span class="label">License Price</span>
-                    <span class="value" id="summary-base-price">₹3,999</span>
+                    <span class="value" id="summary-base-price">₹5,999</span>
                 </div>
                 <div class="price-row">
                     <span class="label">Discount</span>
@@ -550,7 +550,7 @@
                 </div>
                 <div class="price-row total">
                     <span class="label">Total Payable</span>
-                    <span class="value" id="summary-total">₹3,999</span>
+                    <span class="value" id="summary-total">₹5,999</span>
                 </div>
             </div>
 
@@ -558,7 +558,7 @@
                 <li><i class="fas fa-check-circle"></i> All invoice types included</li>
                 <li><i class="fas fa-check-circle"></i> GST + HSN auto-calculation</li>
                 <li><i class="fas fa-check-circle"></i> Auto IGST / CGST+SGST routing</li>
-                <li><i class="fas fa-check-circle"></i> Multiple premium templates</li>
+                <li><i class="fas fa-check-circle"></i> Basic sync, Pro full app, Elite premium templates</li>
                 <li><i class="fas fa-check-circle"></i> Petroleum &amp; Bowser billing</li>
                 <li><i class="fas fa-check-circle"></i> License key via email instantly</li>
             </ul>
@@ -577,10 +577,13 @@
             <!-- Plan Switcher -->
             <div class="plan-switcher">
                 <button class="switcher-btn" id="switch-basic" onclick="switchPlan('basic')">
-                    BASIC · ₹2,499
+                    BASIC &middot; ₹3,999
                 </button>
                 <button class="switcher-btn" id="switch-pro" onclick="switchPlan('pro')">
-                    PRO · ₹3,999 ⭐
+                    PRO &middot; ₹5,999 &#9733;
+                </button>
+                <button class="switcher-btn" id="switch-elite" onclick="switchPlan('elite')">
+                    ELITE &middot; ₹7,499
                 </button>
             </div>
 
@@ -620,7 +623,7 @@
                 <button class="pay-btn" id="pay-btn" onclick="initiatePayment()">
                     <i class="fas fa-bolt" id="btn-icon"></i>
                     <span>Pay Securely</span>
-                    <span class="btn-amount" id="btn-amount">₹3,999</span>
+                    <span class="btn-amount" id="btn-amount">₹5,999</span>
                     <div class="spinner" id="btn-spinner"></div>
                 </button>
 
@@ -648,31 +651,44 @@
     const PLANS = {
         basic: {
             key: 'basic',
-            label: 'BASIC (Local Only)',
-            amount: 249900,
-            display: '₹2,499',
-            description: '1 Year Basic License — Easy Invoice',
+            label: 'BASIC (Core Billing + Sync)',
+            amount: 399900,
+            display: '₹3,999',
+            description: '1 Year Basic License - Easy Invoice',
             perks: [
-                'Standard GST Invoicing',
-                'Party Ledgers & Reports',
-                'Petroleum Billing Support',
-                'NO Cloud Backup (Risk of Deletion)',
-                'NO Restore if PC is Formatted'
+                'Unlimited parties, products, invoices, and payments',
+                'Cloud sync and one-click restore included',
+                'PDF invoice, print, and share',
+                'Core reports: statement, party ledger, stock report',
+                'Best for single business core billing'
             ]
         },
         pro: {
             key: 'pro',
-            label: 'PRO (Cloud Protected)',
-            amount: 399900,
-            display: '₹3,999',
-            description: '1 Year Pro License — Easy Invoice',
+            label: 'PRO (Full App Access)',
+            amount: 599900,
+            display: '₹5,999',
+            description: '1 Year Pro License - Easy Invoice',
             perks: [
-                'Real-time Cloud Sync',
-                'One-Click Data Restore',
-                'Safe from Disk Crash & Formatting',
-                'Automatic Daily Backups',
-                'Full Bowser & Inventory Support',
-                'Priority 24/7 Tech Support'
+                'Everything in Basic',
+                'Multi-warehouse billing and stock transfers',
+                'Purchase, expenses, credit/debit notes, and vouchers',
+                'Accounting ledgers, bank ledger, P&L, balance sheet',
+                'GST reports: GSTR-1 and GSTR-3B'
+            ]
+        },
+        elite: {
+            key: 'elite',
+            label: 'ELITE (Premium + Priority)',
+            amount: 749900,
+            display: '₹7,499',
+            description: '1 Year Elite License - Easy Invoice',
+            perks: [
+                'Everything in Pro',
+                'Premium invoice templates',
+                'Advanced print styling and brand controls',
+                'Priority support and onboarding help',
+                'Best for mobile + desktop multi-device usage'
             ]
         }
     };
@@ -715,6 +731,7 @@
         // Update switcher buttons
         document.getElementById('switch-basic').classList.toggle('active', plan === 'basic');
         document.getElementById('switch-pro').classList.toggle('active', plan === 'pro');
+        document.getElementById('switch-elite').classList.toggle('active', plan === 'elite');
     }
 
     // ─── VALIDATE ───
