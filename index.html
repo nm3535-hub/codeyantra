@@ -14,7 +14,13 @@
    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CodeYantra Technologies | Intelligent Software Solutions</title>
+<title>CodeYantra Technologies | Practical Software, AI and Business Technology</title>
+<meta name="description" content="CodeYantra Technologies is an Indian technology company building practical software products, business applications and the evolving Veltrix technology platform.">
+<meta property="og:title" content="CodeYantra Technologies">
+<meta property="og:description" content="Small beginning. Real products. Serious direction.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero_logo.png">
+<link rel="canonical" href="https://codeyantra.in/">
 
 <!-- Favicon (modern + fallback) -->
 <link rel="icon" type="image/webp" href="assets/logo_1.webp">
@@ -171,6 +177,17 @@
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
@@ -781,6 +798,77 @@
             margin-left: 10px;
         }
 
+        .company-band {
+            background: rgba(37, 45, 71, 0.28);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 50px;
+            align-items: center;
+        }
+
+        .founder-photo {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 212, 255, 0.22);
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+            margin: 0 auto;
+        }
+
+        .content-panel {
+            background: rgba(10, 14, 39, 0.45);
+            border: 1px solid rgba(0, 212, 255, 0.14);
+            border-radius: 18px;
+            padding: 34px;
+        }
+
+        .content-panel h2 {
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .content-panel p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .timeline-card {
+            background: rgba(37, 45, 71, 0.4);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .timeline-year {
+            color: var(--primary);
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .text-link {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
         /* RESPONSIVE */
         @media(max-width: 768px) {
             .hero h1 {
@@ -829,6 +917,15 @@
             .footer-grid {
                 grid-template-columns: 1fr;
             }
+
+            .split-section,
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-panel {
+                padding: 26px;
+            }
         }
     </style>
 </head>
@@ -842,7 +939,10 @@
             </div>
             <div>
                 <a href="#products">Products</a>
-                <a href="#vision">Vision</a>
+                <a href="about.html">Company</a>
+                <a href="founder.html">Founder</a>
+                <a href="veltrix.html">Veltrix</a>
+                <a href="#trust">Trust</a>
                 <a href="#support">Support</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -852,14 +952,14 @@
     <section class="hero">
         <div class="hero-content">
             <img src="assets/hero_logo.webp" alt="CodeYantra Technologies" class="hero-logo">
-            <h1>Intelligent Software Solutions<br>for Tomorrow's Challenges</h1>
-            <p>Empowering businesses and individuals with cutting-edge applications designed for efficiency, security, and seamless connectivity.</p>
+            <h1>Practical Software Products<br>for Real-World Problems</h1>
+            <p>CodeYantra Technologies is an Indian technology company building focused applications for operations, billing, communication and connected digital experiences.</p>
             <div class="hero-buttons">
                 <a href="#products" class="hero-btn hero-btn-primary">
-                    <i class="fas fa-rocket"></i> Explore Solutions
+                    <i class="fas fa-rocket"></i> Explore Products
                 </a>
-                <a href="#contact" class="hero-btn hero-btn-secondary">
-                    <i class="fas fa-envelope"></i> Get in Touch
+                <a href="about.html" class="hero-btn hero-btn-secondary">
+                    <i class="fas fa-building"></i> About CodeYantra
                 </a>
             </div>
         </div>
@@ -868,8 +968,8 @@
     <section id="products" class="section">
         <div class="container">
 
-            <h2 class="section-title">Our Product Range</h2>
-            <p class="section-subtitle">Innovative applications designed to simplify, connect, and empower your digital journey.</p>
+            <h2 class="section-title">Products by CodeYantra</h2>
+            <p class="section-subtitle">Working applications and product pages built under CodeYantra Technologies. Veltrix is introduced separately as the technology platform, not as a normal app.</p>
 
             <!-- Utility Apps -->
             <p class="category-label">Utility Apps</p>
@@ -881,7 +981,7 @@
                     </div>
                     <div class="card-content">
                         <h3>FuelMate</h3>
-                        <p>Complete ERP & Dip Density Calculator for petrol pumps. Streamline operations and ensure compliance.</p>
+                        <p>Petrol pump ERP and dip density tools designed to support daily station operations, records and compliance workflows.</p>
                         <a href="fuelmate.html"><i class="fas fa-arrow-right"></i> Explore</a>
                     </div>
                 </div>
@@ -893,8 +993,8 @@
                     </div>
                     <div class="card-content">
                         <h3>FuelMate Pro</h3>
-                        <p>Advanced enterprise analytics and multi-station management for large-scale operations.</p>
-                        <a href="fuelmate_pro.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                        <p>Extended fuel station management capabilities for broader reporting, control and operational visibility.</p>
+                        <a href="Fuelmate_pro.html"><i class="fas fa-arrow-right"></i> Explore</a>
                     </div>
                 </div>
 
@@ -905,7 +1005,7 @@
                     </div>
                     <div class="card-content">
                         <h3>Easy Invoice</h3>
-                        <p>GST billing app with auto IGST/CGST+SGST, HSN codes, petroleum-ready invoices, and 100% offline local storage — no data theft risk.</p>
+                        <p>GST billing app with auto IGST/CGST+SGST, HSN codes, petroleum-ready invoices and local storage.</p>
                         <a href="easy_invoice.html"><i class="fas fa-arrow-right"></i> Explore</a>
                     </div>
                 </div>
@@ -921,7 +1021,7 @@
                     </div>
                     <div class="card-content">
                         <h3>MaskChat</h3>
-                        <p>Anonymous social discovery and secure communication platform. Connect naturally, chat freely.</p>
+                        <p>Anonymous social discovery and chat experiences designed around simple matching and conversation.</p>
                         <a href="maskchat.html"><i class="fas fa-arrow-right"></i> Explore</a>
                     </div>
                 </div>
@@ -944,9 +1044,34 @@
 
     <section id="vision" class="vision">
         <div class="vision-content">
-            <h2>Our Vision</h2>
-            <p><strong>Empowering Innovation & Connectivity</strong></p>
-            <p>We build future-ready applications that blend business efficiency with human connection, driving progress through intelligent design and user-centric innovation.</p>
+            <h2>VELTRIX</h2>
+            <p><strong>The technology behind the products.</strong></p>
+            <p>Veltrix is CodeYantra Technologies' evolving technology platform, designed to provide a shared foundation for secure, scalable and connected digital products.</p>
+            <p><a href="veltrix.html" class="text-link"><i class="fas fa-microchip"></i> Explore Veltrix</a></p>
+        </div>
+    </section>
+
+    <section id="journey" class="section company-band">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">Small beginning. Real products. Serious direction.</p>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <div class="timeline-year">2024</div>
+                    <h3>Beginning</h3>
+                    <p>CodeYantra began as a vision focused on learning, experimentation and practical technology around real-world problems.</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-year">2025</div>
+                    <h3>Public Journey</h3>
+                    <p>CodeYantra began taking its products and technology work toward real users and a public-facing technology brand.</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-year">2026</div>
+                    <h3>Building the Ecosystem</h3>
+                    <p>The current focus is continued product development, platform development and ecosystem building.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -982,42 +1107,33 @@
         </div>
     </section>
 
-<section id="about" style="
-  padding: 80px 20px; 
-  text-align: center; 
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-">
+    <section id="about" class="section company-band">
+        <div class="container split-section">
+            <picture>
+                <source srcset="assets/Founder.webp" type="image/webp">
+                <img src="assets/Founder.png" alt="Neeraj Mishra, Founder and Developer of CodeYantra Technologies" class="founder-photo">
+            </picture>
+            <div class="content-panel">
+                <p class="category-label">Behind CodeYantra</p>
+                <h2>Neeraj Mishra, Founder &amp; Developer</h2>
+                <p>From hardware and networking to building AI-assisted software products, Neeraj Mishra founded CodeYantra with the belief that technology should solve real-world problems and remain accessible.</p>
+                <a href="founder.html" class="text-link">Read Founder Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
 
-  <h2 style="
-    font-size: 36px; 
-    font-weight: bold; 
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 25px;">
-    About Us
-  </h2>
+    <section id="trust" class="section">
+        <div class="container">
+            <h2 class="section-title">Trust Built From Visible Work</h2>
+            <p class="section-subtitle">CodeYantra avoids inflated claims. The strongest signals are working product pages, support access and clear legal information.</p>
+            <div class="grid">
+                <div class="card"><div class="card-content"><h3>Live Product Pages</h3><p>FuelMate, Easy Invoice and MaskChat have dedicated pages with product-specific information.</p></div></div>
+                <div class="card"><div class="card-content"><h3>Support Channels</h3><p>Users can reach CodeYantra through email, Telegram support and the contact form.</p></div></div>
+                <div class="card"><div class="card-content"><h3>Legal Clarity</h3><p>Privacy, terms, refund and account deletion pages remain available where applicable.</p></div></div>
+            </div>
+        </div>
+    </section>
 
-  <p style="
-    max-width: 800px; 
-    margin: 0 auto; 
-    font-size: 17px; 
-    line-height: 1.8; 
-    color: #cbd5e1;">
-    
-    <strong>CodeYantra Technologies</strong> is a forward-thinking software development company dedicated to building intelligent, scalable, and user-centric digital solutions. We focus on innovation, performance, and seamless user experience to empower businesses and individuals through technology.
-    
-    <br><br>
-    
-    We operate under the brand name <strong>“CodeYantra Technologies”</strong> across all our products, applications, and services, ensuring consistency, trust, and reliability.
-
-  </p>
-
-</section>
-
-</section>
     <section id="support" class="support-section">
         <div class="container">
             <h2 class="section-title">Support & Connect</h2>
@@ -1066,8 +1182,8 @@
             <div class="footer-grid">
                 <div>
                     <h3>CodeYantra Technologies</h3>
-                    <p>We deliver precise business solutions to streamline operations, while building innovative apps that empower users worldwide.</p>
-                    <p><strong>Work Smart. Connect Freely.</strong></p>
+                    <p>Building practical, accessible and reliable technology that solves genuine problems for individuals and businesses.</p>
+                    <p><strong>Small beginning. Real products. Serious direction.</strong></p>
                     <div class="social-links">
                         <a href="https://instagram.com/code.yantra" target="_blank" title="Instagram">
                             <i class="fab fa-instagram"></i>
@@ -1083,7 +1199,9 @@
                 <div>
                     <h4>Quick Links</h4>
                     <p><a href="#products">Products</a></p>
-                    <p><a href="#vision">Vision</a></p>
+                    <p><a href="about.html">About CodeYantra</a></p>
+                    <p><a href="founder.html">Founder Story</a></p>
+                    <p><a href="veltrix.html">Veltrix</a></p>
                     <p><a href="#support">Support</a></p>
                     <p><a href="#contact">Contact</a></p>
                 </div>
@@ -1092,6 +1210,7 @@
                     <p><a href="privacy_policy.html">Privacy Policy</a></p>
                     <p><a href="cy_term_conditions.html">Terms of Service</a></p>
                     <p><a href="cy_refund_policy.html">Refund Policy</a></p>
+                    <p><a href="easy_invoice_delete_account.html">Account Deletion</a></p>
                 </div>
                 <div>
                     <h4>Support</h4>
@@ -1170,4 +1289,7 @@
             });
         }, { threshold: 0.1 });
 
-        do
+        document.querySelectorAll('.card, .support-card, .timeline-card, .content-panel').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
