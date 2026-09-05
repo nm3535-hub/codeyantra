@@ -101,37 +101,29 @@
       padding: 4px 0;
     }
 
-    .payment-box form {
-      max-width: 100%;
-    }
-
     .checkout-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      margin-top: 8px;
-      color: var(--blue);
-      font-size: 14px;
-      text-underline-offset: 3px;
+      min-height: 48px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .checkout-link:hover {
+      background: #1d4ed8;
     }
 
     .checkout-link:focus-visible {
       outline: 2px solid var(--blue);
       outline-offset: 4px;
       border-radius: 4px;
-    }
-
-    /* Keep the provider's outer frame sized to the visible browser viewport.
-       Its cross-origin form owns the layout inside the frame. */
-    .razorpay-payment-form-container,
-    .razorpay-payment-form-frame {
-      width: 100% !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      min-height: 0 !important;
-      max-height: 100dvh !important;
-      inset: 0 !important;
     }
 
     @media (max-width: 600px) {
@@ -143,11 +135,6 @@
         padding: clamp(20px, 5vw, 24px) clamp(16px, 5vw, 20px);
       }
 
-      .razorpay-payment-form-container .razorpay-payment-form-frame {
-        /* Override the SDK's more specific min-height: 100% rule. */
-        min-height: 0 !important;
-        max-width: 100% !important;
-      }
     }
 
     .promise {
@@ -201,12 +188,8 @@
       <p class="lead">Your support helps keep ArmorChat development, testing, and infrastructure moving. This is voluntary support and does not unlock any app feature.</p>
 
       <div class="payment-box">
-        <form>
-          <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TY01pmYdYkGEUE" async></script>
-        </form>
+        <a class="checkout-link" href="https://razorpay.com/payment-button/pl_TY01pmYdYkGEUE/view">Buy me a coffee</a>
       </div>
-
-      <a class="checkout-link" href="https://razorpay.com/payment-button/pl_TY01pmYdYkGEUE/view">Open checkout in full page</a>
 
       <div class="promise">
         <div><strong>Secure checkout</strong> is handled by Razorpay.</div>
