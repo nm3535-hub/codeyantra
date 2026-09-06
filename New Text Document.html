@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4694L5FNX4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4694L5FNX4');
+    </script> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeYantra Technologies | Practical Software, AI and Business Technology</title>
+    <meta name="description" content="CodeYantra Technologies is an Indian technology company building practical software products, business applications and the evolving Veltrix technology platform.">
+    <meta property="og:title" content="CodeYantra Technologies">
+    <meta property="og:description" content="Small beginning. Real products. Serious direction.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://codeyantra.in/assets/hero_logo.png">
+    <link rel="canonical" href="https://codeyantra.in/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://codeyantra.in/#organization",
+          "name": "CodeYantra Technologies",
+          "alternateName": [
+            "CodeYantra",
+            "Code Yantra"
+          ],
+          "url": "https://codeyantra.in/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://codeyantra.in/assets/logo_1.png"
+          },
+          "image": "https://codeyantra.in/assets/hero_logo.png",
+          "description": "CodeYantra Technologies is an Indian technology company building practical software products, business applications and the Veltrix technology platform.",
+          "foundingDate": "2024",
+          "founder": {
+            "@type": "Person",
+            "name": "Neeraj Mishra",
+            "url": "https://codeyantra.in/founder.html",
+            "jobTitle": "Founder and Developer"
+          },
+          "email": "support@codeyantra.in",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "support@codeyantra.in",
+            "url": "https://codeyantra.in/#support",
+            "availableLanguage": [
+              "en",
+              "hi"
+            ]
+          },
+          "sameAs": [
+            "https://www.instagram.com/codeyantra_technologies",
+            "https://www.linkedin.com/company/codeyantra-technologies/",
+            "https://github.com/CodeYantra-Technologies",
+            "https://www.facebook.com/CodeYantraTechnologies",
+            "https://t.me/codeyantrasupportbot"
+          ],
+          "brand": [
+            {
+              "@type": "Brand",
+              "name": "FuelMate",
+              "url": "https://codeyantra.in/fuelmate.html"
+            },
+            {
+              "@type": "Brand",
+              "name": "FuelMate Pro",
+              "url": "https://codeyantra.in/Fuelmate_pro.html"
+            },
+            {
+              "@type": "Brand",
+              "name": "Easy Invoice",
+              "url": "https://codeyantra.in/easy_invoice.html"
+            },
+            {
+              "@type": "Brand",
+              "name": "MaskChat",
+              "url": "https://codeyantra.in/maskchat.html"
+            },
+            {
+              "@type": "Brand",
+              "name": "Veltrix",
+              "url": "https://codeyantra.in/veltrix.html"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://codeyantra.in/#website",
+          "name": "CodeYantra Technologies",
+          "alternateName": "CodeYantra",
+          "url": "https://codeyantra.in/",
+          "publisher": {
+            "@id": "https://codeyantra.in/#organization"
+          },
+          "inLanguage": "en-IN"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Favicon (modern + fallback) -->
+    <link rel="icon" type="image/webp" href="assets/logo_1.webp">
+    <link rel="icon" type="image/png" href="assets/logo_1.png">
+
+    <!-- Apple devices -->
+    <link rel="apple-touch-icon" href="assets/logo_1.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --primary-dark: #0099cc;
+            --dark-bg: #0a0e27;
+            --dark-secondary: #1a1f3a;
+            --dark-tertiary: #252d47;
+            --text-light: #e0e6ff;
+            --text-muted: #a0aac0;
+            --accent: #ff006e;
+            --accent-secondary: #8338ec;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 1), rgba(37, 45, 71, 0.5)),
+                        url('assets/hero_background.webp') no-repeat center;
+                        
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--text-light);
+            padding: 180px 0 120px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(131, 56, 236, 0.1), transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-logo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.9)) drop-shadow(0 0 50px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 80px rgba(131, 56, 236, 0.4));
+            animation: logoFloat 3s ease-in-out infinite, logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.9)) drop-shadow(0 0 40px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 70px rgba(131, 56, 236, 0.3));
+            }
+            100% {
+                filter: drop-shadow(0 0 25px rgba(0, 212, 255, 1)) drop-shadow(0 0 60px rgba(0, 212, 255, 0.7)) drop-shadow(0 0 100px rgba(131, 56, 236, 0.5));
+            }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-btn-secondary {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(37, 45, 71, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 30px;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(131, 56, 236, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-img-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .card p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .card a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s ease;
+        }
+
+        .card a:hover {
+            gap: 12px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        /* VISION SECTION */
+        .vision {
+            background: linear-gradient(135deg, rgba(131, 56, 236, 0.1), rgba(0, 212, 255, 0.1));
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05), transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .vision-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .vision h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .vision p {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* PHILOSOPHY SECTION */
+        .philosophy-section {
+            position: relative;
+            padding: 90px 20px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.08), transparent 55%),
+                linear-gradient(135deg, rgba(10, 14, 39, 0.96), rgba(26, 31, 58, 0.96));
+            border-top: 1px solid rgba(0, 212, 255, 0.12);
+            border-bottom: 1px solid rgba(131, 56, 236, 0.12);
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .philosophy-sanskrit {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .philosophy-english {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .philosophy-source {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* HELPDESK FORM SECTION */
+        .helpdesk-section {
+            background: rgba(37, 45, 71, 0.3);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 100px 0;
+        }
+
+        .helpdesk-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .helpdesk-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .helpdesk-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        .form-container {
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(37, 45, 71, 0.5);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            background: rgba(37, 45, 71, 0.7);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--dark-bg);
+            padding: 14px 40px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--primary);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+        }
+
+        .form-message.error {
+            background: rgba(255, 0, 110, 0.2);
+            color: var(--accent);
+            border: 1px solid rgba(255, 0, 110, 0.4);
+        }
+
+        /* SUPPORT SECTION */
+        .support-section {
+            padding: 100px 0;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .support-card {
+            background: rgba(37, 45, 71, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+        }
+
+        .support-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .support-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .support-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .support-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .support-link:hover {
+            gap: 12px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(10, 14, 39, 0.9);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer h4 {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+            opacity: 0.8;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding-top: 30px;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* CATEGORY LABELS */
+        .category-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .coming-soon-tag {
+            display: inline-block;
+            background: rgba(131, 56, 236, 0.15);
+            color: var(--accent-secondary);
+            border: 1px solid rgba(131, 56, 236, 0.3);
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .company-band {
+            background: rgba(37, 45, 71, 0.28);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 50px;
+            align-items: center;
+        }
+
+        .founder-photo {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 212, 255, 0.22);
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+            margin: 0 auto;
+        }
+
+        .content-panel {
+            background: rgba(10, 14, 39, 0.45);
+            border: 1px solid rgba(0, 212, 255, 0.14);
+            border-radius: 18px;
+            padding: 34px;
+        }
+
+        .content-panel h2 {
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .content-panel p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .timeline-card {
+            background: rgba(37, 45, 71, 0.4);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .timeline-year {
+            color: var(--primary);
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .text-link {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .vision h2 {
+                font-size: 2.2rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav a {
+                margin-left: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .split-section,
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-panel {
+                padding: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">
+                <img src="assets/logo.webp" alt="CodeYantra Technologies"> CodeYantra Technologies
+            </div>
+            <div>
+                <a href="#products">Products</a>
+                <a href="about.html">Company</a>
+                <a href="founder.html">Founder</a>
+                <a href="veltrix.html">Veltrix</a>
+                <a href="#trust">Trust</a>
+                <a href="#support">Support</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="assets/hero_logo.webp" alt="CodeYantra Technologies" class="hero-logo">
+            <h1>Practical Software Products<br>for Real-World Problems</h1>
+            <p>CodeYantra Technologies is an Indian technology company building focused applications for operations, billing, communication and connected digital experiences.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="hero-btn hero-btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Products
+                </a>
+                <a href="about.html" class="hero-btn hero-btn-secondary">
+                    <i class="fas fa-building"></i> About CodeYantra
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+
+            <h2 class="section-title">Products by CodeYantra</h2>
+            <p class="section-subtitle">Working applications and product pages built under CodeYantra Technologies. Veltrix is introduced separately as the technology platform, not as a normal app.</p>
+
+            <!-- Utility Apps -->
+            <p class="category-label">Utility Apps</p>
+            <div class="grid">
+                <!-- FuelMate -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/f_banner.webp" alt="FuelMate" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>FuelMate</h3>
+                        <p>Petrol pump ERP and dip density tools designed to support daily station operations, records and compliance workflows.</p>
+                        <a href="fuelmate.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                    </div>
+                </div>
+
+                <!-- FuelMate Pro -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/fp_banner.webp" alt="FuelMate Pro" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>FuelMate Pro</h3>
+                        <p>Extended fuel station management capabilities for broader reporting, control and operational visibility.</p>
+                        <a href="Fuelmate_pro.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                    </div>
+                </div>
+
+                <!-- Easy Invoice -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/easy.webp" alt="Easy Invoice" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>Easy Invoice</h3>
+                        <p>GST billing app with auto IGST/CGST+SGST, HSN codes, petroleum-ready invoices and local storage.</p>
+                        <a href="easy_invoice.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat & Social Apps -->
+            <p class="category-label" style="margin-top: 60px;">Chat &amp; Social</p>
+            <div class="grid">
+                <!-- MaskChat -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/m_banner.webp" alt="MaskChat" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>MaskChat</h3>
+                        <p>Anonymous social discovery and chat experiences designed around simple matching and conversation.</p>
+                        <a href="maskchat.html"><i class="fas fa-arrow-right"></i> Explore</a>
+                    </div>
+                </div>
+
+                <!-- UnMute -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="assets/u_banner.webp" alt="UnMute" onerror="this.style.display='none'">
+                    </div>
+                    <div class="card-content">
+                        <h3>UnMute <span class="coming-soon-tag">Coming Soon</span></h3>
+                        <p>Voice-based expression and audio broadcasting platform for authentic communication.</p>
+                        <span style="color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="fas fa-hourglass-end"></i> Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="vision" class="vision">
+        <div class="vision-content">
+            <h2>VELTRIX</h2>
+            <p><strong>The technology behind the products.</strong></p>
+            <p>Veltrix is CodeYantra Technologies' evolving technology platform, designed to provide a shared foundation for secure, scalable and connected digital products.</p>
+            <p><a href="veltrix.html" class="text-link"><i class="fas fa-microchip"></i> Explore Veltrix</a></p>
+        </div>
+    </section>
+
+    <!-- Our Journey section -->
+    <section id="journey" class="section company-band">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">Small beginning. Real products. Serious direction.</p>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <div class="timeline-year">2024</div>
+                    <h3>Beginning</h3>
+                    <p>CodeYantra began as a vision focused on learning, experimentation and practical technology around real-world problems.</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-year">2025</div>
+                    <h3>Public Journey</h3>
+                    <p>CodeYantra began taking its products and technology work toward real users and a public-facing technology brand.</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-year">2026</div>
+                    <h3>Building the Ecosystem</h3>
+                    <p>The current focus is continued product development, platform development and ecosystem building.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Journey section ends -->
+
+    <!-- Philosophy section -->
+    <section class="philosophy-section">
+        <div class="container philosophy-content">
+            <p class="philosophy-sanskrit">योगः कर्मसु कौशलम्॥</p>
+            <p class="philosophy-english">Excellence in action.</p>
+            <p class="philosophy-source">Bhagavad Gita · 2.50</p>
+        </div>
+    </section>
+
+    <!-- Get in Touch starts -->
+    <section id="contact" class="helpdesk-section">
+        <div class="container helpdesk-container">
+            <h2 class="helpdesk-title">Get in Touch</h2>
+            <p class="helpdesk-subtitle">Have questions? Our team is here to help. Send us a message and we'll respond as soon as possible.</p>
+            
+            <div class="form-container">
+                <form id="contactForm" action="https://formspree.io/f/xjgaaekn" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us more about your inquiry..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section company-band">
+        <div class="container split-section">
+            <picture>
+                <source srcset="assets/Founder.webp" type="image/webp">
+                <img src="assets/Founder.png" alt="Neeraj Mishra, Founder and Developer of CodeYantra Technologies" class="founder-photo">
+            </picture>
+            <div class="content-panel">
+                <p class="category-label">Behind CodeYantra</p>
+                <h2>Neeraj Mishra, Founder &amp; Developer</h2>
+                <p>From hardware and networking to building AI-assisted software products, Neeraj Mishra founded CodeYantra with the belief that technology should solve real-world problems and remain accessible.</p>
+                <a href="founder.html" class="text-link">Read Founder Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="trust" class="section">
+        <div class="container">
+            <h2 class="section-title">Trust Built From Visible Work</h2>
+            <p class="section-subtitle">CodeYantra avoids inflated claims. The strongest signals are working product pages, support access and clear legal information.</p>
+            <div class="grid">
+                <div class="card"><div class="card-content"><h3>Live Product Pages</h3><p>FuelMate, Easy Invoice and MaskChat have dedicated pages with product-specific information.</p></div></div>
+                <div class="card"><div class="card-content"><h3>Support Channels</h3><p>Users can reach CodeYantra through email, Telegram support and the contact form.</p></div></div>
+                <div class="card"><div class="card-content"><h3>Legal Clarity</h3><p>Privacy, terms, refund and account deletion pages remain available where applicable.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="support-section">
+        <div class="container">
+            <h2 class="section-title">Support & Connect</h2>
+            <p class="section-subtitle">Multiple ways to reach us and get the support you need.</p>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Reach out to our support team for any inquiries or assistance.</p>
+                    <a href="mailto:support@codeyantra.in" class="support-link">
+                        support@codeyantra.in <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3>Telegram Bot</h3>
+                    <p>Quick support and instant responses via our Telegram bot.</p>
+                    <a href="https://t.me/codeyantrasupportbot" target="_blank" class="support-link">
+                        Open Telegram <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Follow Us</h3>
+                    <p>Stay updated with the latest news and product updates.</p>
+                    <a href="https://www.instagram.com/codeyantra_technologies" target="_blank" class="support-link">
+                        @codeyantra_technologies <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>View company repositories and public development updates.</p>
+                    <a href="https://github.com/CodeYantra-Technologies" target="_blank" class="support-link">
+                        CodeYantra-Technologies <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Follow CodeYantra Technologies on Facebook.</p>
+                    <a href="https://www.facebook.com/CodeYantraTechnologies" target="_blank" class="support-link">
+                        CodeYantraTechnologies <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>CodeYantra Technologies</h3>
+                    <p>Building practical, accessible and reliable technology that solves genuine problems for individuals and businesses.</p>
+                    <p><strong>Small beginning. Real products. Serious direction.</strong></p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/codeyantra_technologies" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://t.me/codeyantrasupportbot" target="_blank" title="Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/codeyantra-technologies/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/CodeYantra-Technologies" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/CodeYantraTechnologies" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <p><a href="#products">Products</a></p>
+                    <p><a href="about.html">About CodeYantra</a></p>
+                    <p><a href="founder.html">Founder Story</a></p>
+                    <p><a href="veltrix.html">Veltrix</a></p>
+                    <p><a href="#support">Support</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p><a href="privacy_policy.html">Privacy Policy</a></p>
+                    <p><a href="cy_term_conditions.html">Terms of Service</a></p>
+                    <p><a href="cy_refund_policy.html">Refund Policy</a></p>
+                    <p><a href="easy_invoice_delete_account.html">Account Deletion</a></p>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="mailto:support@codeyantra.in">support@codeyantra.in</a>
+                    <p><a href="https://t.me/codeyantrasupportbot" target="_blank">Telegram Bot</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> CodeYantra Technologies. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: var(--accent);"></i> for innovation.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 2. FORMSPREE SUBMISSION (Netlify Friendly)
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('.form-submit');
+                const messageDiv = document.getElementById('formMessage');
+                const formData = new FormData(this);
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        messageDiv.className = 'form-message success';
+                        messageDiv.textContent = 'Thanks! Your message has been sent successfully.';
+                        messageDiv.style.display = 'block';
+                        this.reset();
+                    } else {
+                        throw new Error();
+                    }
+                } catch (error) {
+                    messageDiv.className = 'form-message error';
+                    messageDiv.textContent = 'Oops! There was a problem submitting your form. Please try again.';
+                    messageDiv.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    setTimeout(() => { messageDiv.style.display = 'none'; }, 5000);
+                }
+            });
+        }
+
+        // 3. SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // 4. SCROLL ANIMATIONS (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .support-card, .timeline-card, .content-panel').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
