@@ -528,3 +528,6 @@ h3 {
         padding: 64px 0;
     }
 }
+
+/* Palette shared with the homepage. */
+:root { --bg:#0a0e27; --panel:#1a1f3a; --panel-soft:#252d47; --ink:#e0e6ff; --muted:#a0aac0; --brand:#00d4ff; --brand-strong:#0099cc; --primary:#00d4ff; --accent-secondary:#8338ec; --text-light:#e0e6ff; --accent:#ff006e; }

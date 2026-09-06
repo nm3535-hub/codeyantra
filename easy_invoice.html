@@ -1515,24 +1515,11 @@
             .features-grid { grid-template-columns: 1fr; }
         }
     </style>
+<script src="assets/navigation.js" defer></script>
 </head>
 <body>
 
-<header>
-    <div class="container nav">
-        <a href="index.html" class="nav-logo">
-            <img src="assets/logo.webp" alt="CodeYantra Technologies" onerror="this.style.display='none'">
-            CodeYantra Technologies
-        </a>
-        <div class="nav-links">
-            <a href="index.html">← Home</a>
-            <a href="#power-features">Key Features</a>
-            <a href="#features">All Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#invoice-types">Invoice Types</a>
-        </div>
-    </div>
-</header>
+<cyt-navigation><template data-page-links><a href="#power-features">Key Features</a><a href="#features">All Features</a><a href="#pricing">Pricing</a><a href="#invoice-types">Invoice Types</a></template></cyt-navigation>
 
 <!-- HERO -->
 <section class="hero">
@@ -1568,6 +1555,13 @@
                     </div>
                     <div class="cloud-tag">PRO</div>
                 </a>
+                <aside class="cloud-coming-strip" aria-labelledby="mobile-coming-title">
+                    <div class="cloud-icon-wrap"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></div>
+                    <div class="cloud-text">
+                        <strong id="mobile-coming-title">Easy Invoice Mobile · Coming Soon</strong>
+                        <span>Easy Invoice Mobile is coming soon — bringing convenient billing and invoice management to mobile devices.</span>
+                    </div>
+                </aside>
             </div>
             <div class="hero-visual">
                 <div class="app-icon-wrapper">

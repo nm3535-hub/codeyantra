@@ -195,21 +195,11 @@
             .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
+<script src="assets/navigation.js" defer></script>
 </head>
 <body>
 
-    <header>
-        <div class="container nav">
-            <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="CodeYantra" style="height: 30px;"> CodeYantra
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#features">Features</a>
-                <a href="cy_privacy_policy.html">Privacy & Safety</a>
-            </nav>
-        </div>
-    </header>
+    <cyt-navigation><template data-page-links><a href="#features">Features</a><a href="privacy_policy.html">Privacy & Safety</a></template></cyt-navigation>
 
     <section class="hero">
         <div class="hero-overlay"></div>
